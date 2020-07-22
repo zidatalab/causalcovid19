@@ -2,7 +2,7 @@
 
 Our objective was to identify causal effects for COVID-19 cases. We found that weather affects the reported number of infections, especially temperature (which has a reducing effect on case numbers) and rainfall (which increases case numbers). We saw that reports of high case numbers in districts led to a reduction in new infection numbers, which indicates risk-averse awareness in the population. The overall effect of mobility showed no consistent effect, however, in specific areas significant causal effects could be measured: Increasing activity in retail and recreational areas increased reported case numbers, while increased movement for essential shopping (grocery and pharmacy) led to reduced case numbers.
 
-Furthermore, we made a strong case for the use of causal DAGs in epidemiology and a pandemic like COVID-19: DAGs allow to choose confounders for the analysis in a principled and statistically correct way while reducing possible causes for bias. Also, the DAG formalization allows for discussion about the underlying causal structure.
+Furthermore, we made a strong case for the use of causal DAGs in epidemiology and a pandemic like COVID-19: DAGs allow to choose confounders for the analysis in a principled and statistically correct way while reducing possible causes for bias. Also, the DAG formalization allows for discussion about the underlying causal assumptions.
 
 ## Comparison with previous research
 
