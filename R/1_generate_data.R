@@ -24,7 +24,7 @@ weather <- read_csv(paste0(mydatapath, "weather/mittleres_kreiswetter.csv")) %>%
   mutate(Wind=replace_na(Wind, mean(Wind, na.rm=TRUE)),
          Feuchtigkeit=replace_na(Feuchtigkeit, mean(Feuchtigkeit, na.rm=TRUE))) %>%
   rowwise() %>%
-  mutate(Indoorfeuchtigkeit=qfun(Feuchtigkeit, Temperatur)) %>%
+  mutate(Indoorfeuchtigkeit=qlevel(Feuchtigkeit, Temperatur)) %>%
   rename(`Weather (rainfall)`=Niederschlag,
          `Weather (wind)`=Wind,
          `Weather (temperature)`=Temperatur,

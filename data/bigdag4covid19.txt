@@ -99,7 +99,6 @@ Age -> Turnout
 Holiday -> "Reported new cases COVID-19"
 Holiday -> Mobility
 Holiday -> "Health care utilization"
-Humidity -> "Exposure to SARS-COV-2"
 Humidity -> "Indoor humidity"
 Mobility -> "Exposure to SARS-COV-2"
 Mobility -> "Tracing capacity"
@@ -118,7 +117,6 @@ Gender -> "Health care utilization"
 Gender -> Turnout
 Susceptibility -> "Onset of COVID-19"
 Temperature -> "Exposure to SARS-COV-2"
-Temperature -> Humidity
 Temperature -> "Indoor humidity"
 Temperature -> Mobility
 Turnout -> "Right-wing populist party votes"
