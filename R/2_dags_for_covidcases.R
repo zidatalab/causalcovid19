@@ -11,7 +11,7 @@ library(pscl)
 source("R/z_auxiliary_functions_for_2.R")
 
 # save tables to:
-tablepath <- "./manuscript/v2_medrxiv/tables/"
+tablepath <- "./manuscript/v4_indoorhumidity/tables/"
 
 # load dag
 dagfile <- "./data/bigdag4covid19.txt"
@@ -30,7 +30,7 @@ unobserved <- c("Access to tests",
 modeldata <- read_csv("./data/Modeldata.csv") %>%
   dplyr::select(-id, -bl_id, -cases, -deaths, -recovered, -daycount,
                 -`Mobility (mean)`,
-                -`Relaxation of measures`,
+                # -`Relaxation of measures`,
                 -contains("iso"), -contains("census")
                 ) %>% 
   rename(`School and kindergarten closures`=`School/Kita closures`,
@@ -39,6 +39,7 @@ modeldata <- read_csv("./data/Modeldata.csv") %>%
          `Foreign citizens (refugees)`=`Foreign residents (refugees)`,
          `Rainfall`=`Weather (rainfall)`,
          `Humidity`=`Weather (humidity)`,
+         `Indoor humidity`=`Weather (indoor humidity)`,
          `Gender`=`Sex`,
          `Temperature`=`Weather (temperature)`,
          `Wind`=`Weather (wind)`) %>%
@@ -60,7 +61,7 @@ res <- my_causal(dag, modeldata, exposure="Searches corona", unobserved=unobserv
 write_cause(res, exposure="Searches corona")
 
 # weather
-for (myweather in c("Temperature", "Rainfall", "Humidity", "Wind")) {
+for (myweather in c("Temperature", "Rainfall", "Humidity", "Wind", "Indoor humidity")) {
   res <- my_causal(dag, modeldata, exposure=myweather, unobserved=unobserved)
   write_cause(res, exposure=myweather)
 }
