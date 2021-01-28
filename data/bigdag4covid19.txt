@@ -20,6 +20,7 @@ Temperature [pos="-0.35,-1.4"]
 Humidity [pos="-0.35,-2.0"]
 Wind [pos="-0.2,-1.7"]
 Rainfall [pos="-0.5,-1.7"]
+"Indoor humidity" [pos="0, -1.7"]
 Weekday [pos="-0.25,-2.6"]
 Holiday [pos="-0.15,-2.6"]
 "Tracing capacity" [pos="-0.6,-1.2"]
@@ -56,6 +57,7 @@ Susceptibility [latent,pos="-0.1,-0.9"]
 "Foreign citizens" -> "Health care utilization"
 "Herd immunity" -> "Exposure to SARS-COV-2"
 "Herd immunity" -> Susceptibility
+"Indoor humidity" -> "Exposure to SARS-COV-2"
 "Mandatory face masks" -> "Exposure to SARS-COV-2"
 "Mandatory face masks" -> "Searches corona"
 "Nursing homes" -> "Exposure to SARS-COV-2"
@@ -98,6 +100,7 @@ Holiday -> "Reported new cases COVID-19"
 Holiday -> Mobility
 Holiday -> "Health care utilization"
 Humidity -> "Exposure to SARS-COV-2"
+Humidity -> "Indoor humidity"
 Mobility -> "Exposure to SARS-COV-2"
 Mobility -> "Tracing capacity"
 Rainfall -> "Exposure to SARS-COV-2"
@@ -116,6 +119,7 @@ Gender -> Turnout
 Susceptibility -> "Onset of COVID-19"
 Temperature -> "Exposure to SARS-COV-2"
 Temperature -> Humidity
+Temperature -> "Indoor humidity"
 Temperature -> Mobility
 Turnout -> "Right-wing populist party votes"
 Turnout -> "Searches corona"
