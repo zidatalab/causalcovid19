@@ -3,6 +3,7 @@ library(tidyverse)
 library(DBI)
 library(broom)
 library(MASS)
+source("R/z_auxiliary_functions_for_1.R")
 
 mydatapath <- "./data/" 
 
@@ -22,10 +23,13 @@ weather <- read_csv(paste0(mydatapath, "weather/mittleres_kreiswetter.csv")) %>%
   dplyr::select(-MESS_DATUM, -RS) %>%
   mutate(Wind=replace_na(Wind, mean(Wind, na.rm=TRUE)),
          Feuchtigkeit=replace_na(Feuchtigkeit, mean(Feuchtigkeit, na.rm=TRUE))) %>%
+  rowwise() %>%
+  mutate(Indoorfeuchtigkeit=qfun(Feuchtigkeit, Temperatur)) %>%
   rename(`Weather (rainfall)`=Niederschlag,
          `Weather (wind)`=Wind,
          `Weather (temperature)`=Temperatur,
-         `Weather (humidity)`=Feuchtigkeit)
+         `Weather (humidity)`=Feuchtigkeit,
+         `Weather (indoor humidity)`=Indoorfeuchtigkeit)
 
 awareness <- read_csv(paste0(mydatapath, "awareness/awareness.csv")) %>%
   rename(`Searches corona`=relativtrend) %>%
