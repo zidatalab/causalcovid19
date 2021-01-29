@@ -3,6 +3,7 @@ dag {
 "Contact restrictions" [pos="-1.45,-2.0"]
 "Ban of mass gatherings" [pos="-1.45,-1.7"]
 "School and kindergarten closures" [pos="-1.45,-1.4"]
+"Shop closures" [pos="-1.45,-1.1"]
 "COVID-19 burden" [pos="-1.7,-0.7"]
 "Health care utilization" [pos="-1.7,-0.3"]
 "Searches corona" [pos="-1.2,-0.5"]
@@ -39,6 +40,7 @@ Susceptibility [latent,pos="-0.1,-0.9"]
 "COVID-19 burden" -> "Contact restrictions"
 "COVID-19 burden" -> "Exposure to SARS-COV-2"
 "COVID-19 burden" -> "School and kindergarten closures"
+"COVID-19 burden" -> "Shop closures"
 "COVID-19 burden" -> "Searches corona"
 "COVID-19 burden" -> Mobility
 "COVID-19 burden" -> "Health care utilization"
@@ -75,6 +77,9 @@ Susceptibility [latent,pos="-0.1,-0.9"]
 "Searches corona" -> "Exposure to SARS-COV-2"
 "Searches corona" -> Mobility
 "Searches corona" -> "Health care utilization"
+"Shop closures" -> "Exposure to SARS-COV-2"
+"Shop closures" -> "Searches corona"
+"Shop closures" -> Mobility
 "Socio-economic status" -> "Exposure to SARS-COV-2"
 "Socio-economic status" -> "Nursing homes"
 "Socio-economic status" -> "Right-wing populist party votes"

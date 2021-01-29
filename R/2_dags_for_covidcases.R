@@ -43,7 +43,7 @@ modeldata <- read_csv("./data/Modeldata.csv") %>%
          `Gender`=`Sex`,
          `Temperature`=`Weather (temperature)`,
          `Wind`=`Weather (wind)`) %>%
-  filter(date<="2020-07-08") %>%
+  # filter(date<="2020-12-31") %>%
   dplyr::select(-date)
 
 # all variables
