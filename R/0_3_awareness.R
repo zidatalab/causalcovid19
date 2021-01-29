@@ -82,7 +82,8 @@ relativ_bl <- left_join(trends_alle_bl,
 
 all_days <- tibble(date=as_date(as_date("2020-01-01"):max(relativ_bl$date))) %>%
   mutate(year=year(date),
-         kw=isoweek(date))
+         kw=isoweek(date),
+         year=ifelse(date>="2020-12-28"&date<="2020-12-31", 2021, year))
 
 searches_data <- all_days %>%
   left_join(relativ_bl, by=c("year", "kw")) %>%
