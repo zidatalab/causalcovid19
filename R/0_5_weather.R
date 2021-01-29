@@ -200,4 +200,4 @@ write_csv(kreiswetter, paste0(mydatapath, "mittleres_kreiswetter.csv"))
 
 kreise_shape_wetter <- left_join(kreiswetter, REG, by="RS")
 
-ggplot(st_as_sf(kreise_shape_wetter %>% filter(MESS_DATUM==20200508)), aes(fill=Temperatur)) + geom_sf()
+ggplot(st_as_sf(kreise_shape_wetter %>% filter(MESS_DATUM==20210124)), aes(fill=Temperatur)) + geom_sf()
