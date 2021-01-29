@@ -88,4 +88,4 @@ searches_data <- all_days %>%
   left_join(relativ_bl, by=c("year", "kw")) %>%
   dplyr::select(date=date.x, BL_ID, Bundesland, relativtrend)
 
-write_csv(relativ_bl, paste0(mydatapath, "awareness.csv"))
+write_csv(searches_data, paste0(mydatapath, "awareness.csv"))
