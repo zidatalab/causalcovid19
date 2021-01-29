@@ -24,7 +24,7 @@ weather <- read_csv(paste0(mydatapath, "weather/mittleres_kreiswetter.csv")) %>%
   mutate(Wind=replace_na(Wind, mean(Wind, na.rm=TRUE)),
          Feuchtigkeit=replace_na(Feuchtigkeit, mean(Feuchtigkeit, na.rm=TRUE))) %>%
   rowwise() %>%
-  mutate(Indoorfeuchtigkeit=qlevel(Feuchtigkeit, Temperatur)) %>%
+  mutate(Indoorfeuchtigkeit=qfun(Feuchtigkeit, Temperatur)) %>%
   rename(`Weather (rainfall)`=Niederschlag,
          `Weather (wind)`=Wind,
          `Weather (temperature)`=Temperatur,
@@ -65,14 +65,37 @@ germanholidays <- as.Date(c("2020-04-10", #karfreitag
                             "2020-04-13", #ostermontag
                             "2020-05-01", # tag der arbeit
                             "2020-05-21", # himmelfahrt
-                            "2020-06-01")) # pfingstmontag
-nobigevents <- as.Date("2020-03-10")
+                            "2020-06-01", # pfingstmontag
+                            "2020-10-03", # day of unity
+                            "2020-12-25", "2020-12-26" # christmas
+                            )) 
+nobigevents <- as.Date("2020-03-08")
+noshops <- as.Date("2020-03-17")
 noschool <- as.Date("2020-03-16")
+somerelaxations <- as.Date("2020-05-06")
 contactrestrict <- as.Date("2020-03-22")
-measures_zeroone <- tibble(date=as.Date("2020-01-01")+0:360) %>%
+lockdownlight <- as.Date("2020-11-02")
+lockdownharder <- as.Date("2020-12-13")
+measures_zeroone <- tibble(date=as_date(as_date("2020-01-01"):as_date("2021-01-29"))) %>%
   mutate(`Ban of mass gatherings`=ifelse(date<nobigevents, 0, 1),
-         `School/Kita closures`=ifelse(date<noschool, 0, 1),
-         `Contact restrictions`=ifelse(date<contactrestrict, 0, 1),
+         `School/Kita closures`=case_when(
+           date<noschool ~ 0,
+           date>=noschool & date<somerelaxations ~ 1,
+           date>=somerelaxations & date<lockdownharder ~ 0.5,
+           date>=lockdownharder ~ 1
+         ),
+         `Contact restrictions`=case_when(
+           date<contactrestrict ~ 0,
+           date>=contactrestrict & date<somerelaxations ~ 1,
+           date>=somerelaxations & date<lockdownlight ~ 0.5,
+           date>=lockdownlight ~ 1
+         ),
+         `Shop closures`=case_when(
+           date<noshops ~ 0,
+           date>=noshops & date<somerelaxations ~ 1,
+           date>=somerelaxations & date<lockdownharder ~ 0,
+           date>=lockdownharder ~ 1
+         ),
          Holiday=ifelse(date %in% germanholidays, 1, 0),
          `Mandatory face masks`=0,
          id=kreisids[1])
@@ -82,11 +105,11 @@ for (kid in kreisids[-1]) {
 }
 measures_zeroone_all <- measures_zeroone_all %>%
   mutate(Holiday=ifelse(floor(id/1000/1000)==11 & date==as.Date("2020-05-08"), 1, Holiday),
-         `School/Kita closures`=ifelse(date>=as.Date("2020-04-27"), 0.5, `School/Kita closures`),
-         `School/Kita closures`=ifelse(floor(id/1000/1000)==15 & date>=as.Date("2020-04-23"), 0.5, `School/Kita closures`),
-         `School/Kita closures`=ifelse(floor(id/1000/1000)==14 & date>=as.Date("2020-04-20"), 0.5, `School/Kita closures`),
-         `School/Kita closures`=ifelse(floor(id/1000/1000)==10 & date>=as.Date("2020-04-27"), 0, `School/Kita closures`),
-         `School/Kita closures`=ifelse(floor(id/1000/1000)==10 & date>=as.Date("2020-05-04"), 0.5, `School/Kita closures`),
+         # `School/Kita closures`=ifelse(date>=as.Date("2020-04-27"), 0.5, `School/Kita closures`),
+         # `School/Kita closures`=ifelse(floor(id/1000/1000)==15 & date>=as.Date("2020-04-23"), 0.5, `School/Kita closures`),
+         # `School/Kita closures`=ifelse(floor(id/1000/1000)==14 & date>=as.Date("2020-04-20"), 0.5, `School/Kita closures`),
+         # `School/Kita closures`=ifelse(floor(id/1000/1000)==10 & date>=as.Date("2020-04-27"), 0, `School/Kita closures`),
+         # `School/Kita closures`=ifelse(floor(id/1000/1000)==10 & date>=as.Date("2020-05-04"), 0.5, `School/Kita closures`),
          `Mandatory face masks`=ifelse(date>=as.Date("2020-04-27"), 1, 0),
          `Mandatory face masks`=ifelse(floor(id/1000/1000)==1 & date>=as.Date("2020-04-27"), 0, `Mandatory face masks`), # schleswigholstein etwas später
          `Mandatory face masks`=ifelse(floor(id/1000/1000)==1 & date>=as.Date("2020-04-29"), 1, `Mandatory face masks`),
@@ -154,13 +177,37 @@ write_csv(modeldata_raw,paste0(mydatapath,"Modeldata_raw.csv"))
 modeldata_X <- modeldata_raw %>%
   dplyr::select(-c(id, bl_id, date, cases, deaths, recovered, `Reported new cases COVID-19`, `Active cases`, daycount)) %>%
   mutate_if(is.numeric, scale, center=TRUE, scale=FALSE)
-modeldata_Xs <- modeldata_raw %>%
-  dplyr::select(-c(id, bl_id, date, cases, deaths, recovered, `Reported new cases COVID-19`, `Active cases`, daycount)) %>%
-  mutate_if(is.numeric, scale, center=TRUE, scale=TRUE)
 modeldata <- bind_cols(modeldata_X, modeldata_raw %>%
                          dplyr::select(c(id, bl_id, date, cases, deaths, recovered, `Reported new cases COVID-19`, `Active cases`, daycount)))
-modeldatas <- bind_cols(modeldata_Xs, modeldata_raw %>%
-                         dplyr::select(c(id, bl_id, date, cases, deaths, recovered, `Reported new cases COVID-19`, `Active cases`, daycount)))
-
 write_csv(modeldata,paste0(mydatapath,"Modeldata.csv"))
-write_csv(modeldatas,paste0(mydatapath,"Modeldata_scaled.csv"))
+
+modeldata_X_bin <- modeldata_raw %>%
+  dplyr::select(
+    `Holiday (report)`,
+    `Ban of mass gatherings`,
+    `School/Kita closures`,
+    `Contact restrictions`,
+    `Shop closures`,
+    Holiday,
+    `Mandatory face masks`
+    ) %>%
+  mutate_if(is.numeric, scale, center=TRUE, scale=FALSE)
+modeldata_X_cont <- modeldata_raw %>%
+  dplyr::select(
+    -c(id, bl_id, date, cases, deaths, recovered, `Reported new cases COVID-19`, `Active cases`, daycount),
+    -c(`Holiday (report)`,
+       `Ban of mass gatherings`,
+       `School/Kita closures`,
+       `Contact restrictions`,
+       `Shop closures`,
+       Holiday,
+       `Mandatory face masks`),
+    -`Weekday (report)`,
+    -`Weekday (exposure)`
+  )
+sd_cont <- apply(modeldata_X_cont, 2, sd)
+modeldata_X_cont <- as_tibble(scale(modeldata_X_cont, center = TRUE, scale = 2*sd_cont)) # gelman!
+modeldata_scaled <- bind_cols(modeldata_X_bin, modeldata_X_cont, modeldata_raw %>%
+                         dplyr::select(c(id, bl_id, date, cases, deaths, recovered, `Reported new cases COVID-19`, `Active cases`, daycount,
+                                         `Weekday (report)`, `Weekday (exposure)`)))
+write_csv(modeldata_scaled, paste0(mydatapath,"Modeldata_scaled.csv"))

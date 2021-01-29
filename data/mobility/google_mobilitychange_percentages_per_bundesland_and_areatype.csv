@@ -25982,7 +25982,7 @@ date,RS_first2,areatype,perc_change
 2020-08-23,10,retail_and_recreation_percent_change_from_baseline,-7
 2020-08-23,10,grocery_and_pharmacy_percent_change_from_baseline,0
 2020-08-23,10,parks_percent_change_from_baseline,0
-2020-08-23,10,transit_stations_percent_change_from_baseline,NA
+2020-08-23,10,transit_stations_percent_change_from_baseline,0
 2020-08-23,10,workplaces_percent_change_from_baseline,-1
 2020-08-23,10,residential_percent_change_from_baseline,-1
 2020-08-24,10,retail_and_recreation_percent_change_from_baseline,-4
@@ -26024,7 +26024,7 @@ date,RS_first2,areatype,perc_change
 2020-08-30,10,retail_and_recreation_percent_change_from_baseline,-19
 2020-08-30,10,grocery_and_pharmacy_percent_change_from_baseline,0
 2020-08-30,10,parks_percent_change_from_baseline,0
-2020-08-30,10,transit_stations_percent_change_from_baseline,NA
+2020-08-30,10,transit_stations_percent_change_from_baseline,0
 2020-08-30,10,workplaces_percent_change_from_baseline,-6
 2020-08-30,10,residential_percent_change_from_baseline,1
 2020-08-31,10,retail_and_recreation_percent_change_from_baseline,1
@@ -26066,7 +26066,7 @@ date,RS_first2,areatype,perc_change
 2020-09-06,10,retail_and_recreation_percent_change_from_baseline,10
 2020-09-06,10,grocery_and_pharmacy_percent_change_from_baseline,0
 2020-09-06,10,parks_percent_change_from_baseline,0
-2020-09-06,10,transit_stations_percent_change_from_baseline,NA
+2020-09-06,10,transit_stations_percent_change_from_baseline,0
 2020-09-06,10,workplaces_percent_change_from_baseline,-4
 2020-09-06,10,residential_percent_change_from_baseline,-1
 2020-09-07,10,retail_and_recreation_percent_change_from_baseline,-1

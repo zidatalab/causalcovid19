@@ -27,7 +27,7 @@ unobserved <- c("Access to tests",
                 "Susceptibility")
 
 # Load Data
-modeldata <- read_csv("./data/Modeldata.csv") %>%
+modeldata <- read_csv("./data/Modeldata_scaled.csv") %>%
   dplyr::select(-id, -bl_id, -cases, -deaths, -recovered, -daycount,
                 -`Mobility (mean)`,
                 # -`Relaxation of measures`,
