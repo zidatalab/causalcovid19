@@ -33,6 +33,7 @@ google_german_mobility <- google_german_mobility %>%
   mutate(sub_region_1=ifelse(is.na(sub_region_1), "Gesamt", sub_region_1)) %>%
   mutate(grocery_and_pharmacy_percent_change_from_baseline=replace_na(grocery_and_pharmacy_percent_change_from_baseline, 0)) %>%
   mutate(parks_percent_change_from_baseline=replace_na(parks_percent_change_from_baseline, 0)) %>%
+  mutate(transit_stations_percent_change_from_baseline=replace_na(transit_stations_percent_change_from_baseline, 0)) %>%
   mutate(RS_first2=en_rs_map_bl[sub_region_1]) %>%
   dplyr::select(-sub_region_1, -iso_3166_2_code) %>%
   # drop_na() %>%
