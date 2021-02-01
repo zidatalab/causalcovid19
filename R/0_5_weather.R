@@ -171,7 +171,7 @@ for (k in REG$RS) {
     mutate(RS=k)
   kreiswetter_wind <- rbind(kreiswetter_wind, weather3_wind)
   
-  ## rest (temp, rainf, humid):
+  ## rest (temp, rainf, humid, pressure):
   station1_idx <- st_nearest_feature(kmp, stationen_sf_rest)
   station1_id <- stationen_sf_rest$STATIONS_ID[station1_idx]
   station2_idx <- st_nearest_feature(kmp, stationen_sf_rest[-station1_idx, ])
@@ -182,14 +182,14 @@ for (k in REG$RS) {
   weather_rest_na <- wetterdata %>%
     filter(STATIONS_ID %in% c(station1_id, station2_id, station3_id)) %>%
     group_by(MESS_DATUM) %>% 
-    summarise(Niederschlag=sum(is.na(RSK)), Temperatur=sum(is.na(TMK)), Feuchtigkeit=sum(is.na(UPM))) %>%
+    summarise(Niederschlag=sum(is.na(RSK)), Temperatur=sum(is.na(TMK)), Feuchtigkeit=sum(is.na(UPM)), Luftdruck=sum(is.na(PM))) %>%
     mutate(RS=k)
   kreiswetter_rest_na <- rbind(kreiswetter_rest_na, weather_rest_na)
   # filter wetterdata for these station and aggregate for mean-weather by day
   weather3_rest <- wetterdata %>%
     filter(STATIONS_ID %in% c(station1_id, station2_id, station3_id)) %>%
     group_by(MESS_DATUM) %>% 
-    summarise(Niederschlag=mean(RSK, na.rm=TRUE), Temperatur=mean(TMK, na.rm=TRUE), Feuchtigkeit=mean(UPM, na.rm=TRUE)) %>%
+    summarise(Niederschlag=mean(RSK, na.rm=TRUE), Temperatur=mean(TMK, na.rm=TRUE), Feuchtigkeit=mean(UPM, na.rm=TRUE), Luftdruck=mean(PM, na.rm=TRUE)) %>%
     mutate(RS=k)
   kreiswetter_rest <- rbind(kreiswetter_rest, weather3_rest)
 }

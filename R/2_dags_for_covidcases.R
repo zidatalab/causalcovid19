@@ -14,7 +14,7 @@ source("R/z_auxiliary_functions_for_2.R")
 tablepath <- "./manuscript/v4_indoorhumidity/tables/"
 
 # load dag
-dagfile <- "./data/bigdag4covid19.txt"
+dagfile <- "./data/bigdag4covid19.txt" # "./data/bigdag4covid19_indoortemp.txt" # 
 dagtext <- readChar(dagfile, file.info(dagfile)$size)
 dag <- dagitty::dagitty(dagtext)
 
@@ -107,3 +107,11 @@ res <- my_causal(dag, modeldata, exposure="Age", unobserved=unobserved)
 #      edge.arrow.size=0.5,
 #      margin=-0.5,
 #      vertex.label.cex=0.5)
+
+# nl indoor humidity:
+ihmodel <- glm.nb(`Reported new cases COVID-19` ~ 1+offset(log(`Active cases`+1))+Rainfall+Temperature+Humidity+Wind+`Indoor humidity`,
+                  data=modeldata%>%dplyr::select(Rainfall, Temperature, Humidity, Wind, "Indoor humidity", "Reported new cases COVID-19", "Active cases"))
+res_ih <- tidy(ihmodel, exponentiate=TRUE, conf.int=TRUE, conf.level = 0.99)
+
+ih_lmodel <- lm(`Reported new cases COVID-19` ~ 1+`Active cases`+Rainfall+Temperature+Humidity+Wind+`Indoor humidity`,
+                  data=modeldata%>%dplyr::select(Rainfall, Temperature, Humidity, Wind, "Indoor humidity", "Reported new cases COVID-19", "Active cases"))

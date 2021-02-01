@@ -22,14 +22,16 @@ weather <- read_csv(paste0(mydatapath, "weather/mittleres_kreiswetter.csv")) %>%
   mutate(date=ymd(MESS_DATUM), id=as.integer(RS)*1000) %>%
   dplyr::select(-MESS_DATUM, -RS) %>%
   mutate(Wind=replace_na(Wind, mean(Wind, na.rm=TRUE)),
-         Feuchtigkeit=replace_na(Feuchtigkeit, mean(Feuchtigkeit, na.rm=TRUE))) %>%
+         Feuchtigkeit=replace_na(Feuchtigkeit, mean(Feuchtigkeit, na.rm=TRUE)),
+         Luftdruck=replace_na(Luftdruck, mean(Luftdruck, na.rm=TRUE))) %>%
   rowwise() %>%
-  mutate(Indoorfeuchtigkeit=qfun(Feuchtigkeit, Temperatur)) %>%
+  mutate(Indoorfeuchtigkeit=qfun(Feuchtigkeit, Temperatur, Luftdruck)) %>%
   rename(`Weather (rainfall)`=Niederschlag,
          `Weather (wind)`=Wind,
          `Weather (temperature)`=Temperatur,
          `Weather (humidity)`=Feuchtigkeit,
-         `Weather (indoor humidity)`=Indoorfeuchtigkeit)
+         `Weather (indoor humidity)`=Indoorfeuchtigkeit) %>%
+  dplyr::select(-Luftdruck)
 
 awareness <- read_csv(paste0(mydatapath, "awareness/awareness.csv")) %>%
   rename(`Searches corona`=relativtrend) %>%
