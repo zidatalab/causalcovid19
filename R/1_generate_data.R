@@ -99,31 +99,31 @@ measures_zeroone <- tibble(date=as_date(as_date("2020-01-01"):as_date("2021-01-2
            date>=lockdownharder ~ 1
          ),
          Holiday=ifelse(date %in% germanholidays, 1, 0),
-         `Mandatory face masks`=0,
+         # `Mandatory face masks`=0,
          id=kreisids[1])
 measures_zeroone_all <- measures_zeroone
 for (kid in kreisids[-1]) {
   measures_zeroone_all <- bind_rows(measures_zeroone_all, measures_zeroone %>% mutate(id=kid))
 }
 measures_zeroone_all <- measures_zeroone_all %>%
-  mutate(Holiday=ifelse(floor(id/1000/1000)==11 & date==as.Date("2020-05-08"), 1, Holiday),
+  mutate(Holiday=ifelse(floor(id/1000/1000)==11 & date==as.Date("2020-05-08"), 1, Holiday)#,
          # `School/Kita closures`=ifelse(date>=as.Date("2020-04-27"), 0.5, `School/Kita closures`),
          # `School/Kita closures`=ifelse(floor(id/1000/1000)==15 & date>=as.Date("2020-04-23"), 0.5, `School/Kita closures`),
          # `School/Kita closures`=ifelse(floor(id/1000/1000)==14 & date>=as.Date("2020-04-20"), 0.5, `School/Kita closures`),
          # `School/Kita closures`=ifelse(floor(id/1000/1000)==10 & date>=as.Date("2020-04-27"), 0, `School/Kita closures`),
          # `School/Kita closures`=ifelse(floor(id/1000/1000)==10 & date>=as.Date("2020-05-04"), 0.5, `School/Kita closures`),
-         `Mandatory face masks`=ifelse(date>=as.Date("2020-04-27"), 1, 0),
-         `Mandatory face masks`=ifelse(floor(id/1000/1000)==1 & date>=as.Date("2020-04-27"), 0, `Mandatory face masks`), # schleswigholstein etwas später
-         `Mandatory face masks`=ifelse(floor(id/1000/1000)==1 & date>=as.Date("2020-04-29"), 1, `Mandatory face masks`),
-         `Mandatory face masks`=ifelse(id==3101000 & date>=as.Date("2020-04-25"), 1, `Mandatory face masks`), # braunschweig
-         `Mandatory face masks`=ifelse(floor(id/1000/1000)==16 & date>=as.Date("2020-04-24"), 1, `Mandatory face masks`), # thüringen
-         `Mandatory face masks`=ifelse(floor(id/1000/1000)==15 & date>=as.Date("2020-04-22"), 1, `Mandatory face masks`), # sachsenanhalt
-         `Mandatory face masks`=ifelse(id==3103000 & date>=as.Date("2020-04-20"), 1, `Mandatory face masks`), # wolfsburg
-         `Mandatory face masks`=ifelse(id==6435000  & date>=as.Date("2020-04-20"), 1, `Mandatory face masks`), # main-kinzig
-         `Mandatory face masks`=ifelse(floor(id/1000/1000)==14 & date>=as.Date("2020-04-20"), 1, `Mandatory face masks`), # sachsen
-         `Mandatory face masks`=ifelse(id==8325049 & date>=as.Date("2020-04-17"), 1, `Mandatory face masks`), # rottweil
-         `Mandatory face masks`=ifelse(id==16062041  & date>=as.Date("2020-04-14"), 1, `Mandatory face masks`), # nordhausen
-         `Mandatory face masks`=ifelse(id==16053000  & date>=as.Date("2020-04-06"), 1, `Mandatory face masks`) # jena
+         # `Mandatory face masks`=ifelse(date>=as.Date("2020-04-27"), 1, 0),
+         # `Mandatory face masks`=ifelse(floor(id/1000/1000)==1 & date>=as.Date("2020-04-27"), 0, `Mandatory face masks`), # schleswigholstein etwas später
+         # `Mandatory face masks`=ifelse(floor(id/1000/1000)==1 & date>=as.Date("2020-04-29"), 1, `Mandatory face masks`),
+         # `Mandatory face masks`=ifelse(id==3101000 & date>=as.Date("2020-04-25"), 1, `Mandatory face masks`), # braunschweig
+         # `Mandatory face masks`=ifelse(floor(id/1000/1000)==16 & date>=as.Date("2020-04-24"), 1, `Mandatory face masks`), # thüringen
+         # `Mandatory face masks`=ifelse(floor(id/1000/1000)==15 & date>=as.Date("2020-04-22"), 1, `Mandatory face masks`), # sachsenanhalt
+         # `Mandatory face masks`=ifelse(id==3103000 & date>=as.Date("2020-04-20"), 1, `Mandatory face masks`), # wolfsburg
+         # `Mandatory face masks`=ifelse(id==6435000  & date>=as.Date("2020-04-20"), 1, `Mandatory face masks`), # main-kinzig
+         # `Mandatory face masks`=ifelse(floor(id/1000/1000)==14 & date>=as.Date("2020-04-20"), 1, `Mandatory face masks`), # sachsen
+         # `Mandatory face masks`=ifelse(id==8325049 & date>=as.Date("2020-04-17"), 1, `Mandatory face masks`), # rottweil
+         # `Mandatory face masks`=ifelse(id==16062041  & date>=as.Date("2020-04-14"), 1, `Mandatory face masks`), # nordhausen
+         # `Mandatory face masks`=ifelse(id==16053000  & date>=as.Date("2020-04-06"), 1, `Mandatory face masks`) # jena
          )
 
 dateset <- as.Date(Reduce(intersect, list(awareness$date, google_mobility$date, weather$date, brd_timeseries$date)),
@@ -190,8 +190,8 @@ modeldata_X_bin <- modeldata_raw %>%
     `School/Kita closures`,
     `Contact restrictions`,
     `Shop closures`,
-    Holiday,
-    `Mandatory face masks`
+    Holiday#,
+    # `Mandatory face masks`
     ) %>%
   mutate_if(is.numeric, scale, center=TRUE, scale=FALSE)
 modeldata_X_cont <- modeldata_raw %>%
@@ -202,8 +202,9 @@ modeldata_X_cont <- modeldata_raw %>%
        `School/Kita closures`,
        `Contact restrictions`,
        `Shop closures`,
-       Holiday,
-       `Mandatory face masks`),
+       Holiday#,
+       # `Mandatory face masks`
+       ),
     -`Weekday (report)`,
     -`Weekday (exposure)`
   )

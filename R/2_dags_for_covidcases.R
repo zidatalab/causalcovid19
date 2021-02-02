@@ -115,3 +115,6 @@ res_ih <- tidy(ihmodel, exponentiate=TRUE, conf.int=TRUE, conf.level = 0.99)
 
 ih_lmodel <- lm(`Reported new cases COVID-19` ~ 1+`Active cases`+Rainfall+Temperature+Humidity+Wind+`Indoor humidity`,
                   data=modeldata%>%dplyr::select(Rainfall, Temperature, Humidity, Wind, "Indoor humidity", "Reported new cases COVID-19", "Active cases"))
+
+res2 <- my_causal(dag, modeldata %>% dplyr::select(-Temperature, -Humidity), exposure=NULL, unobserved)
+res3 <- my_causal(dag, modeldata %>% dplyr::select(Temperature, Humidity, Rainfall, Wind, "Indoor humidity", "Active cases", "Reported new cases COVID-19"), exposure=NULL, unobserved)
