@@ -1,0 +1,69 @@
+---
+title: Causal graph analysis of COVID-19 observational data in German districts reveals effects of mobility, awareness, and temperature
+author:
+  - name: Edgar Steiger
+    email: esteiger@zi.de
+    affiliation: Zi
+  - name: Tobias Mußgnug
+    email: tmussgnug@zi.de
+    affiliation: Zi
+  - name: Lars Eric Kroll
+    email: lkroll@zi.de
+    affiliation: Zi
+    corresponding: lkroll@zi.de
+address:
+  - code: Zi
+    address: Central Research Institute of Ambulatory Health Care in Germany (Zi), Salzufer 8, D-10587 Berlin, Germany
+abstract: Mobility, awareness, and weather are suspected to be causal drivers for new cases of COVID-19 infection. Correcting for possible confounders, we estimated their causal effects on reported case numbers. To this end, we used a directed acyclic graph (DAG) as a graphical representation of the hypothesized causal effects of the aforementioned determinants on new reported cases of COVID-19. Based on this, we computed valid adjustment sets of the possible confounding factors. We collected data for Germany from publicly available sources (e.g. Robert Koch Institute, Germany's National Meteorological Service, Google) for 401 German districts over the period of 15 February to 8 July 2020, and estimated total causal effects based on our DAG analysis by negative binomial regression. Our analysis revealed favorable causal effects of increasing temperature, increased public mobility for essential shopping (grocery and pharmacy), and awareness measured by COVID-19 burden, all of them reducing the outcome of newly reported COVID-19 cases. Conversely, we saw adverse effects of public mobility in retail and recreational areas, awareness measured by searches for “corona” in Google, and higher rainfall, leading to an increase in new COVID-19 cases. This comprehensive causal analysis of a variety of determinants affecting COVID-19 progression gives strong evidence for the driving forces of mobility, public awareness, and temperature, whose implications need to be taken into account for future decisions regarding pandemic management.
+  
+author_summary: |
+  to be written
+
+journal: "medRxiv"
+date: "`r Sys.Date()`"
+bibliography: mybibfile.bib
+output:
+  bookdown::pdf_book:
+    includes:
+      in_header: preamble.tex
+    base_format: rticles::elsevier_article 
+    citation_package: natbib
+---
+
+
+# Introduction
+
+As the COVID-19 pandemic progresses, research on mechanisms behind the transmission of SARS-CoV-2 shows conflicting evidence [@who2020report;@Chinazzi395;@guan2020clinical]. While effects of mobility have been extensively discussed, less is known on other factors such as changing awareness in the population  [@higgins_correlations_2020;@li_retrospective_2020;@yuan_trends_2020] or the effects of temperature [@bannister-tyrrell_preliminary_2020;@demongeot_temperature_2020;@liu_impact_2020]. A limiting factor in many studies is the lack of a causal approach to assess the causal contributions of various factors [@Greenland1999]. This can lead to distorted estimates of the causal factors with observational data [@Greenland1999;@schipf_directed_2011;@textor_robust_2017].
+
+With COVID-19, we find ourselves in a situation in which information on the causal contribution of various influencing factors in the population is urgently needed to inform politicians and health authorities. On the other hand, trials cannot be carried out for obvious ethical and legal reasons. Therefore, when assessing the effects of determinants of SARS-CoV-2 spread, special attention must be paid to strategies for the selection of confounding factors.
+
+Another problem with assessing the effects of various determinants of SARS-CoV-2 spread is the heterogeneity of the countries and regions examined for example in the Johns Hopkins University (JHU) COVID-19 database [@jhucovid19db2020]. The comparison of time series of case numbers from different countries and observational periods can be strongly distorted by different factors like testing capacities and regional variations.
+
+Our objective is to provide estimates of the causal effects of the main drivers of the pandemic with reduced bias. We conducted a scoping review of the available studies regarding signaling pathways and determinants of the spread of SARS-CoV-2 infections and the reported new COVID-19 cases. Then we integrated the current findings into a directed acyclic graph for the progress of the pandemic at the regional level. Using the resulting model and the do-calculus we found identifiable effects without blocked causal paths whose effects can be analyzed with observational data [@Pearl_2014]. We used regional time series data of all German districts ($401$) from various publicly available sources to analyze these questions on a regional level. Germany is a good choice in this regard, because it has ample data on contributing factors on the regional level and has had high testing and treatment capacities from early on in the pandemic.
+
+```{r child = 'causal_model.Rmd'}
+```
+
+```{r child = 'data_methods.Rmd'}
+```
+
+```{r child = 'results.Rmd'}
+```
+
+# Discussion
+
+```{r child = 'discussion.Rmd'}
+```
+
+# Acknowledgments {-}
+
+```{r child = 'acknowledgments.Rmd'}
+```
+
+```{r rundifflatex, message=FALSE, warning=FALSE, include=FALSE}
+system("latexdiff ../v2_medrxiv/manuscript.tex manuscript.tex > diffRmd.tex")
+tinytex::pdflatex("diffRmd.tex")
+```
+
+
+# References
