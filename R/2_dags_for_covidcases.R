@@ -11,10 +11,10 @@ library(pscl)
 source("R/z_auxiliary_functions_for_2.R")
 
 # save tables to:
-tablepath <- "./manuscript/v2_medrxiv/tables/"
+tablepath <- "manuscript/v2_medrxiv/tables/"
 
 # load dag
-dagfile <- "./data/bigdag4covid19.txt"
+dagfile <- "data/bigdag4covid19.txt"
 dagtext <- readChar(dagfile, file.info(dagfile)$size)
 dag <- dagitty::dagitty(dagtext)
 
@@ -27,7 +27,7 @@ unobserved <- c("Access to tests",
                 "Susceptibility")
 
 # Load Data
-modeldata <- read_csv("./data/Modeldata.csv") %>%
+modeldata <- read_csv("data/Modeldata.csv") %>%
   dplyr::select(-id, -bl_id, -cases, -deaths, -recovered, -daycount,
                 -`Mobility (mean)`,
                 -`Relaxation of measures`,
