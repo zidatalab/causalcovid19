@@ -1,5 +1,5 @@
 ---
-title: Causal analysis of COVID-19 observational data in German districts reveals effects of mobility, awareness, and temperature
+title: Causal graph analysis of COVID-19 observational data in German districts reveals effects of mobility, awareness, and temperature
 author:
   - name: Edgar Steiger
     email: esteiger@zi.de
