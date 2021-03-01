@@ -61,8 +61,11 @@ Our objective is to provide estimates of the causal effects of the main drivers 
 ```
 
 ```{r rundifflatex, message=FALSE, warning=FALSE, include=FALSE}
-system("latexdiff ../v2_medrxiv/manuscript.tex manuscript.tex > diffRmd.tex")
-tinytex::pdflatex("diffRmd.tex")
+# careful, it's always one version behind
+library(latexdiffr)
+latexdiff("../v2_medrxiv/manuscript.tex", "manuscript.tex", "latexdiffrRmd")
+# system("latexdiff ../v2_medrxiv/manuscript.tex manuscript.tex > diffRmd.tex")
+# tinytex::pdflatex("diffRmd.tex")
 ```
 
 
