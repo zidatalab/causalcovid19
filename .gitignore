@@ -5,3 +5,4 @@
 *.log
 *.spl
 *converted-to.pdf
+*.RData
