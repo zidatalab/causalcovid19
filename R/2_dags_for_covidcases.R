@@ -27,23 +27,7 @@ unobserved <- c("Access to tests",
                 "Susceptibility")
 
 # Load Data
-modeldata <- read_csv("data/Modeldata.csv") %>%
-  dplyr::select(-id, -bl_id, -cases, -deaths, -recovered, -daycount,
-                -`Mobility (mean)`,
-                -`Relaxation of measures`,
-                -contains("iso"), -contains("census")
-                ) %>% 
-  rename(`School and kindergarten closures`=`School/Kita closures`,
-         `Holiday (exposure)`=Holiday,
-         `Foreign citizens`=`Foreign residents`,
-         `Foreign citizens (refugees)`=`Foreign residents (refugees)`,
-         `Rainfall`=`Weather (rainfall)`,
-         `Humidity`=`Weather (humidity)`,
-         `Gender`=`Sex`,
-         `Temperature`=`Weather (temperature)`,
-         `Wind`=`Weather (wind)`) %>%
-  filter(date<="2020-07-08") %>%
-  dplyr::select(-date)
+modeldata <- read_csv("data/Modeldata_scaled_pcamobility.csv")
 
 # all variables
 res <- my_causal(dag, modeldata, exposure=NULL, unobserved)
