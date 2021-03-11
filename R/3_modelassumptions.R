@@ -29,7 +29,7 @@ exposure=NULL
 adjsets=NULL
 myformula <- "`Reported new cases COVID-19` ~1+offset(log(`Active cases`+1))-`Active cases`+."
 myglm <- glm.nb(as.formula(myformula),
-                  data=modeldata)
+                  data=modeldata) # %>%dplyr::select(-`Mobility (PC4)`)
 mynullformula <- "`Reported new cases COVID-19` ~1+offset(log(`Active cases`+1))" 
 mynullglm <- glm.nb(as.formula(mynullformula),
                     data=modeldata)
@@ -84,3 +84,17 @@ corrplot(corrplotscores$r,
 library(car)
 myvifs <- vif(myglm)
 myvifs[myvifs>=5]
+
+# rescale principal components of mobility to original mobility variables
+pcaloadings <- read_csv("data/pca_mobility_loadings.csv")
+orig_mobi <- as.vector(exp(as.matrix(pcaloadings[, 2:7]) %*% myglm$coefficients[c(
+  "`Mobility (PC1)`",
+  "`Mobility (PC2)`",
+  "`Mobility (PC3)`",
+  "`Mobility (PC4)`",
+  "`Mobility (PC5)`",
+  "`Mobility (PC6)`"
+)]))
+names(orig_mobi) <- pcaloadings$original_variable
+orig_mobi
+coeffs <- tidy(myglm, exponentiate=TRUE) # , conf.int=TRUE, conf.level = 0.99
