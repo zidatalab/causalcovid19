@@ -1,0 +1,32 @@
+---
+title: "reply to reviewer"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*This is an interesting manuscript that aims to identify "causal" relationships" for COVID-19 transmission based on a DAG analysis and empirical data from other studies for variable selection.*
+
+Yes, we aim to estimate causal effects based on a DAG that was constructed based on other publications. Empirical data was extracted and aggregated from different publicly available databases: RKI, Google mobility/Trends, INKAR, DWD. Variable selection for the different models was based on the proposed DAG using the well-studied methods from Pearl etc.
+
+*The DAG analysis is a multivariate analysis to select a subset of variables that are correlated from a large number of candidates. The first select the sets of variables that are associated with the outcome using DAG analysis and then put them into the regression. The DAG analysis returns different sets of variables, using different selection criterion ( for example, the most parsimonious set or the most variation explained ). So the authors assumedly use R-squared to select the final sets of variables in the regression model.*
+
+Yes, we identify subsets of variables using DAG analysis. We stress the point that we do this identification process separately for every variable of interest where we are interested in the causal effect. We always regress on the same outcome Y (Reported COVID-19 cases) using negative-binomial regression. That is, we select one variable Xi where we are interested in the effect of Xi on Y. Then we identify all possible subsets of variables in the DAG that allow to estimate the causal effect of Xi on Y (based on Pearl etc). Out of these subsets we choose the "best" one in regards to pseudo-R2 (or AIC). We repeat this procedure for several variables Xi.
+
+*The challenge I have here (and having reviewed this as well with our statistical team) is that the claims of causal relationships are not convincing, even if they identify associative relationships that other studies have also found. Specifically: 1) The model does not address the nonlinearity of variables (such as temperature); other studies have found that temperature has a u-shaped effect at low and high temperatures. Humidity effects may also be nonlinear. The assumption of non-linearity on continuous variables needs to be considered.*
+
+Yes, non-linearity might be a problem for our generalized linear model (negative-binomial regression). We added a complete check of model diagnostics that addresses linearity assumptions, model specification, independence of observations, and multi-collinearity checks (see below). We did not find significant problems with non-linear relationships (see plot XX supplementary?).
+
+*2) There are no tests for multi-collinearity that are presented, which presents significant concerns for over-fitting the model. Temperature and humidity are an example here. So is the mobility data.*
+
+This an important remark. We added a correlation plot for the continuous variables and assessed variance inflation factors (VIFs) for the full model. We observed high VIFs for the mobility variables and the different intervention variables. We decided to transform the original mobility variables by PCA and used the set of these principal components instead of the original mobility variables. Furthermore, we summarised the intervention variables into one "Intervention" variable (compare new DAG) by summing these binary variables. Analysing the VIFs on the full model with these transformed variables, we are left with only one VIF>5 (PC Mobi 1=5.1xxx), which is a huge improvement on the original model. We want to add that causal graph analysis for regression is more robust to multi-collinearity than traditional regression approaches (cite paper).
+
+*2) Feels like they cherry-pick the variables of interest in the end? Not sure how they arrived at the final variable list for causal effects. Whey were the restrictions not included in that analysis?*
+
+*3) The term “causal analysis” is a bit strong for what they have done here. The basis of the work is the proposed DAG (Figure 1), but the diagram was constructed from other association studies. Other than the DAG analysis, they did not do anything to ensure the results are “causal relationship”. So I am not convinced that the analysis or results are causal.How do you avoid over-fitting the model or including mediating variables in the analysis?*
+
+*5) What about interaction terms? For example, residential mobility and colder weather? Or rain? These relationships are not simply a straightforward multivariable model.*
+
+*6) The most interesting terms in their model were the interventions (restrictions) themselves, yet they were dropped from the model. No discussion is really pursued on that. Why were public health interventions removed?*
