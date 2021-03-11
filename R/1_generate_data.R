@@ -185,12 +185,12 @@ modeldata_X_cont <- modeldata_X %>% dplyr::select(`Mobility (retail and recreati
 scale_params <- tibble(variable=colnames(modeldata_X_cont),
                        mymean=colMeans(modeldata_X_cont),
                        mysd=apply(modeldata_X_cont, 2, sd))
+write_csv(scale_params, paste0(mydatapath, "scale_params.csv"))
 modeldata_X_cont_scaled <- sapply(seq(dim(modeldata_X_cont)[2]),
                                   function(i) scale(modeldata_X_cont[, i], scale_params[i, 2], 2*scale_params[i, 3])) # gelman
 colnames(modeldata_X_cont_scaled) <- colnames(modeldata_X_cont)
 modeldata_X_cont_scaled <- as_tibble(modeldata_X_cont_scaled)
-modeldata_X_bin <- modeldata_X %>% dplyr::select(`Holiday (report)`, `Holiday (exposure)`, Interventions,
-                                          "1Mo", "2Di", "3Mi", "5Fr", "6Sa", "7So")
+modeldata_X_bin <- modeldata_X %>% dplyr::select(-colnames(modeldata_X_cont))
 
 modeldata_scaled <- bind_cols(modeldata_X_bin,
                               modeldata_X_cont_scaled)
@@ -202,7 +202,12 @@ modeldata_scaled_pca_mobility <- modeldata_scaled %>%
   bind_cols("Mobility (PC1)"=pca_mobility$x[,1],
             "Mobility (PC2)"=pca_mobility$x[,2],
             "Mobility (PC3)"=pca_mobility$x[,3],
-            "Mobility (PC4)"=pca_mobility$x[,4])
+            "Mobility (PC4)"=pca_mobility$x[,4],
+            "Mobility (PC5)"=pca_mobility$x[,5],
+            "Mobility (PC6)"=pca_mobility$x[,6])
+write_csv(as_tibble(pca_mobility$rotation, rownames="original_variable"), paste0(mydatapath, "pca_mobility_loadings.csv"))
 
-write_csv(modeldata_scaled, paste0(mydatapath,"Modeldata_scaled.csv"))
-write_csv(modeldata_scaled_pca_mobility,paste0(mydatapath,"Modeldata_scaled_pcamobility.csv"))
+write_csv(modeldata_scaled %>%
+            bind_cols(modeldata_raw %>% dplyr::select(`Reported new cases COVID-19`, `Active cases`)), paste0(mydatapath,"Modeldata_scaled.csv"))
+write_csv(modeldata_scaled_pca_mobility %>%
+            bind_cols(modeldata_raw %>% dplyr::select(`Reported new cases COVID-19`, `Active cases`)), paste0(mydatapath,"Modeldata_scaled_pcamobility.csv"))
