@@ -11,7 +11,7 @@ library(pscl)
 source("R/z_auxiliary_functions_for_2.R")
 
 # save tables to:
-tablepath <- "manuscript/v2_medrxiv/tables/"
+tablepath <- "manuscript/v4_medrxiv_revision/tables/"
 
 # load dag
 dagfile <- "data/bigdag4covid19.txt"
@@ -33,6 +33,7 @@ modeldata <- read_csv("data/Modeldata_scaled_pcamobility.csv")
 res <- my_causal(dag, modeldata, exposure=NULL, unobserved)
 
 file.create(paste0(tablepath, "t_pseudor2s.csv"))
+file.create(paste0(tablepath, "t_aics.csv"))
 # mobility
 res <- my_causal(dag, modeldata, exposure="Mobility", unobserved=unobserved)
 write_cause(res, exposure="Mobility")
@@ -49,22 +50,8 @@ for (myweather in c("Temperature", "Rainfall", "Humidity", "Wind")) {
   write_cause(res, exposure=myweather)
 }
 
-# maskenpflicht
-res <- my_causal(dag, modeldata, exposure="Mandatory face masks", unobserved=unobserved)
-
-# kontaktsperre 
-res <- my_causal(dag, modeldata, exposure="Contact restrictions", unobserved=unobserved)
-
-# school/kita closure adjustment 
-res <- my_causal(dag, modeldata, exposure="School and kindergarten closures", unobserved=unobserved)
-
-
-# "cluster" Pflegeheime adjustment 
-res <- my_causal(dag, modeldata, exposure="Nursing homes", unobserved=unobserved)
-
-# "cluster" Age? --> schools
-res <- my_causal(dag, modeldata, exposure="Age", unobserved=unobserved)
-
+# interventions
+res <- my_causal(dag, modeldata, exposure="Interventions", unobserved=unobserved)
 
 # tidy_dag <- tidy_dagitty(dag) %>% mutate(name=str_wrap(name,width = 10)) 
 # ggdag(tidy_dag,text_size = 1.5,color="grey",
