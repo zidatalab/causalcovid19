@@ -3,9 +3,9 @@ library(tidyverse)
 library(DBI)
 library(broom)
 library(MASS)
-source("R/z_auxiliary_functions_for_1.R")
+source("secondwave_analysis/R/z_auxiliary_functions_for_1.R")
 
-mydatapath <- "./data/" 
+mydatapath <- "secondwave_analysis/data/" 
 
 google_mobility <- read_csv(paste0(mydatapath, "mobility/google_mobilitychange_percentages_per_bundesland_and_areatype.csv")) %>%
   mutate(id=as.integer(RS_first2)) %>%
