@@ -159,12 +159,13 @@ modeldata_raw <- left_join(brd_timeseries, google_mobility %>%
          `Wind`=`Weather (wind)`) %>%
   filter(date<=maxanalysisdate) %>%
   mutate(dummy = 1) %>% # column with single value
-  spread(
-    key = "Weekday (exposure)", # column to spread
-    value = dummy,
-    fill = 0
+  pivot_wider(
+    names_from = "Weekday (exposure)", # column to spread
+    names_prefix = "Weekday ",
+    values_from = dummy,
+    values_fill = 0
   ) %>%
-  dplyr::select(-"Weekday (report)", -"4Do", -contains("iso"), -contains("census"))
+  dplyr::select(-"Weekday (report)", -"Weekday 4Do", -contains("iso"), -contains("census"))
 
 write_csv(modeldata_raw,paste0(mydatapath,"Modeldata_raw.csv"))
 

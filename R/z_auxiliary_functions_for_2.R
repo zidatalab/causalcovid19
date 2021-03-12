@@ -73,10 +73,12 @@ get_adjsets <- function(dag, exposure, outcome, unobserved) {
   if (length(adjsets)>0) {
     names(adjsets) <- paste0("MinAdjSet", seq(valid_adjsets))
     optadjset <- get_optadjset(amat, exposure, outcome, unobserved)
-    if (optadjset[[2]]) { # is a reduced set
-      adjsets[["RedOptAdjSet"]] <- optadjset[[1]]
-    } else { # is actually real optimal adjustment set
-      adjsets[["OptAdjSet"]] <- optadjset[[1]]
+    if (!is.null(optadjset)) {
+      if (optadjset[[2]]) { # is a reduced set
+        adjsets[["RedOptAdjSet"]] <- optadjset[[1]]
+      } else { # is actually real optimal adjustment set
+        adjsets[["OptAdjSet"]] <- optadjset[[1]]
+      }
     }
   }
   return(adjsets)
@@ -156,26 +158,34 @@ my_causal <- function(dag, modeldata, exposure, unobserved) {
   } else {
     adjsets <- get_adjsets(dag, exposure, outcome="Reported new cases COVID-19", unobserved)
   }
-  res <- my_negbin(modeldata, exposure=exposure, adjsets=adjsets)
-  res[["adjustmentsets"]] <- adjsets
+  if (length(adjsets)>0 | is.null(exposure)) {
+    res <- my_negbin(modeldata, exposure=exposure, adjsets=adjsets)
+    res[["adjustmentsets"]] <- adjsets
+  } else {
+    res <- NULL
+  }
   return(res)
 }
 
 # write final causal effects to csv
 write_cause <- function(res, exposure) {
-  whichmaxr2 <- which.max(res$pseudor2s)
-  whichminaic <- which.max(res$aics)
-  line <- paste0(exposure, ",", max(res$pseudor2s))
-  write(line, file=paste0(tablepath, "t_pseudor2s.csv"), append=TRUE)
-  line <- paste0(exposure, ",", min(res$aics))
-  write(line, file=paste0(tablepath, "t_aics.csv"), append=TRUE)
-  write_csv(res$causaleffects[[whichminaic]],
-            paste0(tablepath, "t_effects_",
-                   exposure, "_", 
-                   names(res$adjustmentsets[whichminaic]), ".csv"))
-  write(res$adjustmentsets[[whichminaic]],
-        paste0(tablepath, "t_adjust_",
-               exposure, "_", 
-               names(res$adjustmentsets[whichminaic]), ".csv"))
+  if (!is.null(res)) {
+    whichmaxr2 <- which.max(res$pseudor2s)
+    whichminaic <- which.max(res$aics)
+    line <- paste0(exposure, ",", max(res$pseudor2s))
+    write(line, file=paste0(tablepath, "t_pseudor2s.csv"), append=TRUE)
+    line <- paste0(exposure, ",", min(res$aics))
+    write(line, file=paste0(tablepath, "t_aics.csv"), append=TRUE)
+    write_csv(res$causaleffects[[whichminaic]],
+              paste0(tablepath, "t_effects_",
+                     exposure, "_", 
+                     names(res$adjustmentsets[whichminaic]), ".csv"))
+    write(res$adjustmentsets[[whichminaic]],
+          paste0(tablepath, "t_adjust_",
+                 exposure, "_", 
+                 names(res$adjustmentsets[whichminaic]), ".csv"))
+  } else {
+    cat("NO ADJUSTMENT SET FOR ", exposure, " (non-identifiable)\n")
+  }
   return(NULL)
 }
