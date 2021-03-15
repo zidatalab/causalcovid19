@@ -1,0 +1,511 @@
+GENESIS-Tabelle: 22411-01-01-4-B
+Einrichtungen, verfügbare Plätze, Personal - Stichtag - regionale Ebenen;;;;;;;;
+Pflegestatistik (Pflegeeinricht./Pflegebedürftige);;;;;;;;
+;;;Typ der Pflegeeinrichtung;Typ der Pflegeeinrichtung;Typ der Pflegeeinrichtung;Typ der Pflegeeinrichtung;Typ der Pflegeeinrichtung;Typ der Pflegeeinrichtung
+;;;ambulant;ambulant;stationär;stationär;stationär;stationär
+;;;Pflegedienste;Personal der Pflegedienste;Pflegeheime;Verfügbare Plätze in Pflegeheimen;Verfügbare Plätze i.Pflegeh.m.vollstat.Dauerpflege;Personal der Pflegeheime
+;;;Anzahl;Anzahl;Anzahl;Anzahl;Anzahl;Anzahl
+31.12.2017;01001;Flensburg, Kreisfreie Stadt;13;493;19;1129;1097;888
+31.12.2017;01002;Kiel, Landeshauptstadt, Kreisfreie Stadt;39;1680;36;2445;2196;1849
+31.12.2017;01003;Lübeck, Hansestadt, Kreisfreie Stadt;37;968;45;3503;3376;2596
+31.12.2017;01004;Neumünster, Kreisfreie Stadt;14;412;18;1361;1258;1004
+31.12.2017;01051;Dithmarschen, Landkreis;29;583;38;1898;1746;1680
+31.12.2017;01053;Herzogtum Lauenburg, Landkreis;45;1101;60;2705;2474;2178
+31.12.2017;01054;Nordfriesland, Landkreis;36;737;44;1987;1845;1637
+31.12.2017;01055;Ostholstein, Landkreis;31;698;56;3674;3547;2690
+31.12.2017;01056;Pinneberg, Landkreis;50;1245;57;3807;3608;2690
+31.12.2017;01057;Plön, Landkreis;12;354;25;1476;1286;1131
+31.12.2017;01058;Rendsburg-Eckernförde, Landkreis;35;927;68;3604;3313;2883
+31.12.2017;01059;Schleswig-Flensburg, Landkreis;29;1029;74;3169;2948;2608
+31.12.2017;01060;Segeberg, Landkreis;38;981;63;4133;3963;3237
+31.12.2017;01061;Steinburg, Landkreis;27;690;34;2031;1898;1642
+31.12.2017;01062;Stormarn, Landkreis;40;933;55;4014;3767;2884
+31.12.2017;02000;Hamburg;366;11217;201;18567;17454;14176
+31.12.2017;03101;Braunschweig, Kreisfreie Stadt;41;1206;34;3236;3127;2365
+31.12.2017;03102;Salzgitter, Kreisfreie Stadt;16;360;21;1714;1623;1202
+31.12.2017;03103;Wolfsburg, Kreisfreie Stadt;11;356;18;1342;1271;1060
+31.12.2017;03151;Gifhorn, Landkreis;23;835;34;2105;1931;1480
+31.12.2017;03152;Göttingen, Landkreis;-;-;-;-;-;-
+31.12.2017;03153;Goslar, Landkreis;25;726;49;3406;3244;2543
+31.12.2017;03154;Helmstedt, Landkreis;17;388;22;1765;1711;1234
+31.12.2017;03155;Northeim, Landkreis;29;782;37;2524;2328;1930
+31.12.2017;03156;Osterode am Harz, Landkreis;-;-;-;-;-;-
+31.12.2017;03157;Peine, Landkreis;20;506;31;2189;2065;1590
+31.12.2017;03158;Wolfenbüttel, Landkreis;18;487;17;1629;1558;1254
+31.12.2017;03159;Göttingen, Landkreis;55;1360;87;5701;5323;4193
+31.12.2017;03241;Region Hannover, Landkreis;198;7124;218;16349;15267;11633
+31.12.2017;03241001;Hannover, Landeshauptstadt;115;4920;92;7315;6948;5104
+31.12.2017;03251;Diepholz, Landkreis;44;1071;66;2908;2553;2367
+31.12.2017;03252;Hameln-Pyrmont, Landkreis;37;857;54;3049;2760;2491
+31.12.2017;03254;Hildesheim, Landkreis;57;1738;75;4728;4305;3605
+31.12.2017;03255;Holzminden, Landkreis;13;450;28;1473;1381;1093
+31.12.2017;03256;Nienburg (Weser), Landkreis;18;510;36;2114;1942;1701
+31.12.2017;03257;Schaumburg, Landkreis;28;1061;60;3537;3281;2720
+31.12.2017;03351;Celle, Landkreis;31;844;56;2960;2834;2335
+31.12.2017;03352;Cuxhaven, Landkreis;42;908;65;2907;2575;2633
+31.12.2017;03353;Harburg, Landkreis;30;1114;41;2744;2572;2141
+31.12.2017;03354;Lüchow-Dannenberg, Landkreis;11;306;18;971;880;807
+31.12.2017;03355;Lüneburg, Landkreis;36;848;42;2495;2396;2013
+31.12.2017;03356;Osterholz, Landkreis;21;455;31;1528;1456;1261
+31.12.2017;03357;Rotenburg (Wümme), Landkreis;18;566;45;2258;1996;1763
+31.12.2017;03358;Heidekreis, Landkreis;19;595;28;1959;1838;1489
+31.12.2017;03359;Stade, Landkreis;24;577;37;2530;2320;2249
+31.12.2017;03360;Uelzen, Landkreis;13;586;37;1923;1781;1356
+31.12.2017;03361;Verden, Landkreis;16;384;34;1966;1844;1600
+31.12.2017;03401;Delmenhorst, Kreisfreie Stadt;11;293;9;646;620;554
+31.12.2017;03402;Emden, Kreisfreie Stadt;9;192;10;579;542;513
+31.12.2017;03403;Oldenburg (Oldenburg), Kreisfreie Stadt;32;1426;28;1859;1773;1429
+31.12.2017;03404;Osnabrück, Kreisfreie Stadt;32;941;27;1590;1386;1537
+31.12.2017;03405;Wilhelmshaven, Kreisfreie Stadt;18;439;26;1253;1179;937
+31.12.2017;03451;Ammerland, Landkreis;18;609;23;1390;1339;1082
+31.12.2017;03452;Aurich, Landkreis;44;1345;40;2206;1815;1782
+31.12.2017;03453;Cloppenburg, Landkreis;20;562;33;1907;1716;1951
+31.12.2017;03454;Emsland, Landkreis;45;1790;69;3197;2567;2786
+31.12.2017;03455;Friesland, Landkreis;22;542;23;1366;1226;1166
+31.12.2017;03456;Grafschaft Bentheim, Landkreis;18;1088;34;1576;1375;1745
+31.12.2017;03457;Leer, Landkreis;30;936;33;1886;1677;1733
+31.12.2017;03458;Oldenburg, Landkreis;17;548;37;1867;1712;1716
+31.12.2017;03459;Osnabrück, Landkreis;46;1645;90;4419;3718;4305
+31.12.2017;03460;Vechta, Landkreis;12;529;29;1494;1266;1392
+31.12.2017;03461;Wesermarsch, Landkreis;14;524;29;1492;1372;1165
+31.12.2017;03462;Wittmund, Landkreis;13;304;12;755;656;630
+31.12.2017;04011;Bremen, Kreisfreie Stadt;93;3901;132;6577;5692;6031
+31.12.2017;04012;Bremerhaven, Kreisfreie Stadt;24;777;14;994;854;723
+31.12.2017;05111;Düsseldorf, Kreisfreie Stadt;115;2951;65;5334;5074;4315
+31.12.2017;05112;Duisburg, Kreisfreie Stadt;71;2017;77;5630;5358;4768
+31.12.2017;05113;Essen, Kreisfreie Stadt;86;2865;85;7377;7148;6687
+31.12.2017;05114;Krefeld, Kreisfreie Stadt;42;848;41;2456;2258;2661
+31.12.2017;05116;Mönchengladbach, Kreisfreie Stadt;40;1126;42;2615;2450;2696
+31.12.2017;05117;Mülheim an der Ruhr, Kreisfreie Stadt;32;1080;25;1945;1814;1698
+31.12.2017;05119;Oberhausen, Kreisfreie Stadt;42;1188;27;2311;2166;1857
+31.12.2017;05120;Remscheid, Kreisfreie Stadt;28;670;19;1138;1011;994
+31.12.2017;05122;Solingen, Kreisfreie Stadt;32;615;38;2075;1967;1883
+31.12.2017;05124;Wuppertal, Kreisfreie Stadt;75;1881;52;4020;3775;3810
+31.12.2017;05154;Kleve, Kreis;49;1725;58;3450;3283;3396
+31.12.2017;05158;Mettmann, Kreis;78;1789;65;5372;5094;4747
+31.12.2017;05162;Rhein-Kreis Neuss;61;1036;55;4159;3963;3510
+31.12.2017;05166;Viersen, Kreis;42;1034;41;2679;2475;2708
+31.12.2017;05170;Wesel, Kreis;63;1889;73;5082;4607;4784
+31.12.2017;05313;Aachen, Stadt (alt);-;-;-;-;-;-
+31.12.2017;05314;Bonn, Kreisfreie Stadt;40;1271;47;3217;3052;2993
+31.12.2017;05315;Köln, Kreisfreie Stadt;131;3922;108;8165;7866;7716
+31.12.2017;05316;Leverkusen, Kreisfreie Stadt;19;501;12;1414;1371;1264
+31.12.2017;05334;Städteregion Aachen (einschl. Stadt Aachen);79;2347;95;6210;5719;5965
+31.12.2017;05334002;Aachen, krfr. Stadt;33;1027;42;2549;2352;2637
+31.12.2017;05354;Aachen, Kreis;-;-;-;-;-;-
+31.12.2017;05358;Düren, Kreis;41;895;63;3221;2882;3050
+31.12.2017;05362;Rhein-Erft-Kreis;70;1637;59;4072;3816;3664
+31.12.2017;05366;Euskirchen, Kreis;35;974;42;2621;2484;2456
+31.12.2017;05370;Heinsberg, Kreis;41;1415;61;2983;2592;3249
+31.12.2017;05374;Oberbergischer Kreis;61;1535;62;3661;3460;3708
+31.12.2017;05378;Rheinisch-Bergischer Kreis;46;1322;40;2946;2665;2761
+31.12.2017;05382;Rhein-Sieg-Kreis;72;2034;86;5825;5588;5080
+31.12.2017;05512;Bottrop, Kreisfreie Stadt;22;494;19;1487;1415;1486
+31.12.2017;05513;Gelsenkirchen, Kreisfreie Stadt;34;1170;35;2974;2782;2562
+31.12.2017;05515;Münster, Kreisfreie Stadt;33;1554;46;3015;2718;2965
+31.12.2017;05554;Borken, Kreis;49;1780;76;3500;3046;3939
+31.12.2017;05558;Coesfeld, Kreis;31;878;46;2612;2371;2662
+31.12.2017;05562;Recklinghausen, Kreis;135;3723;111;7587;7042;7039
+31.12.2017;05566;Steinfurt, Kreis;64;2184;77;4399;3962;4532
+31.12.2017;05570;Warendorf, Kreis;36;1250;45;2742;2521;2852
+31.12.2017;05711;Bielefeld, Kreisfreie Stadt;58;2897;49;3227;2929;2934
+31.12.2017;05754;Gütersloh, Kreis;54;2176;62;3206;2682;2876
+31.12.2017;05758;Herford, Kreis;39;1406;37;2653;2534;2517
+31.12.2017;05762;Höxter, Kreis;26;748;27;1689;1530;1652
+31.12.2017;05766;Lippe, Kreis;45;1483;69;4373;4153;3687
+31.12.2017;05770;Minden-Lübbecke, Kreis;51;1592;65;4088;3720;3419
+31.12.2017;05774;Paderborn, Kreis;33;1126;51;2964;2655;2984
+31.12.2017;05911;Bochum, Kreisfreie Stadt;61;2203;41;3864;3629;3234
+31.12.2017;05913;Dortmund, Kreisfreie Stadt;115;3532;72;6005;5669;4966
+31.12.2017;05914;Hagen, Kreisfreie Stadt;38;1031;25;2262;2148;1882
+31.12.2017;05915;Hamm, Kreisfreie Stadt;33;887;35;2130;1996;2000
+31.12.2017;05916;Herne, Kreisfreie Stadt;23;654;29;2029;1834;1582
+31.12.2017;05954;Ennepe-Ruhr-Kreis;63;1615;48;4033;3835;3456
+31.12.2017;05958;Hochsauerlandkreis;39;1288;51;3012;2757;2860
+31.12.2017;05962;Märkischer Kreis;72;1585;72;4834;4565;4273
+31.12.2017;05966;Olpe, Kreis;17;588;28;1366;1245;1441
+31.12.2017;05970;Siegen-Wittgenstein, Kreis;37;1306;45;2451;2152;2346
+31.12.2017;05974;Soest, Kreis;42;1314;62;4241;3960;3378
+31.12.2017;05978;Unna, Kreis;82;2833;63;4426;4160;3944
+31.12.2017;06411;Darmstadt, Kreisfreie Stadt;28;919;16;1243;1153;1101
+31.12.2017;06412;Frankfurt am Main, Kreisfreie Stadt;184;4608;59;5326;4941;4230
+31.12.2017;06413;Offenbach am Main, Kreisfreie Stadt;34;575;11;1003;935;736
+31.12.2017;06414;Wiesbaden, Landeshauptstadt, Kreisfreie Stadt;68;1193;31;2478;2420;1859
+31.12.2017;06431;Bergstraße, Landkreis;52;1533;38;2989;2930;2276
+31.12.2017;06432;Darmstadt-Dieburg, Landkreis;35;936;31;2340;2172;1869
+31.12.2017;06433;Groß-Gerau, Landkreis;28;825;24;2054;1953;1737
+31.12.2017;06434;Hochtaunuskreis;28;530;32;2750;2669;1897
+31.12.2017;06435;Main-Kinzig-Kreis;63;1374;58;3875;3524;3184
+31.12.2017;06436;Main-Taunus-Kreis;43;938;23;1762;1637;1285
+31.12.2017;06437;Odenwaldkreis;17;563;25;1396;1336;1136
+31.12.2017;06438;Offenbach, Landkreis;50;838;28;2691;2519;2140
+31.12.2017;06439;Rheingau-Taunus-Kreis;30;613;23;1726;1670;1389
+31.12.2017;06440;Wetteraukreis;40;983;46;3780;3627;2693
+31.12.2017;06531;Gießen, Landkreis;44;1014;37;2778;2598;2002
+31.12.2017;06532;Lahn-Dill-Kreis;46;1144;51;3177;2932;2793
+31.12.2017;06533;Limburg-Weilburg, Landkreis;37;722;32;1872;1720;1512
+31.12.2017;06534;Marburg-Biedenkopf, Landkreis;53;1704;44;2446;2289;2216
+31.12.2017;06535;Vogelsbergkreis;17;521;24;1580;1444;1142
+31.12.2017;06611;Kassel, Kreisfreie Stadt;58;1945;31;2053;1892;1583
+31.12.2017;06631;Fulda, Landkreis;43;958;45;3045;2707;2695
+31.12.2017;06632;Hersfeld-Rotenburg, Landkreis;18;515;21;1579;1513;1367
+31.12.2017;06633;Kassel, Landkreis;61;1218;63;3764;3275;2908
+31.12.2017;06634;Schwalm-Eder-Kreis;50;902;38;2568;2386;2060
+31.12.2017;06635;Waldeck-Frankenberg, Landkreis;28;905;44;2621;2331;2192
+31.12.2017;06636;Werra-Meißner-Kreis;31;702;30;1834;1765;1440
+31.12.2017;07111;Koblenz, Kreisfreie Stadt;22;989;17;1745;1658;1357
+31.12.2017;07131;Ahrweiler, Landkreis;24;596;18;1660;1559;1440
+31.12.2017;07132;Altenkirchen (Westerwald), Landkreis;18;553;19;1469;1338;1162
+31.12.2017;07133;Bad Kreuznach, Landkreis;17;627;20;1707;1583;1254
+31.12.2017;07134;Birkenfeld, Landkreis;9;217;17;1162;1092;879
+31.12.2017;07135;Cochem-Zell, Landkreis;10;430;13;979;901;758
+31.12.2017;07137;Mayen-Koblenz, Landkreis;27;789;28;2359;2097;2012
+31.12.2017;07138;Neuwied, Landkreis;25;623;30;2369;2252;1942
+31.12.2017;07140;Rhein-Hunsrück-Kreis;11;353;16;1292;1158;1029
+31.12.2017;07141;Rhein-Lahn-Kreis;11;333;15;1333;1286;1074
+31.12.2017;07143;Westerwaldkreis;31;952;29;2430;2265;1946
+31.12.2017;07211;Trier, Kreisfreie Stadt;13;399;12;1110;1022;977
+31.12.2017;07231;Bernkastel-Wittlich, Landkreis;19;445;21;1383;1252;1161
+31.12.2017;07232;Eifelkreis Bitburg-Prüm;9;406;16;1035;959;835
+31.12.2017;07233;Vulkaneifel, Landkreis;11;243;14;845;770;636
+31.12.2017;07235;Trier-Saarburg, Landkreis;15;329;16;1673;1557;1334
+31.12.2017;07311;Frankenthal (Pfalz), Kreisfreie Stadt;8;194;6;643;604;383
+31.12.2017;07312;Kaiserslautern, Kreisfreie Stadt;15;349;13;1237;1161;910
+31.12.2017;07313;Landau in der Pfalz, Kreisfreie Stadt;7;349;5;526;465;359
+31.12.2017;07314;Ludwigshafen am Rhein, Kreisfreie Stadt;24;692;15;1595;1496;1007
+31.12.2017;07315;Mainz, Kreisfreie Stadt;24;856;20;1836;1750;1434
+31.12.2017;07316;Neustadt an der Weinstraße, Kreisfreie Stadt;9;286;6;563;516;412
+31.12.2017;07317;Pirmasens, Kreisfreie Stadt;10;354;6;684;674;566
+31.12.2017;07318;Speyer, Kreisfreie Stadt;10;227;10;919;880;779
+31.12.2017;07319;Worms, Kreisfreie Stadt;10;278;17;1167;1075;790
+31.12.2017;07320;Zweibrücken, Kreisfreie Stadt;3;118;3;339;320;266
+31.12.2017;07331;Alzey-Worms, Landkreis;13;330;15;1072;1009;792
+31.12.2017;07332;Bad Dürkheim, Landkreis;13;316;16;1708;1633;1028
+31.12.2017;07333;Donnersbergkreis;8;225;12;1013;981;749
+31.12.2017;07334;Germersheim, Landkreis;11;344;13;1001;914;809
+31.12.2017;07335;Kaiserslautern, Landkreis;11;427;14;916;849;706
+31.12.2017;07336;Kusel, Landkreis;5;238;9;781;740;550
+31.12.2017;07337;Südliche Weinstraße, Landkreis;8;246;13;862;754;580
+31.12.2017;07338;Rhein-Pfalz-Kreis;17;480;15;1353;1252;1030
+31.12.2017;07339;Mainz-Bingen, Landkreis;26;434;20;1867;1800;1363
+31.12.2017;07340;Südwestpfalz, Landkreis;12;315;10;839;787;620
+31.12.2017;08111;Stuttgart, Landeshauptstadt, Stadtkreis;64;1621;71;5532;5187;4927
+31.12.2017;08115;Böblingen, Landkreis;30;893;55;3190;2902;3047
+31.12.2017;08116;Esslingen, Landkreis;47;1691;71;4823;4543;4160
+31.12.2017;08117;Göppingen, Landkreis;35;972;42;2537;2350;2363
+31.12.2017;08118;Ludwigsburg, Landkreis;45;1582;85;5232;4995;4548
+31.12.2017;08119;Rems-Murr-Kreis, Landkreis;39;1443;69;4194;3951;3883
+31.12.2017;08121;Heilbronn, Stadtkreis;13;494;19;1734;1651;1289
+31.12.2017;08125;Heilbronn, Landkreis;36;1077;59;3456;3199;2775
+31.12.2017;08126;Hohenlohekreis, Landkreis;10;405;27;1354;1264;1167
+31.12.2017;08127;Schwäbisch Hall, Landkreis;12;758;39;2008;1912;1783
+31.12.2017;08128;Main-Tauber-Kreis, Landkreis;15;549;29;1802;1676;1654
+31.12.2017;08135;Heidenheim, Landkreis;14;359;23;1478;1322;1299
+31.12.2017;08136;Ostalbkreis, Landkreis;31;862;57;3144;2973;2985
+31.12.2017;08211;Baden-Baden, Stadtkreis;9;186;16;892;818;820
+31.12.2017;08212;Karlsruhe, Stadtkreis;32;802;48;3222;3060;2974
+31.12.2017;08215;Karlsruhe, Landkreis;50;1520;72;4859;4363;4056
+31.12.2017;08216;Rastatt, Landkreis;22;603;28;2016;1868;1658
+31.12.2017;08221;Heidelberg, Stadtkreis;20;718;14;1288;1238;1200
+31.12.2017;08222;Mannheim, Stadtkreis;43;966;37;3279;3109;2691
+31.12.2017;08225;Neckar-Odenwald-Kreis, Landkreis;18;698;36;1965;1787;1649
+31.12.2017;08226;Rhein-Neckar-Kreis, Landkreis;53;1800;81;5361;5081;4876
+31.12.2017;08231;Pforzheim, Stadtkreis;17;355;20;1823;1722;1660
+31.12.2017;08235;Calw, Landkreis;15;577;32;1835;1744;1680
+31.12.2017;08236;Enzkreis, Landkreis;30;964;35;2087;1749;2113
+31.12.2017;08237;Freudenstadt, Landkreis;15;336;33;1549;1408;1381
+31.12.2017;08311;Freiburg im Breisgau, Stadtkreis;23;611;24;2048;1978;2028
+31.12.2017;08315;Breisgau-Hochschwarzwald, Landkreis;21;776;39;2304;2111;2061
+31.12.2017;08316;Emmendingen, Landkreis;23;591;24;1508;1380;1439
+31.12.2017;08317;Ortenaukreis, Landkreis;45;1468;89;5025;4481;4903
+31.12.2017;08325;Rottweil, Landkreis;15;334;28;1425;1292;1367
+31.12.2017;08326;Schwarzwald-Baar-Kreis, Landkreis;21;817;33;2559;2326;2182
+31.12.2017;08327;Tuttlingen, Landkreis;12;281;19;1249;1103;1211
+31.12.2017;08335;Konstanz, Landkreis;35;937;39;2730;2531;2504
+31.12.2017;08336;Lörrach, Landkreis;17;587;32;2220;2101;2221
+31.12.2017;08337;Waldshut, Landkreis;10;473;34;1881;1705;1514
+31.12.2017;08415;Reutlingen, Landkreis;26;773;48;2446;2241;2484
+31.12.2017;08416;Tübingen, Landkreis;23;652;37;1683;1484;1577
+31.12.2017;08417;Zollernalbkreis, Landkreis;27;751;39;1944;1764;1750
+31.12.2017;08421;Ulm, Stadtkreis;15;391;19;1449;1302;1179
+31.12.2017;08425;Alb-Donau-Kreis, Landkreis;15;454;34;1806;1524;1542
+31.12.2017;08426;Biberach, Landkreis;15;478;34;1782;1557;1713
+31.12.2017;08435;Bodenseekreis, Landkreis;21;717;36;1914;1741;1763
+31.12.2017;08436;Ravensburg, Landkreis;32;829;44;2454;2285;2347
+31.12.2017;08437;Sigmaringen, Landkreis;11;536;27;1158;1021;1113
+31.12.2017;09161;Ingolstadt;16;348;15;1223;1170;988
+31.12.2017;09162;München, Landeshauptstadt;258;6795;71;7820;7479;5926
+31.12.2017;09163;Rosenheim;11;244;5;489;468;307
+31.12.2017;09171;Altötting, Landkreis;13;518;22;1509;1418;1278
+31.12.2017;09172;Berchtesgadener Land, Landkreis;16;334;18;1405;1318;1020
+31.12.2017;09173;Bad Tölz-Wolfratshausen, Landkreis;18;310;15;1044;1014;836
+31.12.2017;09174;Dachau, Landkreis;17;388;16;1630;1593;1153
+31.12.2017;09175;Ebersberg, Landkreis;21;305;15;1159;1114;969
+31.12.2017;09176;Eichstätt, Landkreis;8;279;18;935;818;772
+31.12.2017;09177;Erding, Landkreis;11;182;15;1111;1053;933
+31.12.2017;09178;Freising, Landkreis;15;371;16;1167;1118;845
+31.12.2017;09179;Fürstenfeldbruck, Landkreis;30;614;24;2143;1854;1518
+31.12.2017;09180;Garmisch-Partenkirchen, Landkreis;17;302;16;1046;951;662
+31.12.2017;09181;Landsberg am Lech, Landkreis;16;453;14;679;622;784
+31.12.2017;09182;Miesbach, Landkreis;17;243;10;999;977;688
+31.12.2017;09183;Mühldorf a.Inn, Landkreis;12;267;20;1606;1561;1426
+31.12.2017;09184;München, Landkreis;61;1258;41;3517;3349;2679
+31.12.2017;09185;Neuburg-Schrobenhausen, Landkreis;12;271;13;906;855;640
+31.12.2017;09186;Pfaffenhofen a.d.Ilm, Landkreis;13;201;14;1113;1068;764
+31.12.2017;09187;Rosenheim, Landkreis;45;968;59;3758;3658;3078
+31.12.2017;09188;Starnberg, Landkreis;31;511;19;1221;1156;887
+31.12.2017;09189;Traunstein, Landkreis;20;734;27;2024;1989;1491
+31.12.2017;09190;Weilheim-Schongau, Landkreis;14;513;18;1185;1095;1015
+31.12.2017;09261;Landshut;8;237;11;1258;1232;975
+31.12.2017;09262;Passau;15;506;12;992;977;827
+31.12.2017;09263;Straubing;5;180;9;890;864;653
+31.12.2017;09271;Deggendorf, Landkreis;22;423;19;1627;1578;1270
+31.12.2017;09272;Freyung-Grafenau, Landkreis;15;375;14;803;799;751
+31.12.2017;09273;Kelheim, Landkreis;17;1031;13;1140;1119;809
+31.12.2017;09274;Landshut, Landkreis;12;238;22;1345;1279;1077
+31.12.2017;09275;Passau, Landkreis;40;1095;35;2399;2228;1938
+31.12.2017;09276;Regen, Landkreis;9;223;15;862;806;816
+31.12.2017;09277;Rottal-Inn, Landkreis;24;883;24;1497;1365;1307
+31.12.2017;09278;Straubing-Bogen, Landkreis;14;581;11;704;662;670
+31.12.2017;09279;Dingolfing-Landau, Landkreis;17;701;16;929;818;784
+31.12.2017;09361;Amberg;8;167;8;707;692;610
+31.12.2017;09362;Regensburg;25;980;24;1880;1851;1491
+31.12.2017;09363;Weiden i.d.OPf.;7;374;9;729;699;554
+31.12.2017;09371;Amberg-Sulzbach, Landkreis;12;433;18;1299;1282;1084
+31.12.2017;09372;Cham, Landkreis;24;828;30;1654;1510;1341
+31.12.2017;09373;Neumarkt i.d.OPf., Landkreis;10;351;27;1513;1418;1345
+31.12.2017;09374;Neustadt a.d.Waldnaab, Landkreis;17;752;24;1261;1150;960
+31.12.2017;09375;Regensburg, Landkreis;20;366;29;2097;1973;1600
+31.12.2017;09376;Schwandorf, Landkreis;25;727;22;1906;1874;1446
+31.12.2017;09377;Tirschenreuth, Landkreis;16;409;13;1129;1109;927
+31.12.2017;09461;Bamberg;12;364;14;1042;958;880
+31.12.2017;09462;Bayreuth;10;202;15;1246;1216;993
+31.12.2017;09463;Coburg;9;286;10;690;658;537
+31.12.2017;09464;Hof;9;200;10;871;845;719
+31.12.2017;09471;Bamberg, Landkreis;23;357;33;1603;1392;1137
+31.12.2017;09472;Bayreuth, Landkreis;20;482;22;1491;1196;1022
+31.12.2017;09473;Coburg, Landkreis;16;210;13;1074;1059;765
+31.12.2017;09474;Forchheim, Landkreis;15;401;24;1150;980;880
+31.12.2017;09475;Hof, Landkreis;11;305;20;1614;1587;1256
+31.12.2017;09476;Kronach, Landkreis;20;411;16;895;729;802
+31.12.2017;09477;Kulmbach, Landkreis;19;715;13;950;935;897
+31.12.2017;09478;Lichtenfels, Landkreis;11;272;15;1069;1035;823
+31.12.2017;09479;Wunsiedel i.Fichtelgebirge, Landkreis;21;397;15;1101;1063;801
+31.12.2017;09561;Ansbach;10;401;9;742;720;515
+31.12.2017;09562;Erlangen;16;547;14;1175;1135;884
+31.12.2017;09563;Fürth;16;233;12;1342;1315;971
+31.12.2017;09564;Nürnberg;99;2489;64;5940;5716;4312
+31.12.2017;09565;Schwabach;5;126;8;486;474;411
+31.12.2017;09571;Ansbach, Landkreis;31;695;31;1943;1786;1604
+31.12.2017;09572;Erlangen-Höchstadt, Landkreis;10;226;15;1287;1215;816
+31.12.2017;09573;Fürth, Landkreis;20;600;16;1352;1289;1060
+31.12.2017;09574;Nürnberger Land, Landkreis;27;680;27;1882;1776;1373
+31.12.2017;09575;Neustadt a.d.Aisch-Bad Windsheim, Landkreis;14;383;20;1241;1078;976
+31.12.2017;09576;Roth, Landkreis;21;713;17;1118;1035;1026
+31.12.2017;09577;Weißenburg-Gunzenhausen, Landkreis;16;481;17;1038;1004;859
+31.12.2017;09661;Aschaffenburg;14;363;8;756;701;624
+31.12.2017;09662;Schweinfurt;9;275;8;900;880;748
+31.12.2017;09663;Würzburg;22;484;32;2040;1948;1511
+31.12.2017;09671;Aschaffenburg, Landkreis;26;493;25;1488;1244;1120
+31.12.2017;09672;Bad Kissingen, Landkreis;25;601;35;1649;1548;1241
+31.12.2017;09673;Rhön-Grabfeld, Landkreis;17;437;19;1136;1054;868
+31.12.2017;09674;Haßberge, Landkreis;11;400;15;758;636;646
+31.12.2017;09675;Kitzingen, Landkreis;14;259;15;1061;1017;848
+31.12.2017;09676;Miltenberg, Landkreis;15;440;22;1324;1155;1210
+31.12.2017;09677;Main-Spessart, Landkreis;20;806;16;1480;1432;1161
+31.12.2017;09678;Schweinfurt, Landkreis;11;230;19;1228;1118;926
+31.12.2017;09679;Würzburg, Landkreis;21;518;29;1297;1012;769
+31.12.2017;09761;Augsburg;59;1764;39;3230;3051;2509
+31.12.2017;09762;Kaufbeuren;10;198;8;585;546;526
+31.12.2017;09763;Kempten (Allgäu);16;402;9;733;693;605
+31.12.2017;09764;Memmingen;9;364;6;473;467;435
+31.12.2017;09771;Aichach-Friedberg, Landkreis;7;218;16;926;880;706
+31.12.2017;09772;Augsburg, Landkreis;26;825;36;2213;2019;1853
+31.12.2017;09773;Dillingen a.d.Donau, Landkreis;7;202;13;1174;1141;874
+31.12.2017;09774;Günzburg, Landkreis;17;290;19;1176;1090;985
+31.12.2017;09775;Neu-Ulm, Landkreis;21;425;16;1526;1482;1162
+31.12.2017;09776;Lindau (Bodensee), Landkreis;9;300;16;1144;1078;934
+31.12.2017;09777;Ostallgäu, Landkreis;16;426;18;1138;1075;961
+31.12.2017;09778;Unterallgäu, Landkreis;26;348;25;1473;1368;1263
+31.12.2017;09779;Donau-Ries, Landkreis;13;580;16;1108;1014;960
+31.12.2017;09780;Oberallgäu, Landkreis;20;365;29;1481;1305;1099
+31.12.2017;10041;Saarbrücken, Regionalverband;41;1382;55;4579;4222;3591
+31.12.2017;10041100;Saarbrücken, Landeshauptstadt;23;851;24;2258;2130;1565
+31.12.2017;10042;Merzig-Wadern, Landkreis;11;319;25;1800;1629;1264
+31.12.2017;10043;Neunkirchen, Landkreis;15;506;28;2042;1894;1711
+31.12.2017;10044;Saarlouis, Landkreis;28;765;29;2217;1909;1735
+31.12.2017;10045;Saarpfalz-Kreis;17;481;21;1815;1671;1274
+31.12.2017;10046;St. Wendel, Landkreis;10;409;22;1172;1022;1114
+31.12.2017;11000;Berlin;613;22308;391;35103;32918;22511
+31.12.2017;11001001;Berlin-Mitte;65;1939;31;3064;2847;1827
+31.12.2017;11002002;Berlin-Friedrichshain-Kreuzberg;41;2229;20;2062;1922;1240
+31.12.2017;11003003;Berlin-Pankow;48;1817;41;3809;3601;2537
+31.12.2017;11004004;Berlin-Charlottenburg-Wilmersdorf;124;4071;42;2979;2751;1943
+31.12.2017;11005005;Berlin-Spandau;43;1528;30;2824;2581;1973
+31.12.2017;11006006;Berlin-Steglitz-Zehlendorf;43;1410;62;4846;4598;3146
+31.12.2017;11007007;Berlin-Tempelhof-Schöneberg;64;1995;34;2343;2166;1623
+31.12.2017;11008008;Berlin-Neukölln;38;1261;22;2326;2147;1344
+31.12.2017;11009009;Berlin-Treptow-Köpenick;32;1183;27;2890;2768;1870
+31.12.2017;11010010;Berlin-Marzahn-Hellersdorf;38;1550;23;2204;2051;1505
+31.12.2017;11011011;Berlin-Lichtenberg;37;1418;37;3182;2995;1885
+31.12.2017;11012012;Berlin-Reinickendorf;40;1907;22;2574;2491;1618
+31.12.2017;12051;Brandenburg an der Havel, Kreisfreie Stadt;19;895;17;907;717;590
+31.12.2017;12052;Cottbus, Kreisfreie Stadt;24;546;21;1342;1150;948
+31.12.2017;12053;Frankfurt (Oder), Kreisfreie Stadt;17;370;14;913;832;747
+31.12.2017;12054;Potsdam, Kreisfreie Stadt;31;656;28;1830;1676;1083
+31.12.2017;12060;Barnim, Landkreis;52;1245;43;2638;2412;1745
+31.12.2017;12061;Dahme-Spreewald, Landkreis;49;927;35;1751;1444;1091
+31.12.2017;12062;Elbe-Elster, Landkreis;46;1266;24;1176;948;690
+31.12.2017;12063;Havelland, Landkreis;43;987;27;1450;1265;984
+31.12.2017;12064;Märkisch-Oderland, Landkreis;49;1158;45;2359;1958;1535
+31.12.2017;12065;Oberhavel, Landkreis;52;1223;35;2234;1931;1462
+31.12.2017;12066;Oberspreewald-Lausitz, Landkreis;34;665;25;1500;1277;1098
+31.12.2017;12067;Oder-Spree, Landkreis;41;1239;28;1984;1777;1424
+31.12.2017;12068;Ostprignitz-Ruppin, Landkreis;46;1097;26;1335;1087;918
+31.12.2017;12069;Potsdam-Mittelmark, Landkreis;47;1179;35;2276;1967;1326
+31.12.2017;12070;Prignitz, Landkreis;29;764;28;1332;1054;852
+31.12.2017;12071;Spree-Neiße, Landkreis;34;718;31;1326;1115;971
+31.12.2017;12072;Teltow-Fläming, Landkreis;43;996;29;1996;1773;1351
+31.12.2017;12073;Uckermark, Landkreis;66;1643;32;1428;1120;999
+31.12.2017;13001;Kreisfreie Stadt Greifswald, Hansestadt;-;-;-;-;-;-
+31.12.2017;13002;Kreisfreie Stadt Neubrandenburg, Stadt;-;-;-;-;-;-
+31.12.2017;13003;Kreisfreie Stadt Rostock, Hansestadt;46;1139;41;2743;2400;1654
+31.12.2017;13004;Kreisfreie Stadt Schwerin, Landeshauptstadt;25;607;23;1634;1452;1106
+31.12.2017;13005;Kreisfreie Stadt Stralsund, Hansestadt;-;-;-;-;-;-
+31.12.2017;13006;Kreisfreie Stadt Wismar, Hansestadt;-;-;-;-;-;-
+31.12.2017;13051;Landkreis Bad Doberan;-;-;-;-;-;-
+31.12.2017;13052;Landkreis Demmin;-;-;-;-;-;-
+31.12.2017;13053;Landkreis Güstrow;-;-;-;-;-;-
+31.12.2017;13054;Landkreis Ludwigslust;-;-;-;-;-;-
+31.12.2017;13055;Landkreis Mecklenburg-Strelitz;-;-;-;-;-;-
+31.12.2017;13056;Landkreis Müritz;-;-;-;-;-;-
+31.12.2017;13057;Landkreis Nordvorpommern;-;-;-;-;-;-
+31.12.2017;13058;Landkreis Nordwestmecklenburg;-;-;-;-;-;-
+31.12.2017;13059;Landkreis Ostvorpommern;-;-;-;-;-;-
+31.12.2017;13060;Landkreis Parchim;-;-;-;-;-;-
+31.12.2017;13061;Landkreis Rügen;-;-;-;-;-;-
+31.12.2017;13062;Landkreis Uecker-Randow;-;-;-;-;-;-
+31.12.2017;13071;Landkreis Mecklenburgische Seenplatte;91;2154;79;3850;3113;2674
+31.12.2017;13072;Landkreis Rostock;62;1318;67;3214;2667;2085
+31.12.2017;13073;Landkreis Vorpommern-Rügen;79;1765;63;3231;2703;2053
+31.12.2017;13074;Landkreis Nordwestmecklenburg;35;638;34;2079;1842;1520
+31.12.2017;13075;Landkreis Vorpommern-Greifswald;90;2375;72;3813;3195;2409
+31.12.2017;13076;Landkreis Ludwigslust-Parchim;61;1203;67;3011;2471;2062
+31.12.2017;14161;Chemnitz, Kreisfreie Stadt;-;-;-;-;-;-
+31.12.2017;14166;Plauen, Kreisfreie Stadt;-;-;-;-;-;-
+31.12.2017;14167;Zwickau, Kreisfreie Stadt;-;-;-;-;-;-
+31.12.2017;14171;Annaberg, Landkreis;-;-;-;-;-;-
+31.12.2017;14173;Chemnitzer Land, Landkreis;-;-;-;-;-;-
+31.12.2017;14177;Freiberg, Landkreis;-;-;-;-;-;-
+31.12.2017;14178;Vogtlandkreis;-;-;-;-;-;-
+31.12.2017;14181;Mittlerer Erzgebirgskreis;-;-;-;-;-;-
+31.12.2017;14182;Mittweida, Landkreis;-;-;-;-;-;-
+31.12.2017;14188;Stollberg, Landkreis;-;-;-;-;-;-
+31.12.2017;14191;Aue-Schwarzenberg, Landkreis;-;-;-;-;-;-
+31.12.2017;14193;Zwickauer Land, Landkreis;-;-;-;-;-;-
+31.12.2017;14262;Dresden, Kreisfreie Stadt;-;-;-;-;-;-
+31.12.2017;14263;Görlitz, Kreisfreie Stadt;-;-;-;-;-;-
+31.12.2017;14264;Hoyerswerda, Kreisfreie Stadt;-;-;-;-;-;-
+31.12.2017;14272;Bautzen, Landkreis;-;-;-;-;-;-
+31.12.2017;14280;Meißen, Landkreis;-;-;-;-;-;-
+31.12.2017;14284;Niederschlesischer Oberlausitzkreis;-;-;-;-;-;-
+31.12.2017;14285;Riesa-Großenhain, Landkreis;-;-;-;-;-;-
+31.12.2017;14286;Löbau-Zittau, Landkreis;-;-;-;-;-;-
+31.12.2017;14287;Sächsische Schweiz, Landkreis;-;-;-;-;-;-
+31.12.2017;14290;Weißeritzkreis;-;-;-;-;-;-
+31.12.2017;14292;Kamenz, Landkreis;-;-;-;-;-;-
+31.12.2017;14365;Leipzig, Kreisfreie Stadt;-;-;-;-;-;-
+31.12.2017;14374;Delitzsch, Landkreis;-;-;-;-;-;-
+31.12.2017;14375;Döbeln, Landkreis;-;-;-;-;-;-
+31.12.2017;14379;Leipziger Land, Landkreis;-;-;-;-;-;-
+31.12.2017;14383;Muldentalkreis;-;-;-;-;-;-
+31.12.2017;14389;Torgau-Oschatz, Landkreis;-;-;-;-;-;-
+31.12.2017;14511;Chemnitz, Stadt;60;1493;43;3724;3437;2651
+31.12.2017;14521;Erzgebirgskreis;116;2852;89;5196;4651;4046
+31.12.2017;14522;Mittelsachsen, Landkreis;92;2098;89;4586;4077;3518
+31.12.2017;14523;Vogtlandkreis;82;1662;62;3627;3381;2629
+31.12.2017;14524;Zwickau, Landkreis;105;2505;86;5239;4676;3494
+31.12.2017;14612;Dresden, Stadt;112;2450;93;6608;5953;4439
+31.12.2017;14625;Bautzen, Landkreis;84;2076;83;4331;3685;3324
+31.12.2017;14626;Görlitz, Landkreis;87;2574;92;4180;3666;3189
+31.12.2017;14627;Meißen, Landkreis;70;1586;63;3267;2680;2216
+31.12.2017;14628;Sächsische Schweiz-Osterzgebirge, Landkreis;56;1342;66;3881;3445;2685
+31.12.2017;14713;Leipzig, Stadt;119;3480;89;7287;6690;4567
+31.12.2017;14729;Leipzig, Landkreis;77;1507;56;3393;3134;2383
+31.12.2017;14730;Nordsachsen, Landkreis;61;1149;59;2882;2499;2170
+31.12.2017;15001;Dessau-Roßlau, Kreisfreie Stadt;29;524;24;1461;1342;950
+31.12.2017;15002;Halle (Saale), Kreisfreie Stadt;69;1584;63;3227;2918;1966
+31.12.2017;15003;Magdeburg, Kreisfreie Stadt;43;919;50;3641;3365;2225
+31.12.2017;15081;Altmarkkreis Salzwedel;16;256;23;1193;1094;891
+31.12.2017;15082;Anhalt-Bitterfeld, Landkreis;52;1165;48;2403;1980;1523
+31.12.2017;15083;Börde, Landkreis;37;701;47;2503;2256;1633
+31.12.2017;15084;Burgenlandkreis;63;1017;54;3024;2712;2000
+31.12.2017;15085;Harz, Landkreis;63;1230;87;4354;3803;2963
+31.12.2017;15086;Jerichower Land, Landkreis;19;322;29;1604;1524;1145
+31.12.2017;15087;Mansfeld-Südharz, Landkreis;45;946;44;2192;1966;1631
+31.12.2017;15088;Saalekreis;63;1096;36;1813;1570;1156
+31.12.2017;15089;Salzlandkreis;54;947;72;3534;3243;2364
+31.12.2017;15090;Stendal, Landkreis;28;779;31;1785;1591;1124
+31.12.2017;15091;Wittenberg, Landkreis;32;709;25;1657;1454;1059
+31.12.2017;15101;Dessau, Kreisfreie Stadt;-;-;-;-;-;-
+31.12.2017;15151;Anhalt-Zerbst, Kreis;-;-;-;-;-;-
+31.12.2017;15153;Bernburg, Kreis;-;-;-;-;-;-
+31.12.2017;15154;Bitterfeld, Kreis;-;-;-;-;-;-
+31.12.2017;15159;Köthen, Kreis;-;-;-;-;-;-
+31.12.2017;15171;Wittenberg, Kreis;-;-;-;-;-;-
+31.12.2017;15202;Halle (Saale), Kreisfreie Stadt;-;-;-;-;-;-
+31.12.2017;15256;Burgenlandkreis;-;-;-;-;-;-
+31.12.2017;15260;Mansfelder Land, Kreis;-;-;-;-;-;-
+31.12.2017;15261;Merseburg-Querfurt, Kreis;-;-;-;-;-;-
+31.12.2017;15265;Saalkreis;-;-;-;-;-;-
+31.12.2017;15266;Sangerhausen, Kreis;-;-;-;-;-;-
+31.12.2017;15268;Weißenfels, Kreis;-;-;-;-;-;-
+31.12.2017;15303;Magdeburg, Kreisfreie Stadt;-;-;-;-;-;-
+31.12.2017;15352;Aschersleben-Staßfurt, Kreis;-;-;-;-;-;-
+31.12.2017;15355;Bördekreis;-;-;-;-;-;-
+31.12.2017;15357;Halberstadt, Kreis;-;-;-;-;-;-
+31.12.2017;15358;Jerichower Land, Kreis;-;-;-;-;-;-
+31.12.2017;15362;Ohrekreis;-;-;-;-;-;-
+31.12.2017;15363;Stendal, Kreis;-;-;-;-;-;-
+31.12.2017;15364;Quedlinburg, Kreis;-;-;-;-;-;-
+31.12.2017;15367;Schönebeck, Kreis;-;-;-;-;-;-
+31.12.2017;15369;Wernigerode, Kreis;-;-;-;-;-;-
+31.12.2017;15370;Altmarkkreis Salzwedel, Kreis;-;-;-;-;-;-
+31.12.2017;16051;Erfurt, krsfr. Stadt;34;1133;31;2736;2531;1840
+31.12.2017;16052;Gera, krsfr. Stadt;20;888;17;1380;1278;931
+31.12.2017;16053;Jena, krsfr. Stadt;15;830;15;1313;1238;856
+31.12.2017;16054;Suhl, krsfr. Stadt;9;263;10;549;477;410
+31.12.2017;16055;Weimar, krsfr. Stadt;20;553;21;1065;931;734
+31.12.2017;16056;Eisenach, krsfr. Stadt;10;243;12;706;686;525
+31.12.2017;16061;Eichsfeld, Kreis;19;499;31;1333;1041;962
+31.12.2017;16062;Nordhausen, Kreis;19;505;28;1696;1538;1237
+31.12.2017;16063;Wartburgkreis;20;396;20;1333;1309;1046
+31.12.2017;16064;Unstrut-Hainich-Kreis;25;548;32;1729;1512;1202
+31.12.2017;16065;Kyffhäuserkreis;16;379;24;1226;1065;809
+31.12.2017;16066;Schmalkalden-Meiningen, Kreis;25;714;29;1588;1431;1229
+31.12.2017;16067;Gotha, Kreis;32;597;26;1579;1493;1064
+31.12.2017;16068;Sömmerda, Kreis;20;404;17;849;708;468
+31.12.2017;16069;Hildburghausen, Kreis;10;195;19;1006;912;783
+31.12.2017;16070;Ilm-Kreis;20;477;23;1329;1198;907
+31.12.2017;16071;Weimarer Land, Kreis;10;198;13;1012;958;670
+31.12.2017;16072;Sonneberg, Kreis;9;338;17;864;716;537
+31.12.2017;16073;Saalfeld-Rudolstadt, Kreis;31;652;29;1511;1348;1117
+31.12.2017;16074;Saale-Holzland-Kreis;15;339;15;872;781;616
+31.12.2017;16075;Saale-Orla-Kreis;22;519;19;819;702;633
+31.12.2017;16076;Greiz, Kreis;35;739;25;1476;1327;1020
+31.12.2017;16077;Altenburger Land, Kreis;21;533;22;1415;1234;924
+__________
+"zu ""gesamte Tabelle"":
+2007: Nachträgliche Korrekturen der Statistischen Landes-
+ämter bei den verfügbaren Plätzen wurden im Bundesergebnis
+nicht mehr berücksichtigt.
+
+Baden-Württemberg (Berichtsjahr 1995-2010): Gebietsstand
+01.01.1979
+Baden-Württemberg (ab Berichtsjahr 2011): Gebietsstand
+01.01.2011
+Berlin: Kreistabelle liegt auch für Bezirke vor."
+"© Statistische Ämter des Bundes und der Länder, Deutschland, 2020.
+Dieses Werk ist lizenziert unter der Datenlizenz Deutschland
+- Namensnennung - Version 2.0."
+Stand: 10.06.2020 / 13:40:55
