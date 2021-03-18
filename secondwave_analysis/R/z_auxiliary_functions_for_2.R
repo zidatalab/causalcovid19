@@ -73,10 +73,12 @@ get_adjsets <- function(dag, exposure, outcome, unobserved) {
   if (length(adjsets)>0) {
     names(adjsets) <- paste0("MinAdjSet", seq(valid_adjsets))
     optadjset <- get_optadjset(amat, exposure, outcome, unobserved)
-    if (optadjset[[2]]) { # is a reduced set
-      adjsets[["RedOptAdjSet"]] <- optadjset[[1]]
-    } else { # is actually real optimal adjustment set
-      adjsets[["OptAdjSet"]] <- optadjset[[1]]
+    if (!is.null(optadjset)) {
+      if (optadjset[[2]]) { # is a reduced set
+        adjsets[["RedOptAdjSet"]] <- optadjset[[1]]
+      } else { # is actually real optimal adjustment set
+        adjsets[["OptAdjSet"]] <- optadjset[[1]]
+      }
     }
   }
   return(adjsets)
@@ -116,6 +118,7 @@ my_negbin <- function(modeldata, exposure=NULL, adjsets=NULL) {
   coefficients <- vector("list", nf)
   causaleffects <- vector("list", nf)
   pseudor2s <- rep(0, nf)
+  aics <- rep(0, nf)
   mynullglm <- glm.nb(as.formula(mynullformula),
                       data=modeldata)
   for (idxf in seq(nf)) {
@@ -127,7 +130,9 @@ my_negbin <- function(modeldata, exposure=NULL, adjsets=NULL) {
     #                                     `Weekday (report)`+`Holiday (report)`")), data = modeldata)
     # pseudo RSquared
     pseudor2s[idxf] <- 1-sum((myglm$fitted.values-myglm$y)^2)/sum((mynullglm$fitted.values-mynullglm$y)^2)# 1-summary(myglm)$deviance/summary(mynullglm)$deviance
+    aics[idxf] <- AIC(myglm)
     cat("   pseudo R2:", pseudor2s[idxf], "\n")
+    cat("   AIC:", aics[idxf], "\n")
     coefficients[[idxf]] <- tidy(myglm, exponentiate=TRUE, conf.int=TRUE, conf.level = 0.99)
     if (!is.null(exposure)) {
       effects <- tail(coefficients[[idxf]]$estimate, nexp)
@@ -143,7 +148,7 @@ my_negbin <- function(modeldata, exposure=NULL, adjsets=NULL) {
       causaleffects[[idxf]] <- coefficients[[idxf]]
     }
   }
-  return(list(pseudor2s=pseudor2s, causaleffects=causaleffects))
+  return(list(pseudor2s=pseudor2s, aics=aics, causaleffects=causaleffects))
 }
 
 # all-in-one function
@@ -153,23 +158,34 @@ my_causal <- function(dag, modeldata, exposure, unobserved) {
   } else {
     adjsets <- get_adjsets(dag, exposure, outcome="Reported new cases COVID-19", unobserved)
   }
-  res <- my_negbin(modeldata, exposure=exposure, adjsets=adjsets)
-  res[["adjustmentsets"]] <- adjsets
+  if (length(adjsets)>0 | is.null(exposure)) {
+    res <- my_negbin(modeldata, exposure=exposure, adjsets=adjsets)
+    res[["adjustmentsets"]] <- adjsets
+  } else {
+    res <- NULL
+  }
   return(res)
 }
 
 # write final causal effects to csv
 write_cause <- function(res, exposure) {
-  whichmaxr2 <- which.max(res$pseudor2s)
-  line <- paste0(exposure, ",", max(res$pseudor2s))
-  write(line, file=paste0(tablepath, "t_pseudor2s.csv"), append=TRUE)
-  write_csv(res$causaleffects[[whichmaxr2]],
-            paste0(tablepath, "t_effects_",
-                   exposure, "_", 
-                   names(res$adjustmentsets[whichmaxr2]), ".csv"))
-  write(res$adjustmentsets[[whichmaxr2]],
-        paste0(tablepath, "t_adjust_",
-               exposure, "_", 
-               names(res$adjustmentsets[whichmaxr2]), ".csv"))
+  if (!is.null(res)) {
+    whichmaxr2 <- which.max(res$pseudor2s)
+    whichminaic <- which.max(res$aics)
+    line <- paste0(exposure, ",", max(res$pseudor2s))
+    write(line, file=paste0(tablepath, "t_pseudor2s.csv"), append=TRUE)
+    line <- paste0(exposure, ",", min(res$aics))
+    write(line, file=paste0(tablepath, "t_aics.csv"), append=TRUE)
+    write_csv(res$causaleffects[[whichminaic]],
+              paste0(tablepath, "t_effects_",
+                     exposure, "_", 
+                     names(res$adjustmentsets[whichminaic]), ".csv"))
+    write(res$adjustmentsets[[whichminaic]],
+          paste0(tablepath, "t_adjust_",
+                 exposure, "_", 
+                 names(res$adjustmentsets[whichminaic]), ".csv"))
+  } else {
+    cat("NO ADJUSTMENT SET FOR ", exposure, " (non-identifiable)\n")
+  }
   return(NULL)
 }

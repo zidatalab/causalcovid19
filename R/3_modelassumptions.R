@@ -11,9 +11,7 @@ library(pscl)
 source("R/z_auxiliary_functions_for_2.R")
 
 # Load Data
-modeldata <- bind_cols(read_csv("data/Modeldata_scaled_pcamobility.csv"),
-                       read_csv("data/Modeldata_raw.csv") %>%
-                         dplyr::select(`Reported new cases COVID-19`, `Active cases`))
+modeldata <- bind_cols(read_csv("data/Modeldata_scaled_pcamobility.csv"))
 
 id_daycount <- read_csv("data/Modeldata_raw.csv") %>%
   dplyr::select(id, daycount, date, bl_id) %>%
@@ -21,7 +19,7 @@ id_daycount <- read_csv("data/Modeldata_raw.csv") %>%
   
 
 modeldata_cont <- modeldata %>%
-  dplyr::select(-c("1Mo", "2Di", "3Mi", "5Fr", "6Sa", "7So",
+  dplyr::select(-c("Weekday 1Mo", "Weekday 2Di", "Weekday 3Mi", "Weekday 5Fr", "Weekday 6Sa", "Weekday 7So",
                    "Holiday (exposure)", "Holiday (report)",
                    "Reported new cases COVID-19"))
 
@@ -40,7 +38,7 @@ devresids <- residuals(myglm, type="deviance")
 library(statmod)
 qresids <- qresid(myglm)
 
-# linearity # [-1989]
+# linearity
 scatter.smooth(predict(myglm, type="link"), devresids, col='gray')
 
 myresidagainstcont <- bind_cols(modeldata_cont, devresids=devresids) %>%
@@ -51,13 +49,13 @@ ggplot(myresidagainstcont, aes(x=value, y=devresids)) +
   geom_smooth(se=FALSE)
 
 # proper distribution
-qqnorm(qresids)
-qqline(qresids)
-hist(qresids, freq=FALSE)
-lines(density(qresids),
+qqnorm(qresids[-1971])
+qqline(qresids[-1971])
+hist(qresids[-1971], freq=FALSE)
+lines(density(qresids[-1971]),
       lwd = 2,
       col = "red")
-lines(density(rnorm(length(qresids))),
+lines(density(rnorm(length(qresids[-1971]))),
       lwd = 2,
       col = "blue")
 
@@ -97,4 +95,5 @@ orig_mobi <- as.vector(exp(as.matrix(pcaloadings[, 2:7]) %*% myglm$coefficients[
 )]))
 names(orig_mobi) <- pcaloadings$original_variable
 orig_mobi
+
 coeffs <- tidy(myglm, exponentiate=TRUE) # , conf.int=TRUE, conf.level = 0.99

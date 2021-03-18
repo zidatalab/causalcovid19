@@ -4,7 +4,7 @@ library(DBI)
 library(broom)
 library(MASS)
 
-maxanalysisdate <- as_date("2020-07-08")
+mylag <- 12
 
 mydatapath <- "./data/" 
 
@@ -104,9 +104,8 @@ measures_zeroone_all <- measures_zeroone_all %>%
 dateset <- as.Date(Reduce(intersect, list(awareness$date, google_mobility$date, weather$date, brd_timeseries$date)),
                    origin="1970-01-01")
 
-mylag <- 8
-startdate <- min(dateset)+mylag
-enddate <- max(brd_timeseries$date)
+startdate <- min(dateset) + 14 # +mylag # +max(mylags)
+enddate <- as.Date("2020-07-08") # startdate + days(100) # 
 
 lagweather <- mylag
 lagmobility <- mylag
@@ -157,7 +156,7 @@ modeldata_raw <- left_join(brd_timeseries, google_mobility %>%
          `Gender`=`Sex`,
          `Temperature`=`Weather (temperature)`,
          `Wind`=`Weather (wind)`) %>%
-  filter(date<=maxanalysisdate) %>%
+  filter(date<=enddate) %>%
   mutate(dummy = 1) %>% # column with single value
   pivot_wider(
     names_from = "Weekday (exposure)", # column to spread

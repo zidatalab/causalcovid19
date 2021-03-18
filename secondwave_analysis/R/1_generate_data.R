@@ -5,6 +5,8 @@ library(broom)
 library(MASS)
 source("secondwave_analysis/R/z_auxiliary_functions_for_1.R")
 
+mylag <- 7
+
 mydatapath <- "secondwave_analysis/data/" 
 
 google_mobility <- read_csv(paste0(mydatapath, "mobility/google_mobilitychange_percentages_per_bundesland_and_areatype.csv")) %>%
@@ -159,9 +161,9 @@ measures_zeroone_all <- measures_zeroone_all %>%
 dateset <- as.Date(Reduce(intersect, list(awareness$date, google_mobility$date, weather$date, brd_timeseries$date)),
                    origin="1970-01-01")
 
-mylag <- 8
-startdate <- as.Date("2020-07-09")
-enddate <- max(brd_timeseries$date)
+enddate <- as.Date("2021-01-25") # as.Date("2020-12-16") # max(brd_timeseries$date) # 
+
+startdate <- enddate - days(100)# as.Date("2020-07-16") # +max(mylags)
 
 lagweather <- mylag
 lagmobility <- mylag
