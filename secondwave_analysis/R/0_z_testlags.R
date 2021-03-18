@@ -241,9 +241,11 @@ for (mylag in mylags) {
                                                     `Right-wing populist party votes`, `Population density`,
                                                     Gender, `Nursing homes`,
                                                     `COVID-19 burden`)
-  scale_params <- tibble(variable=colnames(modeldata_X_cont),
-                         mymean=colMeans(modeldata_X_cont),
-                         mysd=apply(modeldata_X_cont, 2, sd))
+  # scale_params <- tibble(variable=colnames(modeldata_X_cont),
+  #                        mymean=colMeans(modeldata_X_cont),
+  #                        mysd=apply(modeldata_X_cont, 2, sd))
+  # write_csv(scale_params, paste0(mydatapath, "scale_params.csv"))
+  scale_params <- read_csv("data/scale_params.csv") # original scaling first wave!
   modeldata_X_cont_scaled <- sapply(seq(dim(modeldata_X_cont)[2]),
                                     function(i) scale(modeldata_X_cont[, i], scale_params[i, 2], 2*scale_params[i, 3])) # gelman
   colnames(modeldata_X_cont_scaled) <- colnames(modeldata_X_cont)
@@ -253,16 +255,27 @@ for (mylag in mylags) {
   modeldata_scaled <- bind_cols(modeldata_X_bin,
                                 modeldata_X_cont_scaled)
   
-  pca_mobility <- prcomp(modeldata_scaled %>% dplyr::select(contains("Mobility")))
-  cumsum(pca_mobility$sdev)/sum(pca_mobility$sdev)
-  modeldata_scaled_pca_mobility <- modeldata_scaled %>% 
+  # pca_mobility <- prcomp(modeldata_scaled %>% dplyr::select(contains("Mobility")))
+  # cumsum(pca_mobility$sdev)/sum(pca_mobility$sdev)
+  # modeldata_scaled_pca_mobility <- modeldata_scaled %>% 
+  #   dplyr::select(-contains("Mobility")) %>%
+  #   bind_cols("Mobility (PC1)"=pca_mobility$x[,1],
+  #             "Mobility (PC2)"=pca_mobility$x[,2],
+  #             "Mobility (PC3)"=pca_mobility$x[,3],
+  #             "Mobility (PC4)"=pca_mobility$x[,4],
+  #             "Mobility (PC5)"=pca_mobility$x[,5],
+  #             "Mobility (PC6)"=pca_mobility$x[,6])
+  # write_csv(as_tibble(pca_mobility$rotation, rownames="original_variable"), paste0(mydatapath, "pca_mobility_loadings.csv"))
+  pca_mobility_rotation <- read_csv("data/pca_mobility_loadings.csv") %>% dplyr::select(-original_variable)
+  pca_mobility_x <- as.matrix(modeldata_scaled %>% dplyr::select(contains("Mobility"))) %*% as.matrix(pca_mobility_rotation)
+  modeldata_scaled_pca_mobility <- modeldata_scaled %>%
     dplyr::select(-contains("Mobility")) %>%
-    bind_cols("Mobility (PC1)"=pca_mobility$x[,1],
-              "Mobility (PC2)"=pca_mobility$x[,2],
-              "Mobility (PC3)"=pca_mobility$x[,3],
-              "Mobility (PC4)"=pca_mobility$x[,4],
-              "Mobility (PC5)"=pca_mobility$x[,5],
-              "Mobility (PC6)"=pca_mobility$x[,6])
+    bind_cols("Mobility (PC1)"=pca_mobility_x[,1],
+              "Mobility (PC2)"=pca_mobility_x[,2],
+              "Mobility (PC3)"=pca_mobility_x[,3],
+              "Mobility (PC4)"=pca_mobility_x[,4],
+              "Mobility (PC5)"=pca_mobility_x[,5],
+              "Mobility (PC6)"=pca_mobility_x[,6])
   
   modeldata <- modeldata_scaled_pca_mobility %>%
     bind_cols(modeldata_raw %>% dplyr::select(`Reported new cases COVID-19`, `Active cases`))
