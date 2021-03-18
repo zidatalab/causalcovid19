@@ -121,6 +121,8 @@ my_negbin <- function(modeldata, exposure=NULL, adjsets=NULL) {
   aics <- rep(0, nf)
   mynullglm <- glm.nb(as.formula(mynullformula),
                       data=modeldata)
+  scale_params <- read_csv("data/scale_params.csv") # original scaling first wave!
+  to_rescale <- scale_params$variable
   for (idxf in seq(nf)) {
     cat("   Exposure:", exposure, "\n")
     cat("   Adjustment set:", adjsets[[idxf]], "\n")
@@ -134,6 +136,15 @@ my_negbin <- function(modeldata, exposure=NULL, adjsets=NULL) {
     cat("   pseudo R2:", pseudor2s[idxf], "\n")
     cat("   AIC:", aics[idxf], "\n")
     coefficients[[idxf]] <- tidy(myglm, exponentiate=TRUE, conf.int=TRUE, conf.level = 0.99)
+    for (expovar in coefficients[[idxf]]$term) {
+      expovar_clean <- str_remove_all(expovar, "`")
+      if (expovar_clean %in% to_rescale) {
+        # coefficients[[idxf]]$estimate[coefficients[[idxf]]$term=="(Intercept)"] <- coefficients[[idxf]]$estimate[coefficients[[idxf]]$term=="(Intercept)"]*exp(-coefficients[[idxf]]$estimate[coefficients[[idxf]]$term==expovar]*scale_params$mymean[scale_params$variable==expovar_clean]/scale_params$mysd[scale_params$variable==expovar_clean])
+        coefficients[[idxf]]$estimate[coefficients[[idxf]]$term==expovar] <- coefficients[[idxf]]$estimate[coefficients[[idxf]]$term==expovar] ^(1/scale_params$mysd[scale_params$variable==expovar_clean])
+        coefficients[[idxf]]$conf.low[coefficients[[idxf]]$term==expovar] <- coefficients[[idxf]]$conf.low[coefficients[[idxf]]$term==expovar] ^(1/scale_params$mysd[scale_params$variable==expovar_clean])
+        coefficients[[idxf]]$conf.high[coefficients[[idxf]]$term==expovar] <- coefficients[[idxf]]$conf.high[coefficients[[idxf]]$term==expovar] ^(1/scale_params$mysd[scale_params$variable==expovar_clean])
+      }
+    }
     if (!is.null(exposure)) {
       effects <- tail(coefficients[[idxf]]$estimate, nexp)
       pvals <- tail(coefficients[[idxf]]$p.value, nexp)

@@ -51,9 +51,6 @@ for (myweather in c("Temperature", "Rainfall", "Humidity", "Wind")) {
   write_cause(res, exposure=myweather)
 }
 
-# interventions
-res <- my_causal(dag, modeldata, exposure="Interventions", unobserved=unobserved)
-
 # other variables
 othervariables <- setdiff(names(dag), c("Reported new cases COVID-19", unobserved,
                                         "Mobility", "COVID-19 burden", "Searches corona",

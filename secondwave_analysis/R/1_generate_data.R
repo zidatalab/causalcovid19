@@ -92,6 +92,7 @@ measures_zeroone <- tibble(date=as_date(as_date("2020-01-01"):as_date("2021-01-2
            date>=lockdownlight ~ 1
          ),
          Holiday=ifelse(date %in% germanholidays, 1, 0),
+         Holiday=ifelse(date>="2020-12-24" & date<="2021-01-01", 1, Holiday),
          `Mandatory face masks`=0,
          id=kreisids[1])
 measures_zeroone_all <- measures_zeroone
@@ -163,7 +164,7 @@ dateset <- as.Date(Reduce(intersect, list(awareness$date, google_mobility$date, 
 
 enddate <- as.Date("2021-01-25") # as.Date("2020-12-16") # max(brd_timeseries$date) # 
 
-startdate <- enddate - days(100)# as.Date("2020-07-16") # +max(mylags)
+startdate <- enddate - days(132)# as.Date("2020-07-16") # +max(mylags)
 
 lagweather <- mylag
 lagmobility <- mylag

@@ -104,7 +104,7 @@ measures_zeroone_all <- measures_zeroone_all %>%
 dateset <- as.Date(Reduce(intersect, list(awareness$date, google_mobility$date, weather$date, brd_timeseries$date)),
                    origin="1970-01-01")
 
-startdate <- min(dateset) + 14 # +mylag # +max(mylags)
+startdate <- min(dateset) + mylag # +mylag # +max(mylags)
 enddate <- as.Date("2020-07-08") # startdate + days(100) # 
 
 lagweather <- mylag
