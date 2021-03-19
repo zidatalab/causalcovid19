@@ -1,7 +1,7 @@
 variables,estimates
-Mobility (PC1),0.9043623215663701
-Mobility (PC2),0.982279254062187
-Mobility (PC3),1.0464639616812657
-Mobility (PC4),1.024679439618002
-Mobility (PC5),1.0036721127357606
-Mobility (PC6),0.9998862871620804
+Mobility (retail and recreation),1.0012564347343298
+Mobility (grocery and pharmacy),0.998559694650799
+Mobility (parks),0.9995311664617099
+Mobility (transit stations),1.002742855913132
+Mobility (workplaces),1.0027025333131652
+Mobility (residential),0.9905987700946253

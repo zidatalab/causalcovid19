@@ -8,6 +8,7 @@ library(ggdag)
 library(ggthemes)
 library(pcalg)
 library(pscl)
+library(glmnet)
 
 # convert dagitty to adjacency matrix
 dagitty_to_adjmatrix <- function(daggity_obj) {
@@ -231,8 +232,8 @@ my_negbin_ridge <- function(modeldata, exposure=NULL, adjsets=NULL) {
                           offset=log(modeldata%>%pull(`Active cases`)+1),
                           standardize=FALSE,
                           alpha=0, lambda=mylambda)
-    myglm_fitted.values <- predict(myglm, myx, newoffset=log(modeldata%>%pull(`Active cases`)+1))[,1]
-    mynullglm_fitted.values <- predict(mynullglm, mynullx, newoffset=log(modeldata%>%pull(`Active cases`)+1))[,1]
+    myglm_fitted.values <- exp(predict(myglm, myx, newoffset=log(modeldata%>%pull(`Active cases`)+1))[,1])
+    mynullglm_fitted.values <- exp(predict(mynullglm, mynullx, newoffset=log(modeldata%>%pull(`Active cases`)+1))[,1])
     pseudor2s[idxf] <- 1-sum((myglm_fitted.values-myy)^2)/sum((mynullglm_fitted.values-myy)^2)# 1-summary(myglm)$deviance/summary(mynullglm)$deviance
     aics[idxf] <- aic_glmnet(myglm)
     cat("   pseudo R2:", pseudor2s[idxf], "\n")
@@ -248,6 +249,25 @@ my_negbin_ridge <- function(modeldata, exposure=NULL, adjsets=NULL) {
     }
     if (!is.null(exposure)) {
       effects <- tail(coefficients[[idxf]]$estimate, nexp)
+      if (exposure=="Mobility") {
+        pcaloadings <- read_csv("data/pca_mobility_loadings.csv")
+        mobi_coeffs_pca <- coefficients[[idxf]] %>% filter(term %in% c(
+          "Mobility (PC1)",
+          "Mobility (PC2)",
+          "Mobility (PC3)",
+          "Mobility (PC4)",
+          "Mobility (PC5)",
+          "Mobility (PC6)"
+        )) %>% pull(estimate)
+        orig_mobi <- sapply(1:6, function(s) prod(mobi_coeffs_pca^as.numeric(pcaloadings[s, -1])))# as.vector(exp(as.matrix(pcaloadings[, 2:7]) %*% mobi_coeffs_pca))
+        names(orig_mobi) <- pcaloadings$original_variable
+        effects <- rep(0, 6)
+        expovars <- names(orig_mobi)
+        for (mobvar in names(orig_mobi)) {
+          names(effects) <- names(orig_mobi)
+          effects[mobvar] <- orig_mobi[mobvar]^(1/scale_params$mysd[scale_params$variable==mobvar])
+        }
+      }
       # pvals <- tail(coefficients[[idxf]]$p.value, nexp)
       # conflows <- tail(coefficients[[idxf]]$conf.low, nexp)
       # confhighs <- tail(coefficients[[idxf]]$conf.high, nexp)
