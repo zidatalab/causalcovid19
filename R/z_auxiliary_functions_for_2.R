@@ -303,7 +303,7 @@ my_causal <- function(dag, modeldata, exposure, unobserved) {
 write_cause <- function(res, exposure) {
   if (!is.null(res)) {
     whichmaxr2 <- which.max(res$pseudor2s)
-    whichminaic <- which.max(res$aics)
+    whichminaic <- which.min(res$aics)
     line <- paste0(exposure, ",", max(res$pseudor2s))
     write(line, file=paste0(tablepath, "t_pseudor2s.csv"), append=TRUE)
     line <- paste0(exposure, ",", min(res$aics))

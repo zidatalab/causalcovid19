@@ -189,7 +189,7 @@ for (mylag in mylags) {
                          mymean=colMeans(modeldata_X_cont),
                          mysd=apply(modeldata_X_cont, 2, sd))
   modeldata_X_cont_scaled <- sapply(seq(dim(modeldata_X_cont)[2]),
-                                    function(i) scale(modeldata_X_cont[, i], scale_params[i, 2], 2*scale_params[i, 3])) # gelman
+                                    function(i) scale(modeldata_X_cont[, i], scale_params[i, 2], scale_params[i, 3]))
   colnames(modeldata_X_cont_scaled) <- colnames(modeldata_X_cont)
   modeldata_X_cont_scaled <- as_tibble(modeldata_X_cont_scaled)
   modeldata_X_bin <- modeldata_X %>% dplyr::select(-colnames(modeldata_X_cont))

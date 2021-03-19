@@ -3,13 +3,13 @@ library(ggdag)
 library(cowplot)
 library(stringr)
 
-figurepath <- "./manuscript/v1_medrxiv/figures/"
+figurepath <- "manuscript/v4_medrxiv_revision/figures/"
 
 # Set theme
 theme_set(theme_cowplot())
-mycolors <- c("#268bd2","#dc322f","#d33682","#859900","grey60","lightgrey")
+mycolors <- c("#268bd2","#dc322f","#d33682","#859900","grey60","lightgrey", "#ffa500")
 
-dagfile <- "./data/bigdag4covid19_plot.txt"
+dagfile <- "data/bigdag4covid19_plot.txt"
 dagtext <- readChar(dagfile, file.info(dagfile)$size)
 dag <- dagitty::dagitty(dagtext,layout = F)
 tidy_dag <- tidy_dagitty(dag) %>% mutate(name=str_wrap(name,width = 10)) 
@@ -34,10 +34,14 @@ tdc <- tidy_dag %>% mutate(curves = 0,
 tidy_dag %>% 
   group_by(name) %>% mutate(connections=n(),
                                          farbe = case_when(str_detect(name,"Mobility")~"4",
-                                                         # str_detect(name,"burden")~"3",
+                                                         str_detect(name,"burden")~"3",
                                                          str_detect(name,"Searches")~"3",
                                                          str_detect(name,"Temperature")~"2",
-                                                         str_detect(name,"new cases")~"1",                                  
+                                                         str_detect(name,"Rainfall")~"2",
+                                                         str_detect(name,"Humidity")~"2",
+                                                         str_detect(name,"Wind")~"2",
+                                                         str_detect(name,"new cases")~"1",  
+                                                         str_detect(name,"Interventions")~"7", 
                                                          str_detect(name,"Tracing")~"6",
                                                          str_detect(name,"Herd")~"6",
                                                          str_detect(name,"Access")~"6",
