@@ -39,12 +39,15 @@ myx <- as.matrix(modeldata %>% dplyr::select(-`Reported new cases COVID-19`))
 
 myfoldids <- (id_daycount %>% group_indices(id)) %% 10 + 1
 
+set.seed(1502)
 myglm_ridge_cv <- cv.glmnet(x=myx, y=myy, family = negative.binomial(mytheta),
                             offset=log(modeldata%>%pull(`Active cases`)+1),
                             standardize=FALSE,
                             alpha=0, nfolds=10, foldid = myfoldids) # 
 
 mylambda <- myglm_ridge_cv$lambda.1se
+
+write_csv(tibble(mytheta=mytheta, mylambda=mylambda), "data/myglmnetparams.csv")
 
 myglm_ridge <- glmnet(myx, myy, family = negative.binomial(mytheta),
                       offset=log(modeldata%>%pull(`Active cases`)+1),
@@ -54,8 +57,8 @@ myglm_ridge <- glmnet(myx, myy, family = negative.binomial(mytheta),
 # residuals
 
 devresids <- residuals(myglm, type="deviance")
-library(statmod)
-qresids <- qresid(myglm)
+# library(statmod)
+# qresids <- qresid(myglm_ridge)
 
 # linearity
 scatter.smooth(predict(myglm, type="link"), devresids, col='gray')

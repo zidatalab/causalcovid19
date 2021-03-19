@@ -38,6 +38,15 @@ my_vars <- function(modeldata, mynames) {
   return(myvars)
 }
 
+# get AIC from glmnet
+aic_glmnet <- function(myglmnet) {
+  tLL <- -deviance(myglmnet) # myglmnet$nulldev*myglmnet$dev.ratio # myglmnet$nulldev - deviance(myglmnet)
+  k <- myglmnet$df
+  n <- myglmnet$nobs
+  AICc <- -tLL+2*k+2*k*(k+1)/(n-k-1)
+  return(AICc)
+}
+
 # function to get optimal adjustment set without unobserved (check for validness)
 get_optadjset <- function(amat, exposure, outcome, unobserved) {
   x.pos <- which(colnames(amat)==exposure)
@@ -162,6 +171,98 @@ my_negbin <- function(modeldata, exposure=NULL, adjsets=NULL) {
   return(list(pseudor2s=pseudor2s, aics=aics, causaleffects=causaleffects))
 }
 
+# function for neg-binomial model based on modeldata and adjustment set from dag, but with ridge regularization
+my_negbin_ridge <- function(modeldata, exposure=NULL, adjsets=NULL) {
+  myglmnetparams <- read_csv("data/myglmnetparams.csv")
+  mytheta <- myglmnetparams %>% pull(mytheta)
+  mylambda <- myglmnetparams %>% pull(mylambda)
+  myy <- modeldata$`Reported new cases COVID-19`
+  myx_data <- modeldata %>% dplyr::select(-`Reported new cases COVID-19`)
+  mynullx <- cbind(0, as.matrix(myx_data %>% dplyr::select(`Active cases`))) # "`Reported new cases COVID-19` ~1+offset(log(`Active cases`+1))" 
+  if (is.null(exposure) & is.null(adjsets)) { # adjustment set not given
+    myxcols <- vector("list", 1)
+    myxcols[[1]] <- colnames(myx_data) # "`Reported new cases COVID-19` ~1+offset(log(`Active cases`+1))-`Active cases`+."
+    nf <- 1
+  } else if (is.null(exposure)+is.null(adjsets)==1) { # exactly one is different from NULL: not allowed
+    myxcols <- vector("list", 1)
+    myxcols[[1]] <- colnames(myx_data) # "`Reported new cases COVID-19` ~1+offset(log(`Active cases`+1))-`Active cases`+."
+    cat("Adjustment set AND exposure must be given. Calculate complete model.\n")
+    exposure <- NULL
+    adjsets <- NULL
+    nf <- 1
+  } else { # adjsets and exposure given
+    nas <- length(adjsets)
+    expovars <- my_vars(modeldata, exposure)
+    nexp <- length(expovars)
+    myxcols <- vector("list", nas) # myformula <- vector("character", nas)
+    for (as in seq(nas)) {
+      if (is_empty(adjsets[[as]])) {
+        myxcols[[as]] <- c("Active cases", expovars)
+        # myformula[as] <- paste("`Reported new cases COVID-19` ~1+offset(log(`Active cases`+1))+",#-`Active cases`
+        #                        sprintf("`%s`", paste(expovars, collapse = "`+`")),
+        #                        sep = "")
+      } else {
+        myadjset <- my_vars(modeldata, adjsets[[as]])
+        myxcols[[as]] <- c("Active cases", myadjset, expovars)
+        # myformula[as] <- paste("`Reported new cases COVID-19` ~1+offset(log(`Active cases`+1))+",#-`Active cases`
+        #                        sprintf("`%s`", paste(c(myadjset, expovars), collapse = "`+`")),
+        #                        sep = "")
+      }
+    }
+    nf <- length(myxcols)
+  }
+  coefficients <- vector("list", nf)
+  causaleffects <- vector("list", nf)
+  pseudor2s <- rep(0, nf)
+  aics <- rep(0, nf)
+  # mynullglm <- glm.nb(as.formula(mynullformula),
+  #                     data=modeldata)
+  mynullglm <- glmnet(mynullx, myy, family = negative.binomial(mytheta),
+                                     offset=log(modeldata%>%pull(`Active cases`)+1),
+                                     standardize=FALSE,
+                                     alpha=0, lambda=mylambda)
+  scale_params <- read_csv("data/scale_params.csv") # original scaling first wave!
+  to_rescale <- scale_params$variable
+  for (idxf in seq(nf)) {
+    cat("   Exposure:", exposure, "\n")
+    cat("   Adjustment set:", adjsets[[idxf]], "\n")
+    myx <- as.matrix(myx_data %>% dplyr::select(myxcols[[idxf]]))
+    myglm <- glmnet(myx, myy, family = negative.binomial(mytheta),
+                          offset=log(modeldata%>%pull(`Active cases`)+1),
+                          standardize=FALSE,
+                          alpha=0, lambda=mylambda)
+    myglm_fitted.values <- predict(myglm, myx, newoffset=log(modeldata%>%pull(`Active cases`)+1))[,1]
+    mynullglm_fitted.values <- predict(mynullglm, mynullx, newoffset=log(modeldata%>%pull(`Active cases`)+1))[,1]
+    pseudor2s[idxf] <- 1-sum((myglm_fitted.values-myy)^2)/sum((mynullglm_fitted.values-myy)^2)# 1-summary(myglm)$deviance/summary(mynullglm)$deviance
+    aics[idxf] <- aic_glmnet(myglm)
+    cat("   pseudo R2:", pseudor2s[idxf], "\n")
+    cat("   AIC:", aics[idxf], "\n")
+    coefficients[[idxf]] <- tidy(myglm) %>% dplyr::select(term, estimate) %>% mutate(estimate=exp(estimate))
+    for (expovar in coefficients[[idxf]]$term) {
+      expovar_clean <- str_remove_all(expovar, "`")
+      if (expovar_clean %in% to_rescale) {
+        coefficients[[idxf]]$estimate[coefficients[[idxf]]$term==expovar] <- coefficients[[idxf]]$estimate[coefficients[[idxf]]$term==expovar] ^(1/scale_params$mysd[scale_params$variable==expovar_clean])
+        # coefficients[[idxf]]$conf.low[coefficients[[idxf]]$term==expovar] <- coefficients[[idxf]]$conf.low[coefficients[[idxf]]$term==expovar] ^(1/scale_params$mysd[scale_params$variable==expovar_clean])
+        # coefficients[[idxf]]$conf.high[coefficients[[idxf]]$term==expovar] <- coefficients[[idxf]]$conf.high[coefficients[[idxf]]$term==expovar] ^(1/scale_params$mysd[scale_params$variable==expovar_clean])
+      }
+    }
+    if (!is.null(exposure)) {
+      effects <- tail(coefficients[[idxf]]$estimate, nexp)
+      # pvals <- tail(coefficients[[idxf]]$p.value, nexp)
+      # conflows <- tail(coefficients[[idxf]]$conf.low, nexp)
+      # confhighs <- tail(coefficients[[idxf]]$conf.high, nexp)
+      cat("   Effect on outcome:\n")
+      for (idxexp in seq(nexp)) {
+        cat(effects[idxexp], expovars[idxexp], "\n") #, "with p-value", pvals[idxexp], "\n")
+      }
+      causaleffects[[idxf]] <- tibble(variables=expovars, estimates=effects) # , conflow=conflows, confhigh=confhighs
+    } else {
+      causaleffects[[idxf]] <- coefficients[[idxf]]
+    }
+  }
+  return(list(pseudor2s=pseudor2s, aics=aics, causaleffects=causaleffects))
+}
+
 # all-in-one function
 my_causal <- function(dag, modeldata, exposure, unobserved) {
   if (is.null(exposure)) {
@@ -170,7 +271,7 @@ my_causal <- function(dag, modeldata, exposure, unobserved) {
     adjsets <- get_adjsets(dag, exposure, outcome="Reported new cases COVID-19", unobserved)
   }
   if (length(adjsets)>0 | is.null(exposure)) {
-    res <- my_negbin(modeldata, exposure=exposure, adjsets=adjsets)
+    res <- my_negbin_ridge(modeldata, exposure=exposure, adjsets=adjsets)
     res[["adjustmentsets"]] <- adjsets
   } else {
     res <- NULL

@@ -8,13 +8,13 @@ library(ggdag)
 library(ggthemes)
 library(pcalg)
 library(pscl)
-source("secondwave_analysis/R/z_auxiliary_functions_for_2.R")
+source("R/z_auxiliary_functions_for_2.R")
 
 # save tables to:
 tablepath <- "manuscript/v4_medrxiv_revision/tables/secondwave/"
 
 # load dag
-dagfile <- "secondwave_analysis/data/bigdag4covid19.txt"
+dagfile <- "data/bigdag4covid19.txt"
 dagtext <- readChar(dagfile, file.info(dagfile)$size)
 dag <- dagitty::dagitty(dagtext)
 
