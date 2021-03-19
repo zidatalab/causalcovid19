@@ -36,8 +36,7 @@ t1.df <- read.csv("tables/t_descriptives.csv") %>% rename("Variable"="X") %>%
                                                           "Weather (rainfall)"="Rainfall",
                                                           "Weather (wind)"="Wind",
                                                           "Weather (temperature)"="Temperature",
-                                                          "Weather (humidity)"="Humidity",
-                                                          "School/Kita closures"="School and kindergarten closures")) %>%
+                                                          "Weather (humidity)"="Humidity")) %>%
   mutate(Variable =  factor(Variable, ordered=TRUE, levels = c("n",
                                                  "retail and recreation",
                                                  "grocery and pharmacy",
@@ -49,11 +48,7 @@ t1.df <- read.csv("tables/t_descriptives.csv") %>% rename("Variable"="X") %>%
                                                  "Temperature",
                                                  "Humidity",
                                                  "Wind",
-                                                 "Ban of mass gatherings",
-                                                 "School and kindergarten closures",
-                                                 "Contact restrictions",
-                                                 "Mandatory face masks",
-                                                 
+                                                 "Interventions",
                                                  "Age (pop. 65 and older)",
                                                  "Age (pop. younger 18)",
                                                  "Gender",
@@ -78,7 +73,7 @@ ndistricts <- Modeldata %>% count(id) %>% count() %>% pull(n)
 nobs_per_district <- Modeldata %>% group_by(id) %>% count() %>% ungroup() %>% summarise(mean=mean(n),sd=sd(n))
 
 # Correlation of time and main vars
-mycorrs <- Modeldata %>% dplyr::select(date,contains("cases"),contains("Weather"),`Searches corona`,contains("Mobility"), `COVID-19 burden`) %>% 
+mycorrs <- Modeldata %>% dplyr::select(date,contains("cases"), "Rainfall", "Temperature", "Humidity", "Wind", `Searches corona`,contains("Mobility"), `COVID-19 burden`) %>% 
   mutate(outcome=`Reported new cases COVID-19`/(`Active cases`+1),date=as.numeric(date)) %>% 
   dplyr::select(-contains("cases")) %>% filter(!is.na(outcome)) %>% cor(.)
 
@@ -88,10 +83,10 @@ knitr::kable(readr::read_csv("tables/t_descriptives.csv") %>% dplyr::select("Var
              caption = "Descriptive Statistics for observed variables") %>% kable_styling(font_size = 7, full_width = FALSE) %>%
   pack_rows("Mobility", 2, 7) %>%
   pack_rows("Weather", 8, 11) %>%
-  pack_rows("Policies", 12, 15) %>%
-  pack_rows("Socio-demographic", 16, 25) %>%
-  pack_rows("Awareness", 26, 27) %>%
-  pack_rows("Case numbers (Outcome and offset)", 28, 29)
+  pack_rows("Policies", 12, 12) %>%
+  pack_rows("Socio-demographic", 13, 22) %>%
+  pack_rows("Awareness", 23, 24) %>%
+  pack_rows("Case numbers (Outcome and offset)", 25, 26)
 ```
 
 ```{r cases-log, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Temporal and district level variation of outcome (log-scale)"}
@@ -100,7 +95,7 @@ knitr::include_graphics(rep('figures/f_timeseries_cases_and_lograte.eps'))
 
 In the observational period, the number of daily reported COVID-19 cases increased till the end of March/beginning of April and continually decreased afterwards till the beginning of June 2020 with a slight increase and decrease afterwards (Figure \@ref(fig:cases-log)A). On the other hand, the (log-)ratio of reported cases over active cases decreased steeply till the mid of April and increased steadily afterwards with a slight decrease close to the end of the observation period (Figure \@ref(fig:cases-log)B). Both figures examplify a considerable variation among the districts (light blue points are individual district's data).
 
-In Germany, we observed a rebound in mobility after the initial political measures, reductions in incident cases were associated with a diminishing public interest in COVID-19, and temperatures were overall increasing (cf. Figure \@ref(fig:timeseries)); with correlations between temporal progression and mobility in retail and recreation $r_{A,D}=$ `r round(mycorrs["date", "Mobility (retail and recreation)"], 2)`, awareness ("Searches corona") $r_{A,C}=$ `r round(mycorrs["date", "Searches corona"], 2)`, and temperature $r_{A,B}=$ `r round(mycorrs["date", "Weather (temperature)"], 2)`.
+In Germany, we observed a rebound in mobility after the initial political measures, reductions in incident cases were associated with a diminishing public interest in COVID-19, and temperatures were overall increasing (cf. Figure \@ref(fig:timeseries)); with correlations between temporal progression and mobility in retail and recreation $r_{A,D}=$ `r round(mycorrs["date", "Mobility (retail and recreation)"], 2)`, awareness ("Searches corona") $r_{A,C}=$ `r round(mycorrs["date", "Searches corona"], 2)`, and temperature $r_{A,B}=$ `r round(mycorrs["date", "Temperature"], 2)`.
 
 ```{r timeseries, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Temporal variation of outcome and main determinants"}
 knitr::include_graphics(rep('figures/f_timeseries_exposures.eps'))

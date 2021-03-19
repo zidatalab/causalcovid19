@@ -62,8 +62,8 @@ Our objective is to provide valid estimates of the effects of the main drivers o
 
 ```{r rundifflatex, message=FALSE, warning=FALSE, include=FALSE}
 # careful, it's always one version behind
-library(latexdiffr)
-latexdiff("../v2_medrxiv/manuscript.tex", "manuscript.tex", "latexdiffrRmd")
+# library(latexdiffr)
+# latexdiff("../v2_medrxiv/manuscript.tex", "manuscript.tex", "latexdiffrRmd")
 # system("latexdiff ../v2_medrxiv/manuscript.tex manuscript.tex > diffRmd.tex")
 # tinytex::pdflatex("diffRmd.tex")
 ```
