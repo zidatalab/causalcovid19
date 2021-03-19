@@ -9,19 +9,16 @@ library("tidyverse")
 library("tableone")
 
 Modeldata <- read_csv("../../data/Modeldata_raw.csv") %>%
-  rename(`Gender`=`Sex`,
-         `Foreign citizens`=`Foreign residents`,
-         `Foreign citizens (refugees)`=`Foreign residents (refugees)`) %>%
   filter(date<="2020-07-08")
 
-t1_data <- Modeldata %>% dplyr::select(-contains("Weekday"), -contains("Holiday"), -`Relaxation of measures`,
+t1_data <- Modeldata %>% dplyr::select(-contains("Weekday"), -contains("Holiday"),
                      -contains("Raumeinheit"),
                      -contains("Aggregat"),
                      -contains("iso_"),
                      -contains("census_"),
                      -contains("mean"),
                      -id,-bl_id,
-                     -cases, -deaths,-recovered,-daycount) 
+                     -cases, -deaths,-recovered,-daycount,-date) 
 t1_data_tab <- CreateTableOne(data = t1_data) 
 mymeans <- colMeans(t1_data[, -1], na.rm = TRUE)
 # t1.df <- t1_data_tab.csv %>% as_tibble() %>% mutate(Variable=as.character(rownames(t1_data_tab.csv))) %>% 
