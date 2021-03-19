@@ -46,10 +46,10 @@ kable(my_variables, caption = "Observed model variables", # landscape(
   kable_styling(font_size = 6, full_width = FALSE) %>%
   pack_rows("Mobility", 4, 9) %>%
   pack_rows("Weather", 10, 13) %>%
-  pack_rows("Policies", 14, 17) %>%
-  pack_rows("Socio-demographic", 18, 25) %>%
-  pack_rows("Awareness", 26, 27) %>%
-  pack_rows("Case numbers", 28, 29) %>%
+  pack_rows("Policies", 14, 18) %>%
+  pack_rows("Socio-demographic", 19, 26) %>%
+  pack_rows("Awareness", 27, 28) %>%
+  pack_rows("Case numbers", 29, 30) %>%
   # pack_rows("Unobserved", 31, 36) %>%
   column_spec(5, width = "10em") # 
 # , margin="1cm")

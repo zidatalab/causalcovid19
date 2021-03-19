@@ -16,6 +16,7 @@
 "School and kindergarten closures";"obs";"daily";"state";0;"numeric";"0 for no closure, 1 for full closure, 0.5 for partial reopening";""
 "Contact restrictions";"obs";"daily";"national";0;"binary";"";""
 "Mandatory face masks";"obs";"daily";"district";0;"binary";"";"(ref:postfacemasks)"
+"Interventions";"obs";"daily";"district";0;"numeric";"sum of the above";""
 "Age";"obs";"constant";"district";0;"numeric";"2 variables: share of population >=65 years & <18 years";"(ref:inkar)"
 "Gender";"obs";"constant";"district";0;"numeric";"share of female population";"(ref:inkar)"
 "Population density";"obs";"constant";"district";0;"numeric";"population per sqkm";"(ref:inkar)"

@@ -106,25 +106,33 @@ knitr::include_graphics(rep('figures/f_timeseries_exposures.eps'))
 ```{r causaleffects, echo=FALSE, message=FALSE, warning=FALSE}
 library("dplyr")
 library("kableExtra")
-causaleffects <- bind_rows(readr::read_csv("tables/t_effects_Mobility_RedAdjSet1.csv"),
+causaleffects <- bind_rows(readr::read_csv("tables/t_effects_Mobility_RedOptAdjSet.csv"),
                            readr::read_csv("tables/t_effects_Searches corona_RedOptAdjSet.csv"),
                            readr::read_csv("tables/t_effects_COVID-19 burden_RedOptAdjSet.csv"),
                            readr::read_csv("tables/t_effects_Temperature_RedOptAdjSet.csv"),
                            readr::read_csv("tables/t_effects_Rainfall_RedOptAdjSet.csv"),
                            readr::read_csv("tables/t_effects_Humidity_RedOptAdjSet.csv"),
                            readr::read_csv("tables/t_effects_Wind_RedOptAdjSet.csv"),
-                           readr::read_csv("tables/t_effects_Interventions_RedOptAdjSet.csv")) %>%
-               rename(cause=variables, `effect estimate`=estimate)
+                           readr::read_csv("tables/t_effects_Interventions_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Age_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Foreign citizens_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Gender_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Nursing homes_MinAdjSet1.csv"),
+                           readr::read_csv("tables/t_effects_Population density_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Socio-economic status_RedOptAdjSet.csv")) %>%
+               rename(cause=variables, `effect estimate`=estimates)
 ## Note: no special chars in caption...
 knitr::kable(causaleffects %>% 
                mutate(cause=stringr::str_remove(stringr::str_remove(cause,"Mobility \\("),"\\)")),
              booktabs = TRUE,
-             caption = "Causal effect estimates with 99 percent confidence bands",
+             caption = "Effect estimates from causal graph analysis",
              digits=4) %>%
   kable_styling() %>%
   pack_rows("Mobility", 1, 6) %>%
   pack_rows("Awareness", 7, 8) %>%
-  pack_rows("Weather", 9, 12)
+  pack_rows("Weather", 9, 12) %>%
+  pack_rows("Policies", 13, 13) %>%
+  pack_rows("Demographic", 14, 21)
 ```
 
 We list the results of our causal analysis for the effects of different exposure variables in Table \@ref(tab:causaleffects). The estimates are multiplicative rates of increase/decrease for a one unit increase of the respective variable: Values above 1 lead to an increase, below 1 to a decrease of the infection rate. To put these estimates into perspective, Figure \@ref(fig:effectsrange) shows the relative causal effect of the different exposure variables on the number of reported COVID-19 cases on a range of sensible values of the exposure variables (95 percent quantiles of data points).
@@ -151,33 +159,34 @@ We decided for the lag of 12 days based on the lowest AIC value compared to othe
 library(dplyr)
 library(knitr)
 library(kableExtra)
-myvariables <- readr::read_delim("tables/t_variables.csv", delim=";")[c(1:22, 24:28), ] %>% dplyr::select(variable) %>%
-  mutate(Mobility=" ", `Searches corona`=" ", `COVID-19 burden`=" ", Temperature=" ", Rainfall=" ", Humidity=" ", Wind=" ")
-for (cause in colnames(myvariables)[-c(1,2)]) {
+myvariables <- readr::read_delim("tables/t_variables.csv", delim=";")[c(1:13, 18:29), ] %>% dplyr::select(variable) %>%
+  mutate(Mobility=" ", `Searches corona`=" ", `COVID-19 burden`=" ", Temperature=" ", Rainfall=" ", Humidity=" ", Wind=" ",
+         Interventions= " ", Age=" ", `Foreign citizens`= " ", Gender=" ", `Nursing homes`=" ", `Population density`=" ", `Socio-economic status`=" ")
+for (cause in colnames(myvariables)[-c(1,13)]) {
   adjset <- readLines(paste0("tables/t_adjust_", cause, "_RedOptAdjSet.csv"))
   for (as in adjset) {
     myvariables[[cause]][grep(as, myvariables$variable)] <- "x"
   }
 }
-cause <- colnames(myvariables)[2]
+cause <- colnames(myvariables)[13]
 adjset <- readLines(paste0("tables/t_adjust_", cause, "_MinAdjSet1.csv"))
 for (as in adjset) {
   myvariables[[cause]][grep(as, myvariables$variable)] <- "x"
 }
-t_pseudor2s <- read_csv("tables/t_pseudor2s.csv", col_names = c("exposure", "pseudor2"), col_types = "cn") %>%
-  mutate(pseudor2=as.character(round(pseudor2, 3))) %>%
-  pivot_wider(names_from = "exposure", values_from = "pseudor2")
+# t_pseudor2s <- read_csv("tables/t_pseudor2s.csv", col_names = c("exposure", "pseudor2"), col_types = "cn") %>%
+#   mutate(pseudor2=as.character(round(pseudor2, 3))) %>%
+#   pivot_wider(names_from = "exposure", values_from = "pseudor2")
   
-myvariables <- bind_rows(t_pseudor2s, myvariables)[c(8, 1:7)]
-myvariables$variable[1] <- "Pseudo-R2"
+# myvariables <- bind_rows(t_pseudor2s, myvariables)[c(8, 1:7)]
+# myvariables$variable[1] <- "Pseudo-R2"
 kable(myvariables %>% rename(" "=variable),
              format = "latex", booktabs = TRUE, 
              caption = "Final adjustment sets for causal analysis") %>%
   kable_styling(font_size=7) %>% # , latex_options="scale_down"
   row_spec(0, angle = 90) %>%
-  pack_rows("Mobility", 5, 10) %>%
-  pack_rows("Policies", 15, 18) %>%
-  pack_rows("Socio-demographic", 19, 26) %>%
-  pack_rows("Awareness", 27, 28) %>%
-  pack_rows("Weather", 11, 14) # %>%  add_header_above(c(" " = 2, "Awareness" = 2, "Weather" = 4))
+  pack_rows("Mobility", 4, 9) %>%
+  pack_rows("Policies", 14, 14) %>%
+  pack_rows("Socio-demographic", 15, 23) %>%
+  pack_rows("Awareness", 24, 25) %>%
+  pack_rows("Weather", 10, 13) # %>%  add_header_above(c(" " = 2, "Awareness" = 2, "Weather" = 4))
 ```
