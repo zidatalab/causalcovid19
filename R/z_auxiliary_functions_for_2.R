@@ -317,7 +317,7 @@ write_cause <- function(res, exposure) {
                  exposure, "_", 
                  names(res$adjustmentsets[whichminaic]), ".csv"))
   } else {
-    cat("NO ADJUSTMENT SET FOR ", exposure, " (non-identifiable)\n")
+    cat("\n NO ADJUSTMENT SET FOR ", exposure, " (non-identifiable) \n \n ")
   }
   return(NULL)
 }

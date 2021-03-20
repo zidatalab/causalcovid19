@@ -39,7 +39,7 @@ myx <- as.matrix(modeldata %>% dplyr::select(-`Reported new cases COVID-19`))
 
 myfoldids <- (id_daycount %>% group_indices(id)) %% 10 + 1
 
-set.seed(1502)
+set.seed(2407)
 myglm_ridge_cv <- cv.glmnet(x=myx, y=myy, family = negative.binomial(mytheta),
                             offset=log(modeldata%>%pull(`Active cases`)+1),
                             standardize=FALSE,
@@ -57,8 +57,8 @@ myglm_ridge <- glmnet(myx, myy, family = negative.binomial(mytheta),
 # residuals
 
 devresids <- residuals(myglm, type="deviance")
-# library(statmod)
-# qresids <- qresid(myglm_ridge)
+library(statmod)
+qresids <- qresid(myglm)
 
 # linearity
 scatter.smooth(predict(myglm, type="link"), devresids, col='gray')
@@ -76,13 +76,13 @@ ggplot(myresidagainstcont, aes(x=value, y=devresids)) +
   geom_smooth(se=FALSE)
 
 # proper distribution
-qqnorm(qresids[-1971])
-qqline(qresids[-1971])
-hist(qresids[-1971], freq=FALSE)
-lines(density(qresids[-1971]),
+qqnorm(qresids)
+qqline(qresids)
+hist(qresids, freq=FALSE)
+lines(density(qresids),
       lwd = 2,
       col = "red")
-lines(density(rnorm(length(qresids[-1971]))),
+lines(density(rnorm(length(qresids))),
       lwd = 2,
       col = "blue")
 
@@ -110,18 +110,3 @@ corrplot(corrplotscores$r,
 library(car)
 myvifs <- vif(myglm)
 myvifs[myvifs>=5]
-
-# rescale principal components of mobility to original mobility variables
-pcaloadings <- read_csv("data/pca_mobility_loadings.csv")
-orig_mobi <- as.vector(exp(as.matrix(pcaloadings[, 2:7]) %*% myglm$coefficients[c(
-  "`Mobility (PC1)`",
-  "`Mobility (PC2)`",
-  "`Mobility (PC3)`",
-  "`Mobility (PC4)`",
-  "`Mobility (PC5)`",
-  "`Mobility (PC6)`"
-)]))
-names(orig_mobi) <- pcaloadings$original_variable
-orig_mobi
-
-coeffs <- tidy(myglm, exponentiate=TRUE) # , conf.int=TRUE, conf.level = 0.99

@@ -106,6 +106,7 @@ knitr::include_graphics(rep('figures/f_timeseries_exposures.eps'))
 ```{r causaleffects, echo=FALSE, message=FALSE, warning=FALSE}
 library("dplyr")
 library("kableExtra")
+library(stringr)
 causaleffects <- bind_rows(readr::read_csv("tables/t_effects_Mobility_RedOptAdjSet.csv"),
                            readr::read_csv("tables/t_effects_Searches corona_RedOptAdjSet.csv"),
                            readr::read_csv("tables/t_effects_COVID-19 burden_RedOptAdjSet.csv"),
@@ -123,7 +124,7 @@ causaleffects <- bind_rows(readr::read_csv("tables/t_effects_Mobility_RedOptAdjS
                rename(cause=variables, `effect estimate`=estimates)
 ## Note: no special chars in caption...
 knitr::kable(causaleffects %>% 
-               mutate(cause=stringr::str_remove(stringr::str_remove(cause,"Mobility \\("),"\\)")),
+               mutate(cause=ifelse(str_starts(cause, "Mobility"), stringr::str_remove(stringr::str_remove(cause,"Mobility \\("),"\\)"), cause)),
              booktabs = TRUE,
              caption = "Effect estimates from causal graph analysis",
              digits=4) %>%
@@ -159,7 +160,7 @@ We decided for the lag of 12 days based on the lowest AIC value compared to othe
 library(dplyr)
 library(knitr)
 library(kableExtra)
-myvariables <- readr::read_delim("tables/t_variables.csv", delim=";")[c(1:13, 18:29), ] %>% dplyr::select(variable) %>%
+myvariables <- readr::read_delim("tables/t_variables.csv", delim=";")[c(1:13, 18:23, 25:29), ] %>% dplyr::select(variable) %>%
   mutate(Mobility=" ", `Searches corona`=" ", `COVID-19 burden`=" ", Temperature=" ", Rainfall=" ", Humidity=" ", Wind=" ",
          Interventions= " ", Age=" ", `Foreign citizens`= " ", Gender=" ", `Nursing homes`=" ", `Population density`=" ", `Socio-economic status`=" ")
 for (cause in colnames(myvariables)[-c(1,13)]) {
@@ -186,7 +187,7 @@ kable(myvariables %>% rename(" "=variable),
   row_spec(0, angle = 90) %>%
   pack_rows("Mobility", 4, 9) %>%
   pack_rows("Policies", 14, 14) %>%
-  pack_rows("Socio-demographic", 15, 23) %>%
-  pack_rows("Awareness", 24, 25) %>%
+  pack_rows("Socio-demographic", 15, 22) %>%
+  pack_rows("Awareness", 23, 24) %>%
   pack_rows("Weather", 10, 13) # %>%  add_header_above(c(" " = 2, "Awareness" = 2, "Weather" = 4))
 ```

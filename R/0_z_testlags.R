@@ -1,6 +1,8 @@
 mylags <- 1:20
 
 myaic <- rep(0, 20)
+myaic_ridge <- myaic
+myaic_ridge0 <- myaic
 myglms <- vector("list", 20)
 
 library(lubridate)
@@ -8,6 +10,8 @@ library(tidyverse)
 library(DBI)
 library(broom)
 library(MASS)
+
+source("R/z_auxiliary_functions_for_2.R")
 
 mydatapath <- "./data/" 
 
@@ -100,9 +104,9 @@ measures_zeroone_all <- measures_zeroone_all %>%
          `Mandatory face masks`=ifelse(id==8325049 & date>=as.Date("2020-04-17"), 1, `Mandatory face masks`), # rottweil
          `Mandatory face masks`=ifelse(id==16062041  & date>=as.Date("2020-04-14"), 1, `Mandatory face masks`), # nordhausen
          `Mandatory face masks`=ifelse(id==16053000  & date>=as.Date("2020-04-06"), 1, `Mandatory face masks`) # jena
-  ) %>% 
-  mutate(Interventions=`Ban of mass gatherings`+`School/Kita closures`+`Contact restrictions`+`Mandatory face masks`) %>%
-  dplyr::select(-c(`Ban of mass gatherings`, `School/Kita closures`, `Contact restrictions`, `Mandatory face masks`))
+  ) #%>% 
+  # mutate(Interventions=`Ban of mass gatherings`+`School/Kita closures`+`Contact restrictions`+`Mandatory face masks`) %>%
+  # dplyr::select(-c(`Ban of mass gatherings`, `School/Kita closures`, `Contact restrictions`, `Mandatory face masks`))
 
 dateset <- as.Date(Reduce(intersect, list(awareness$date, google_mobility$date, weather$date, brd_timeseries$date)),
                    origin="1970-01-01")
@@ -133,6 +137,15 @@ google_mobility <- google_mobility %>%
 startdate <- min(dateset) + max(mylags)
 enddate <- as.Date("2020-07-08") # startdate + days(100) # 
 
+set.seed(3141)
+myids <- sample(unique(brd_timeseries$id))
+myrandomfoldids <- c(rep(1:9, each=40), rep(10, 41))
+myidmatch <- tibble(id=myids, randomfoldid=myrandomfoldids)
+
+myformula <- "`Reported new cases COVID-19` ~1+offset(log(`Active cases`+1))-`Active cases`+."
+
+cverror <- matrix(0, 20, 10)
+
 for (mylag in mylags) {
   lagweather <- mylag
   lagmobility <- mylag
@@ -152,7 +165,11 @@ for (mylag in mylags) {
     left_join(., pflege_destatis, by=c("id"="id")) %>%
     left_join(., brd_burden, by=c('date'='date', 'id'='id')) %>%
     filter(id>16 & date>=startdate & date<=enddate) %>%
-    rename(# `School and kindergarten closures`=`School/Kita closures`,
+    rename(
+      `Interventions (school and kindergarten closures)`=`School/Kita closures`,
+      `Interventions (mandatory face masks)`=`Mandatory face masks`,
+      `Interventions (ban of mass gatherings)`=`Ban of mass gatherings`,
+      `Interventions (contact restrictions)`=`Contact restrictions`,
       `Holiday (exposure)`=Holiday,
       `Foreign citizens`=`Foreign residents`,
       `Foreign citizens (refugees)`=`Foreign residents (refugees)`,
@@ -211,13 +228,24 @@ for (mylag in mylags) {
   modeldata <- modeldata_scaled_pca_mobility %>%
     bind_cols(modeldata_raw %>% dplyr::select(`Reported new cases COVID-19`, `Active cases`))
   
-  myformula <- "`Reported new cases COVID-19` ~1+offset(log(`Active cases`+1))-`Active cases`+."
-  myglm <- glm.nb(as.formula(myformula),
-                  data=modeldata) 
-  myglms[[mylag]] <- myglm
+  myfoldids <- modeldata_raw %>%
+    dplyr::select(id, daycount, date, bl_id) %>%
+    dplyr::select(-date) %>%
+    left_join(myidmatch, by="id") %>% pull(randomfoldid)
   
-  myaic[mylag] <- AIC(myglm)
+  for (fid in 1:10) {
+    myglm <- glm(as.formula(myformula),
+                    data=modeldata[!myfoldids==fid, ], family=negative.binomial(2)) 
+    mypredict <- exp(predict(myglm, newdata = modeldata[myfoldids==fid, ]))
+    cverror[mylag, fid] <- 1/length(mypredict)*sum((mypredict-modeldata$`Reported new cases COVID-19`[myfoldids==fid])^2)
+  }
+
+  cat("lag:", mylag, "\n")
 
 }
 
-myaic
+cverror_sd <- apply(cverror, 1, function(cve) 1/sqrt(10)*sd(cve))
+cverror_mean <- rowMeans(cverror)
+plot(cverror_mean)
+which.min(cverror_mean)
+which.max(min(cverror_mean)+cverror_sd[which.min(cverror_mean)]<=cverror_mean)
