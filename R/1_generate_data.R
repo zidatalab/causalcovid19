@@ -46,6 +46,7 @@ inkar <- read_csv(paste0(mydatapath, "sociodemographic/inkar.csv")) %>%
   mutate(id=as.integer(Kennziffer)*1000) %>%
   dplyr::select(-Kennziffer, -Raumeinheit, -Aggregat) %>%
   mutate(`Anteil Schutzsuchender an Bevölkerung`=replace_na(`Anteil Schutzsuchender an Bevölkerung`, mean(`Anteil Schutzsuchender an Bevölkerung`, na.rm = TRUE))) %>%
+  mutate(Frauenanteil=Frauenanteil*100) %>% 
   rename(`Age (pop. 65 and older)`=`Einwohner 65 Jahre und älter`,
          `Population density`=Einwohnerdichte,
          `Sex`=Frauenanteil,
