@@ -46,7 +46,7 @@
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={},
-            pdftitle={Causal graph analysis of COVID-19 observational data in German districts reveals effects of determining factors on new reported cases},
+            pdftitle={Causal graph analysis of COVID-19 observational data in German districts reveals effects of determining factors on reported case numbers},
             colorlinks=false,
             urlcolor=blue,
             linkcolor=magenta,
@@ -81,7 +81,7 @@
 \begin{document}
 \begin{frontmatter}
 
-  \title{Causal graph analysis of COVID-19 observational data in German districts reveals effects of determining factors on new reported cases}
+  \title{Causal graph analysis of COVID-19 observational data in German districts reveals effects of determining factors on reported case numbers}
     \author[Zi]{Edgar Steiger}
    \ead{esteiger@zi.de} 
     \author[Zi]{Tobias Mußgnug}
@@ -91,7 +91,7 @@
       \address[Zi]{Central Research Institute of Ambulatory Health Care in Germany (Zi), Salzufer 8, D-10587 Berlin, Germany}
     
   \begin{abstract}
-  Several determinants are suspected to be causal drivers for new cases of COVID-19 infection. Correcting for possible confounders, we estimated the effects of the most prominent determining factors on reported case numbers. To this end, we used a directed acyclic graph (DAG) as a graphical representation of the hypothesized causal effects of the determinants on new reported cases of COVID-19. Based on this, we computed valid adjustment sets of the possible confounding factors. We collected data for Germany from publicly available sources (e.g.~Robert Koch Institute, Germany's National Meteorological Service, Google) for 401 German districts over the period of 15 February to 8 July 2020, and estimated total causal effects based on our DAG analysis by negative binomial regression. Our analysis revealed favorable effects of increasing temperature, increased public mobility for essential shopping (grocery and pharmacy), and awareness measured by COVID-19 burden, all of them reducing the outcome of newly reported COVID-19 cases. Conversely, we saw adverse effects of public mobility in retail and recreational areas, awareness measured by searches for ``corona'' in Google, and higher rainfall, leading to an increase in new COVID-19 cases. This comprehensive causal graph analysis of a variety of determinants affecting COVID-19 progression gives strong evidence for the driving forces of mobility, public awareness, and temperature, whose implications need to be taken into account for future decisions regarding pandemic management.
+  Several determinants are suspected to be causal drivers for new cases of COVID-19 infection. Correcting for possible confounders, we estimated the effects of the most prominent determining factors on reported case numbers. To this end, we used a directed acyclic graph (DAG) as a graphical representation of the hypothesized causal effects of the determinants on new reported cases of COVID-19. Based on this, we computed valid adjustment sets of the possible confounding factors. We collected data for Germany from publicly available sources (e.g.~Robert Koch Institute, Germany's National Meteorological Service, Google) for 401 German districts over the period of 15 February to 8 July 2020, and estimated total causal effects based on our DAG analysis by negative binomial regression. Our analysis revealed favorable effects of increasing temperature, increased public mobility for essential shopping (grocery and pharmacy) or within residential areas, and awareness measured by COVID-19 burden, all of them reducing the outcome of newly reported COVID-19 cases. Conversely, we saw adverse effects leading to an increase in new COVID-19 cases for public mobility in retail and recreational areas or workplaces, awareness measured by searches for ``corona'' in Google, higher rainfall, and some socio-demographic factors. Non-pharmaceutical interventions were found to be effective in reducing case numbers. This comprehensive causal graph analysis of a variety of determinants affecting COVID-19 progression gives strong evidence for the driving forces of mobility, public awareness, and temperature, whose implications need to be taken into account for future decisions regarding pandemic management.
   \end{abstract}
   
  \end{frontmatter}
@@ -129,7 +129,7 @@ When investigating causal determinants of SARS-CoV-2 infections, a number of con
 \hypertarget{data}{%
 \section{Data}\label{data}}
 
-We collected and aggregated data on reported COVID-19 cases, regional socio-demographic factors, weather, and general mobility on district and state level in Germany for the period of 15 February 2020 to 8 July 2020. Our observation period for the outcome consisted of all dates from 27 February 2020 to 8 July 2020 (\(T=133\)), since we used a lag of 12 days for all confounders. We did not exclude any states or districts (\(K=401\)). We analyzed the daily reported number of new cases as outcome (\(K\cdot T=53{\ }333\) observations). The set of possible predictors was derived from our causal DAG (see Table \ref{tab:model-vars} and Figure \ref{fig:dag-covid-19}). Due to modelling and data limitations, some of the predictors were unobserved or were modelled as a construct consisting of several variables. For our causal graph analysis of effects, we computed adjustment sets separately for all observed exposures within the DAG (if the respective exposure was identifiable within the DAG causal analysis framework).
+We collected and aggregated data on reported COVID-19 cases, regional socio-demographic factors, weather, and general mobility on district and state level in Germany for the period of 15 February 2020 to 8 July 2020. Our observation period for the outcome consisted of all dates from 20 February 2020 to 8 July 2020 (\(T=140\)), since we used a lag of 5 days for all confounders. We did not exclude any states or districts (\(K=401\)). We analyzed the daily reported number of new cases as outcome (\(K\cdot T=56{\ }140\) observations). The set of possible predictors was derived from our causal DAG (see Table \ref{tab:model-vars} and Figure \ref{fig:dag-covid-19}). Due to modelling and data limitations, some of the predictors were unobserved or were modelled as a construct consisting of several variables. For our causal graph analysis of effects, we computed adjustment sets separately for all observed exposures within the DAG (if the respective exposure was identifiable within the DAG causal analysis framework).
 
 \hypertarget{variables}{%
 \subsection{Variables}\label{variables}}
@@ -144,7 +144,7 @@ We constructed daily weather from four variables (``temperature'', ``rainfall'',
 
 The reported number of COVID-19 cases varied strongly by day of the week. Thus, we included ``weekday'' as a categorical variable. Similarly, the reported cases and the exposure to the virus were affected by official holidays. Within the observation period, this included among others Good Friday, Easter Monday, and Labor Day. To correct for effects of these days, we included two variables in the model, ``Holiday (report)'' (indicates if the day of the report was a holiday, because governmental health departments were less likely to be on full duty) and ``Holiday (exposure)'' (indicates if the day of exposure to the virus was a holiday, because the population behaves differently on holidays).
 
-For different official and political measures on a day and district level we used one-hot encoded daily variables, i.e.~ban of mass gatherings, school and kindergarten closures and their gradual reopening, contact restrictions, and mandatory face masks for shopping and public transport. These variables were highly correlated with each other and other variables (especially mobility). To reduce multicollinearity, we aggregated the different official/political measures by summing them into one variable ``interventions'' which describes the current severity of interventions on a given day in a given district.
+For different official and political interventions on a day and district level we used one-hot encoded daily variables, i.e.~ban of mass gatherings, school and kindergarten closures and their gradual reopening, contact restrictions, and mandatory face masks for shopping and public transport.
 
 We included several social, economic, and demographic factors on the district level with direct or indirect influence on the risk of exposure to SARS-CoV-2 in our analysis. All are readily available from INKAR database \citep{inkar}. We used the share of population that is 65 years or older and the share of population that is younger than 18 years (Age), the share of females in population (Gender), the population density, the share of foreign citizenships and the share of the population seeking refuge (Foreign citizenship), the share of low-income households (Socio-economic status), voter turnout, share of right-wing populist party votes, and the number of nursing (retirement) homes.
 
@@ -181,18 +181,21 @@ Holiday (exposure) & daily & national & binary & - & -\\
 \hspace{1em}residential & daily & state & numeric & percent change compared to reference period & Google \citep{google_mobility}\\
 \hspace{1em}transit stations & daily & state & numeric & percent change compared to reference period & Google \citep{google_mobility}\\
 \addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Awareness}}\\
+\hspace{1em}Searches corona & daily & state & numeric & percent relative to other states and observation period & Google \citep{google_trends}\\
+\hspace{1em}COVID-19 burden & daily & district & numeric & reported cases on day of exposure & RKI \citep{casenumbers_rki}\\
+\addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Weather}}\\
 \hspace{1em}Rainfall & daily & district & numeric & mm (l/sqm) & DWD \citep{dwd_weather}\\
 \hspace{1em}Temperature & daily & district & numeric & °C & DWD \citep{dwd_weather}\\
 \hspace{1em}Humidity & daily & district & numeric & relative humidity (\%) & DWD \citep{dwd_weather}\\
 \hspace{1em}Wind & daily & district & numeric & m/s & DWD \citep{dwd_weather}\\
 \addlinespace[0.3em]
-\multicolumn{6}{l}{\textbf{Policies}}\\
+\multicolumn{6}{l}{\textbf{Interventions}}\\
 \hspace{1em}Ban of mass gatherings & daily & national & binary & - & -\\
 \hspace{1em}School and kindergarten closures & daily & state & numeric & 0 for no closure, 1 for full closure, 0.5 for partial reopening & -\\
 \hspace{1em}Contact restrictions & daily & national & binary & - & -\\
 \hspace{1em}Mandatory face masks & daily & district & binary & - & IZA \citep{mitze2020face}\\
-\hspace{1em}Interventions & daily & district & numeric & sum of the above & -\\
 \addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Socio-demographic}}\\
 \hspace{1em}Age & constant & district & numeric & 2 variables: share of population >=65 years \& <18 years & INKAR \citep{inkar}\\
@@ -204,10 +207,6 @@ Holiday (exposure) & daily & national & binary & - & -\\
 \hspace{1em}Right-wing populist party votes & constant & district & numeric & share of votes for AfD in last election & INKAR \citep{inkar}\\
 \hspace{1em}Nursing homes & constant & district & numeric & number of nursing (retirement) homes & INKAR \citep{inkar}\\
 \addlinespace[0.3em]
-\multicolumn{6}{l}{\textbf{Awareness}}\\
-\hspace{1em}Searches corona & daily & state & numeric & percent relative to other states and observation period & Google \citep{google_trends}\\
-\hspace{1em}COVID-19 burden & daily & district & numeric & reported cases on day of exposure & RKI \citep{casenumbers_rki}\\
-\addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Case numbers}}\\
 \hspace{1em}Reported new cases of COVID-19 & daily & district & numeric & - & RKI \citep{casenumbers_rki}\\
 \hspace{1em}Active cases & daily & district & numeric & active cases on day of report & RKI \citep{casenumbers_rki}\\
@@ -215,7 +214,7 @@ Holiday (exposure) & daily & national & binary & - & -\\
 \end{tabular}
 \end{table}
 
-All continuous variables but the outcome ``Reported new cases of COVID-19'' and the offset ``Active cases'' were centered and scaled by one standard deviation for numerical stability, while we left binary variables as-is. After estimating the effects of variables, we re-scaled continuous variables' effects to their original scale. Additionally for mobility, we re-transformed the effects of the principal components to the original mobility variables. Furthermore, we lagged the effect of all variables (but outcome, offset, and the non-dynamic socio-demographic variables) by 12 days (see Section \ref{results}) which means that we assumed that their effects on the outcome will be visible after 12 days.
+All continuous variables but the outcome ``Reported new cases of COVID-19'' and the offset ``Active cases'' were centered and scaled by one standard deviation for numerical stability, while we left binary variables as-is. After estimating the effects of variables, we re-scaled continuous variables' effects to their original scale. Additionally for mobility variables, we re-transformed the effects of the principal components to the original mobility variables. Furthermore, we lagged the effect of all variables (but outcome, offset, and the non-dynamic socio-demographic variables) by 5 days (see Section \ref{results}) which means that we assumed that their effects on the outcome will be visible after 5 days.
 
 \hypertarget{methods}{%
 \section{Methods}\label{methods}}
@@ -250,9 +249,7 @@ One can interpret the model as approximating the log-ratio of new cases and acti
 
 In practice, given observations of \(Y\) and \(x\) we estimate the regression coefficients \(\alpha\) and \(\beta_i\) by \emph{maximum likelihood} \citep{maxlikelihood}. Our observational measurements are \(y_{kt}\) and \(x_{ikt}\), where \(k\) indicates the corresponding district and \(t\) the date of measurement.
 
-To reduce the effects of multicollinearity and to prevent overfitting, we used a ridge regression approach \citep{ridge1970}, which is a regularization method that shrinks regression coefficients to allow for better fits on unseen data and alleviates the effect of correlation between variables on their respective regression coefficients. The hyper-parameter \(\lambda\) of the ridge regression was chosen by 10-fold cross-validation, where the folds were constructed from subsets of the \(401\) districts.
-
-We conducted a log-linear regression (function \texttt{glm} with \texttt{family=poisson()} for Poisson regression, and \texttt{glm.nb} from the \texttt{MASS} package for the negative binomial regression \citep{mass}) for the full data set to assess general model adequacy and to estimate the \(\theta\) parameter of the negative binomial. We used this parameter with the \texttt{cv.glmnet} function from the R package \texttt{glmnet} \citep{glmnet2010} with \texttt{family=negative.binomial(theta)} and chose the \(\lambda\) value within one standard deviation from the minimal \(\lambda\) as regularization hyper-parameter. Afterwards, we calculated the effects of separate exposures on the outcome. For every exposure, we analyzed the different valid adjustment sets given by analysis of the causal DAG (i.e.~the minimal and optimal adjustment sets). Then, we first checked if the respective set included unobserved variables. If this was the case for the optimal adjustment set, we discarded the unobserved variables from the set and checked if it was still a valid adjustment set (function \texttt{gac} in package \texttt{pcalg} \citep{perkovi2015complete}). If a minimal adjustment set contained unobserved variables, we discarded the whole set. If no valid adjustment set for a given exposure was available, we concluded that the effect of this exposure was unidentifiable within our causal graph. We used the function \texttt{glmnet} with the parameters \(\theta\) and \(\lambda\) as above on every remaining valid adjustment set as regressors (that is, we applied ridge regression) and calculated the Akaike information criterion (AIC) for this model/set of regressors. Finally, for every exposure, we decided for the model/adjustment set (if available) with the lowest AIC. We report the exponentiated estimated coefficients for the separate exposures on their original scale.
+We conducted a log-linear regression (function \texttt{glm} with \texttt{family=poisson()} for Poisson regression, and \texttt{glm.nb} from the \texttt{MASS} package for the negative binomial regression \citep{mass}) for the full data set to assess general model adequacy and to estimate the \(\theta\) parameter of the negative binomial. The proper lag between exposures and outcome was found by 10-fold cross-validation on different lags between 1 and 20 days. Model diagnostics on the final full model did not show severe problems with model assumptions (linearity, distribution of residuals, independence of observations). Analysis of variance inflation factors revealed some problems with multicollinearity. To reduce the effects of multicollinearity, first we transformed the highly correlated mobility variables by PCA as described above. Second, we used a ridge regression approach \citep{ridge1970}, which is a regularization method that shrinks regression coefficients and alleviates the effect of correlation between variables on their respective regression coefficients. Furthermore, regularized regression allows for better fits on unseen data, thus preventing overfitting the data, too. The hyper-parameter \(\lambda\) of the ridge regression was chosen by 10-fold cross-validation, where the folds were constructed from random subsets of the \(401\) districts. We used this hyper-parameter with the \texttt{cv.glmnet} function from the R package \texttt{glmnet} \citep{glmnet2010} with \texttt{family=negative.binomial(theta)} and chose the \(\lambda\) value within one standard deviation from the minimal \(\lambda\) as regularization hyper-parameter. Afterwards, we calculated the effects of separate exposures on the outcome. For every exposure, we analyzed the different valid adjustment sets given by analysis of the causal DAG (i.e.~the minimal and optimal adjustment sets). Then, we first checked if the respective set included unobserved variables. If this was the case for the optimal adjustment set, we discarded the unobserved variables from the set and checked if it was still a valid adjustment set (function \texttt{gac} in package \texttt{pcalg} \citep{perkovi2015complete}). If a minimal adjustment set contained unobserved variables, we discarded the whole set. If no valid adjustment set for a given exposure was available, we concluded that the effect of this exposure was unidentifiable within our causal graph. We used the function \texttt{glmnet} with the parameters \(\theta\) and \(\lambda\) as above on every remaining valid adjustment set as regressors (that is, we applied ridge regression) and calculated the Akaike information criterion (AIC) for this model/set of regressors. Finally, for every exposure, we decided for the model/adjustment set (if available) with the lowest AIC. We report the exponentiated estimated coefficients for the separate exposures on their original scale.
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -268,29 +265,36 @@ Descriptive statistics for the included variables are presented in Table \ref{ta
 \toprule
 Variable & mean (SD)\\
 \midrule
-n & 53333\\
+n & 56140\\
 \addlinespace[0.3em]
 \multicolumn{2}{l}{\textbf{Mobility}}\\
-\hspace{1em}retail and recreation & -27.70 (24.65)\\
-\hspace{1em}grocery and pharmacy & -4.36 (22.96)\\
-\hspace{1em}parks & 44.77 (57.40)\\
-\hspace{1em}workplaces & -23.45 (20.52)\\
-\hspace{1em}residential & 8.36 (6.56)\\
-\hspace{1em}transit stations & -30.25 (21.31)\\
+\hspace{1em}retail and recreation & -26.62 (24.60)\\
+\hspace{1em}grocery and pharmacy & -3.94 (22.77)\\
+\hspace{1em}parks & 47.26 (58.20)\\
+\hspace{1em}workplaces & -22.96 (20.35)\\
+\hspace{1em}residential & 8.13 (6.49)\\
+\hspace{1em}transit stations & -29.58 (21.11)\\
+\addlinespace[0.3em]
+\multicolumn{2}{l}{\textbf{Awareness}}\\
+\hspace{1em}Searches corona & 26.94 (18.23)\\
+\hspace{1em}COVID-19 burden & 3.50 (10.28)\\
 \addlinespace[0.3em]
 \multicolumn{2}{l}{\textbf{Weather}}\\
-\hspace{1em}Rainfall & 1.83 (3.95)\\
-\hspace{1em}Temperature & 10.50 (5.15)\\
-\hspace{1em}Humidity & 67.62 (13.23)\\
-\hspace{1em}Wind & 3.64 (1.68)\\
+\hspace{1em}Rainfall & 1.89 (4.01)\\
+\hspace{1em}Temperature & 10.90 (5.33)\\
+\hspace{1em}Humidity & 67.81 (13.03)\\
+\hspace{1em}Wind & 3.63 (1.66)\\
 \addlinespace[0.3em]
-\multicolumn{2}{l}{\textbf{Policies}}\\
-\hspace{1em}Interventions & 2.56 (1.33)\\
+\multicolumn{2}{l}{\textbf{Interventions}}\\
+\hspace{1em}Ban of mass gatherings & 0.83 (0.38)\\
+\hspace{1em}School and kindergarten closures & 0.54 (0.36)\\
+\hspace{1em}Contact restrictions & 0.74 (0.44)\\
+\hspace{1em}Mandatory face masks & 0.49 (0.50)\\
 \addlinespace[0.3em]
 \multicolumn{2}{l}{\textbf{Socio-demographic}}\\
 \hspace{1em}Age (pop. 65 and older) & 22.09 (2.74)\\
 \hspace{1em}Age (pop. younger 18) & 16.17 (1.25)\\
-\hspace{1em}Gender & 0.51 (0.01)\\
+\hspace{1em}Gender & 50.59 (0.64)\\
 \hspace{1em}Population density & 533.75 (701.84)\\
 \hspace{1em}Foreign citizens & 10.03 (5.14)\\
 \hspace{1em}Foreign citizens (refugees) & 1.88 (1.14)\\
@@ -299,13 +303,9 @@ n & 53333\\
 \hspace{1em}Right-wing populist party votes & 13.39 (5.32)\\
 \hspace{1em}Nursing homes & 36.11 (30.69)\\
 \addlinespace[0.3em]
-\multicolumn{2}{l}{\textbf{Awareness}}\\
-\hspace{1em}Searches corona & 27.64 (18.43)\\
-\hspace{1em}COVID-19 burden & 3.63 (10.49)\\
-\addlinespace[0.3em]
 \multicolumn{2}{l}{\textbf{Case numbers (Outcome and offset)}}\\
-\hspace{1em}Reported new cases COVID-19 & 3.71 (10.52)\\
-\hspace{1em}Active cases & 51.33 (123.47)\\
+\hspace{1em}Reported new cases COVID-19 & 3.53 (10.29)\\
+\hspace{1em}Active cases & 48.76 (120.86)\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -318,7 +318,7 @@ n & 53333\\
 
 In the observational period, the number of daily reported COVID-19 cases increased till the end of March/beginning of April and continually decreased afterwards till the beginning of June 2020 with a slight increase and decrease afterwards (Figure \ref{fig:cases-log}A). On the other hand, the (log-)ratio of reported cases over active cases decreased steeply till the mid of April and increased steadily afterwards with a slight decrease close to the end of the observation period (Figure \ref{fig:cases-log}B). Both figures examplify a considerable variation among the districts (light blue points are individual district's data).
 
-In Germany, we observed a rebound in mobility after the initial political measures, reductions in incident cases were associated with a diminishing public interest in COVID-19, and temperatures were overall increasing (cf.~Figure \ref{fig:timeseries}); with correlations between temporal progression and mobility in retail and recreation \(r_{A,D}=\) -0.06, awareness (``Searches corona'') \(r_{A,C}=\) -0.26, and temperature \(r_{A,B}=\) 0.77.
+In Germany, we observed a rebound in mobility after the initial political measures, reductions in incident cases were associated with a diminishing public interest in COVID-19, and temperatures were overall increasing (cf.~Figure \ref{fig:timeseries}); with correlations between temporal progression and mobility in retail and recreation \(r_{A,D}=\) 0.02, awareness (``Searches corona'') \(r_{A,C}=\) -0.3, and temperature \(r_{A,B}=\) 0.8.
 
 \begin{figure}
 \centering
@@ -339,35 +339,38 @@ cause & effect estimate\\
 \midrule
 \addlinespace[0.3em]
 \multicolumn{2}{l}{\textbf{Mobility}}\\
-\hspace{1em}retail and recreation & 1.0010\\
-\hspace{1em}grocery and pharmacy & 0.9988\\
-\hspace{1em}parks & 0.9997\\
-\hspace{1em}transit stations & 1.0024\\
-\hspace{1em}workplaces & 1.0025\\
-\hspace{1em}residential & 0.9914\\
+\hspace{1em}retail and recreation & 1.0011\\
+\hspace{1em}grocery and pharmacy & 0.9979\\
+\hspace{1em}parks & 0.9996\\
+\hspace{1em}transit stations & 1.0025\\
+\hspace{1em}workplaces & 1.0032\\
+\hspace{1em}residential & 0.9906\\
 \addlinespace[0.3em]
 \multicolumn{2}{l}{\textbf{Awareness}}\\
-\hspace{1em}Searches corona & 1.0007\\
-\hspace{1em}COVID-19 burden & 0.9922\\
+\hspace{1em}Searches corona & 1.0087\\
+\hspace{1em}COVID-19 burden & 0.9981\\
 \addlinespace[0.3em]
 \multicolumn{2}{l}{\textbf{Weather}}\\
-\hspace{1em}Temperature & 0.9959\\
-\hspace{1em}Rainfall & 1.0100\\
-\hspace{1em}Humidity & 1.0042\\
-\hspace{1em}Wind & 1.0164\\
+\hspace{1em}Temperature & 0.9905\\
+\hspace{1em}Rainfall & 1.0117\\
+\hspace{1em}Humidity & 1.0056\\
+\hspace{1em}Wind & 1.0328\\
 \addlinespace[0.3em]
-\multicolumn{2}{l}{\textbf{Policies}}\\
-\hspace{1em}Interventions & 0.8037\\
+\multicolumn{2}{l}{\textbf{Interventions}}\\
+\hspace{1em}Interventions (ban of mass gatherings) & 0.9733\\
+\hspace{1em}Interventions (school and kindergarten closures) & 0.9315\\
+\hspace{1em}Interventions (contact restrictions) & 0.8400\\
+\hspace{1em}Interventions (mandatory face masks) & 0.9109\\
 \addlinespace[0.3em]
 \multicolumn{2}{l}{\textbf{Demographic}}\\
-\hspace{1em}Age (pop. 65 and older) & 0.9976\\
-\hspace{1em}Age (pop. younger 18) & 1.0097\\
-\hspace{1em}Foreign citizens & 1.0034\\
-\hspace{1em}Foreign citizens (refugees) & 1.0010\\
-\hspace{1em}Gender & 0.5232\\
-\hspace{1em}Nursing homes & 1.0007\\
+\hspace{1em}Age (pop. 65 and older) & 0.9952\\
+\hspace{1em}Age (pop. younger 18) & 1.0116\\
+\hspace{1em}Foreign citizens & 1.0047\\
+\hspace{1em}Foreign citizens (refugees) & 0.9987\\
+\hspace{1em}Gender & 0.9929\\
+\hspace{1em}Nursing homes & 1.0011\\
 \hspace{1em}Population density & 1.0000\\
-\hspace{1em}Socio-economic status & 0.9993\\
+\hspace{1em}Socio-economic status & 0.9983\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -380,19 +383,19 @@ We list the results of our causal analysis for the effects of different exposure
 \caption{\label{fig:effectsrange}Relative causal effects of exposures}
 \end{figure}
 
-Within our framework, we saw significant effects for mobility in retail/recreational areas and essential shopping (grocery and pharmacy). For retail/recreation, an increase of 1 percent point mobility compared to the reference period (03 January to 06 February 2020) leads to an increase of the daily reported case number by about 0.1 percent. Contrarily, a corresponding increase of 1 percent point for the areas of grocery/pharmacy leads to a decrease in the reported case number by approximately 0.12 percent. Mobility on workplaces showed a small effect of 0.25 increase in case numbers for every 1 percent point increase in mobility. Other causal effects of mobility were insubstantial and not consistent in their direction (99 percent confidence intervals of estimates include 1). Figure \ref{fig:effectsrange} shows the effects of mobility on a range of possible values. Thus, we expect an increase of daily cases by approximately 3 percent if mobility in retail/recreation reaches baseline levels of 0 percent difference to the reference period. On the other hand, an increase of mobility for grocery/pharmacy by 10 percent points compared to the reference period leads to a reduction of the infection rate by approximately 2 percent.
+Within our framework, we saw very different effects for mobility variables. For mobility in retail/recreation, an increase of 1 percent point mobility compared to the reference period (03 January to 06 February 2020) leads to an increase of the daily reported case number by about 0.11 percent. Similarly, Mmbility on workplaces showed an effect of 0.32 increase in case numbers for every 1 percent point increase in mobility, while mobility on transit stations showed an effect of 0.25 increase in case numbers for every 1 percent point increase. Contrarily, the remaining three mobility variables showed negative effects on the number of reported COVID-19 cases. An increase of 1 percent point mobility for the areas of grocery/pharmacy leads to a decrease in the reported case number by approximately 0.21 percent, while increased mobility of 1 percent point within parks leads to a decrease in the reported case number by approximately 0.04 percent, and finally an increase of 1 percent point in residential mobility leads to a decrease by approximately 0.94 percent. Figure \ref{fig:effectsrange} shows the effects of mobility on a range of possible values. Thus, we expect an increase of daily cases by approximately 7.5 percent if mobility in workplaces reaches baseline levels of 0 percent difference to the reference period. On the other hand, an increase of mobility for residential areas by 10 percent points compared to the reference period leads to a reduction of the infection rate by approximately 1.8 percent.
 
-``Awareness'' had two opposite effects on the outcome in our DAG. Awareness measured by Google searches for \emph{corona} had a positive effect on the number of reported cases. An one percent point increase of the state's Google searches (relative to other states and the observation period) leads to an increase of approximately 0.1 percent. For example, if a district shows 10 percent points more relative searches for \emph{corona} than another one, we expect approximately 1 percent more infections for this district after 8 days. \emph{COVID-19 burden} (reported number of cases on day of exposure) affected the outcome negatively, where every additional daily case in the district leads to a 0.8 percent decrease in newly reported case numbers. The last plot in Figure \ref{fig:effectsrange} visualizes this relationship: For a local outbreak with 20 daily cases as COVID-19 burden, we estimate as total causal effect a subsequent reduction of infection rate by 14.6 percent.
+``Awareness'' had two opposite effects on the outcome in our DAG. Awareness measured by Google searches for \emph{corona} had a positive effect on the number of reported cases. An one percent point increase of the state's Google searches (relative to other states and the observation period) leads to an increase of approximately 0.87 percent. For example, if a district shows 10 percent points more relative searches for \emph{corona} than another one, we expect approximately 9 percent more infections for this district after 5 days. \emph{COVID-19 burden} (reported number of cases on day of exposure) affected the outcome negatively, where every additional daily case in the district leads to a 0.19 percent decrease in newly reported case numbers. The corresponding plot in Figure \ref{fig:effectsrange} visualizes this relationship: For a local outbreak with 20 daily cases as COVID-19 burden, we estimate as total causal effect a subsequent reduction of infection rate by 3.8 percent.
 
-Within our model, we observed a causal effect of temperature and all other weather variables. Every increase of 1 degree Celsius in temperature leads to a reduction of the daily reported case numbers by approximately 0.4 percent. On the other hand, we found an increasing effect of rainfall: One millimeter (=1 liter per square meter) more rainfall leads to an increase of reported case numbers by approximately 1 percent. We observe effects for humidity and wind as well (higher humidity leading to more cases, stronger wind leading to less cases). In perspective (Figure \ref{fig:effectsrange}), with temperature we expect an increase by approximately 8.5 percent at a daily average temperature of \(0^{\circ}C\) compared to a day with \(20^{\circ}C\). For rainfall, we expect on a rainy day with 10 mm rainfall a corresponding increase of the infection rate by approximately 10.5 percent compared to a day with no precipitation.
+Within our model, we observed effects of temperature and all other weather variables. Every increase of 1 degree Celsius in temperature leads to a reduction of the daily reported case numbers by approximately 0.95 percent. On the other hand, we found an increasing effect of rainfall: One millimeter (=1 liter per square meter) more rainfall leads to an increase of reported case numbers by approximately 1.17 percent. We observe effects for humidity and wind as well (higher humidity leading to more cases, stronger wind leading to more cases). In perspective (Figure \ref{fig:effectsrange}), with temperature we expect an increase by approximately 21.1 percent at a daily average temperature of \(0^{\circ}C\) compared to a day with \(20^{\circ}C\). For rainfall, we expect on a rainy day with 10 mm rainfall a corresponding increase of the infection rate by approximately 12.3 percent compared to a day with no precipitation.
 
-The variable ``interventions'' showed \ldots{}
+The different intervention variables showed the strongest effects in our analysis, see Table \ref{tab:causaleffects}. While the first intervention (ban of mass gatherings) reduced subsequent daily case numbers by 2.7 percent, the closure of schools/kindergartens reduced infections by an additional 6.8 percent and mandatory face masks reduced this by another 8.9 percent. The effect of contatc restrictions was the strongest in our observation period, with an reduction of the case rates by 16.
 
-The effects of the different socio-demographic factors \ldots{}
+The effects of the different socio-demographic factors are quite small in comparison to the effects described above. We see an increasing effect on case numbers by additional nursing homes between districts. Districts with a younger population, more foreign citizens, higher population density and a lower average social-economic status showed higher case numbers, too.
 
-In all cases we opted to use the (reduced) optimal adjustment set over the minimal adjustment sets because of lower AICs, except for exposure variable ``nursing homes'', where the minimal adjustment set had a lower AIC. We found that there were no valid adjustment sets for the unidentifiable variables turnout and right-wing populist party votes.
+For all exposures, our analysis pipeline opted to use the (reduced) optimal adjustment set over the minimal adjustment sets because of lower AICs, except for exposure variable ``nursing homes'', where the minimal adjustment set had a lower AIC. We found that there were no valid adjustment sets for the non-identifiable variables turnout and right-wing populist party votes.
 
-We decided for the lag of 12 days based on the lowest AIC value compared to other lags between 1 and 20 days on the full model. Similarly, negative binomial regression was chosen over Poisson regression, because the latter showed overdispersion and an higher AIC value.
+We decided for a lag of 5 days based on cross-validation. Similarly, negative binomial regression was chosen over Poisson regression, because the latter showed overdispersion and an higher AIC value.
 
 \begin{table}
 
@@ -408,20 +411,19 @@ Holiday (report) & x & x & x & x & x & x & x & x & x & x & x & x & x & x\\
 Holiday (exposure) & x & x & x & x & x & x & x & x & x & x & x & x & x & x\\
 \addlinespace[0.3em]
 \multicolumn{15}{l}{\textbf{Mobility}}\\
-\hspace{1em}retail and recreation &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
-\hspace{1em}grocery and pharmacy &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
-\hspace{1em}parks &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
-\hspace{1em}workplaces &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
-\hspace{1em}residential &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
-\hspace{1em}transit stations &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\hspace{1em}Mobility &  &  &  &  &  & x &  &  &  &  &  &  &  & \\
+\addlinespace[0.3em]
+\multicolumn{15}{l}{\textbf{Awareness}}\\
+\hspace{1em}Searches corona & x &  &  & x & x & x & x &  &  &  &  & x &  & \\
+\hspace{1em}COVID-19 burden & x & x &  & x & x & x & x & x & x & x & x & x & x & x\\
 \addlinespace[0.3em]
 \multicolumn{15}{l}{\textbf{Weather}}\\
-\hspace{1em}Rainfall & x & x & x & x &  & x & x & x & x & x & x &  & x & x\\
 \hspace{1em}Temperature & x & x & x &  &  & x &  & x & x & x & x &  & x & x\\
+\hspace{1em}Rainfall & x & x & x & x &  & x & x & x & x & x & x &  & x & x\\
 \hspace{1em}Humidity & x & x & x &  &  &  &  & x & x & x & x &  & x & x\\
 \hspace{1em}Wind & x & x & x & x & x & x &  & x & x & x & x &  & x & x\\
 \addlinespace[0.3em]
-\multicolumn{15}{l}{\textbf{Policies}}\\
+\multicolumn{15}{l}{\textbf{Interventions}}\\
 \hspace{1em}Interventions & x & x &  & x & x & x & x &  & x & x & x & x & x & x\\
 \addlinespace[0.3em]
 \multicolumn{15}{l}{\textbf{Socio-demographic}}\\
@@ -433,10 +435,6 @@ Holiday (exposure) & x & x & x & x & x & x & x & x & x & x & x & x & x & x\\
 \hspace{1em}Turnout &  &  & x &  &  &  &  & x &  &  &  &  &  & \\
 \hspace{1em}Right-wing populist party votes & x & x & x & x & x & x & x & x &  &  &  & x &  & \\
 \hspace{1em}Nursing homes & x & x & x & x & x & x & x & x &  &  &  &  & x & \\
-\addlinespace[0.3em]
-\multicolumn{15}{l}{\textbf{Awareness}}\\
-\hspace{1em}Searches corona & x &  &  & x & x & x & x &  &  &  &  & x &  & \\
-\hspace{1em}COVID-19 burden & x & x &  & x & x & x & x & x & x & x & x & x & x & x\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -447,27 +445,27 @@ Holiday (exposure) & x & x & x & x & x & x & x & x & x & x & x & x & x & x\\
 \hypertarget{main-findings}{%
 \subsection{Main findings}\label{main-findings}}
 
-Our objective was to identify causal effects for COVID-19 cases. We found that weather affects the reported number of infections, especially temperature (which has a reducing effect on case numbers) and rainfall (which increases case numbers). We saw that reports of high case numbers in districts led to a reduction in new infection numbers, which indicates risk-averse awareness in the population and/or effective public health measures to suppress a local outbreak. The overall effect of mobility showed no consistent effect, however, in specific areas significant causal effects could be measured: Increasing activity in retail and recreational areas increased reported case numbers, while increased movement for essential shopping (grocery and pharmacy) led to reduced case numbers.
+Our objective was to identify effects of determining factors for COVID-19 cases within a causal framework. We found that weather affects the reported number of infections, especially temperature (which has a reducing effect on case numbers) and rainfall (which increases case numbers). We saw that reports of high case numbers in districts led to a reduction in new infection numbers, which indicates risk-averse awareness in the population and/or effective public health measures to suppress a local outbreak. Mobility showed distinct effects: Increasing activity in retail and recreational areas, as well as transit stations and workplaces increased reported case numbers, while increased movement for essential shopping (grocery and pharmacy) and in parks or residential areas led to reduced case numbers. All interventions considered (ban of mass gatherings, school/kindergarten closures, contact restrictions, mandatory face masks) reduced case numbers considerably. Socio-demographic variables had small effects individually, but in conjunction they explained larger case numbers in (urban) areas with younger population, lower socio-economic status, and higher population density.
 
 Furthermore, we made a strong case for the use of causal DAGs in epidemiology and a pandemic like COVID-19: DAGs allow to choose confounders for the analysis in a principled and statistically correct way while reducing possible causes for bias. Also, the DAG formalization allows for discussion about the underlying causal assumptions.
 
 \hypertarget{comparison-with-previous-research}{%
 \subsection{Comparison with previous research}\label{comparison-with-previous-research}}
 
-Most research on determinants affecting case numbers of COVID-19 is restricted to single aspects \citep{fowler_effect_2020, li_retrospective_2020, shi_impact_2020, Wang2020temperature}. To reliably identify causal drivers, one must adjust for confounders. To this end, we used an integrated model with variables from different aspects like mobility, awareness, weather, or socio-demographics and identified confounders by causal analysis with a directed acyclic graph. A causal approach is used in another current COVID-19 analysis \citep{gencoglu2020causal}. There, however, they identify the causal relationships (reconstruct a DAG), while we estimated causal effects for a given hypothesized DAG.
+Most research on determinants affecting case numbers of COVID-19 is restricted to single aspects \citep{fowler_effect_2020, li_retrospective_2020, shi_impact_2020, Wang2020temperature}. To reliably identify (causal) drivers, one must adjust for confounders. To this end, we used an integrated model with variables from different aspects like mobility, awareness, weather, or socio-demographics and identified confounders by causal analysis with a directed acyclic graph. A causal approach is used in another current COVID-19 analysis \citep{gencoglu2020causal}. There, however, they identify the causal relationships (reconstruct a DAG), while we estimated effects for a given hypothesized causal DAG.
 
 Several studies assessing the impact of public health measures on mobility have each observed a downward trend accompanied by a decrease in the number of newly reported cases \citep{chang_modeling_2020, cowling2020impact, fowler_effect_2020, kraemer_effect_2020, lai_effect_2020, linka_outbreak_2020}.
 
 Our findings regarding awareness/Google Trends analysis are in good agreement with the correlations found by \citet{effenberger_association_2020}, \citet{higgins_correlations_2020}, and \citet{yuan_trends_2020}, who conclude that alertness to COVID-19 rises several days before the highest number of cases are reported. At this point it should be noted, that awareness is substantially influenced by public media coverage, which should be considered, if possible, in future studies \citep{higgins_correlations_2020}. As such, awareness is difficult to measure and here the number of Google searches for ``corona'' could only be a proxy for this concept.
 
-In addition, in alignment with other recent published studies, our results confirm evidence which associated a negative effect of temperature on new COVID-19 cases \citep{bannister-tyrrell_preliminary_2020, demongeot_temperature_2020, liu_impact_2020, qi_covid-19_2020, shi_impact_2020, sobral_association_2020, tosepu_correlation_2020, Wang2020temperature, wu_effects_2020}. It is however controversial to other scientific literature describing no effects \citep{briz-redon_spatio-temporal_2020, iqbal_nexus_2020, jahangiri_sensitivity_2020, juni_impact_2020, yao_no_2020} or even converse correlations \citep{auler_evidence_2020, xie_association_2020}. The conflicting results might be explained by different climates and characteristics of the populations under study. While we are confident that our strict causal analysis resulted in effect estimates as undistorted as possible, there might be unconsidered bias in those other studies. Further research needs to be done to elucidate the biological characteristics of the novel virus SARS-CoV-2 regarding its ambient temperature survival and transmission. Finally, we found a positive causal effect of increased precipitation and a raise in COVID-19 cases, which supports previous observations \citep{sobral_association_2020}.
+In addition, in alignment with other recent published studies, our results confirm evidence which associated a negative effect of temperature on new COVID-19 cases \citep{bannister-tyrrell_preliminary_2020, demongeot_temperature_2020, liu_impact_2020, qi_covid-19_2020, shi_impact_2020, sobral_association_2020, tosepu_correlation_2020, Wang2020temperature, wu_effects_2020}. It is however controversial to other scientific literature describing no effects \citep{briz-redon_spatio-temporal_2020, iqbal_nexus_2020, jahangiri_sensitivity_2020, juni_impact_2020, yao_no_2020} or even converse correlations \citep{auler_evidence_2020, xie_association_2020}. The conflicting results might be explained by different climates and characteristics of the populations under study. While we are confident that our strict causal analysis resulted in effect estimates as undistorted as possible, there might be unconsidered bias in those other studies. Further research needs to be done to elucidate the biological characteristics of the novel virus SARS-CoV-2 regarding its ambient temperature survival and transmission. Finally, we found a positive effect of increased precipitation and a raise in COVID-19 cases, which supports previous observations \citep{sobral_association_2020}.
 
 \hypertarget{limitations-and-strengths}{%
 \subsection{Limitations and strengths}\label{limitations-and-strengths}}
 
-While use of a causal DAG is itself a strong tool to identify causal effects (and not just statistical associations), it introduces two limitations: causal assumptions within the graph (depicted by edges) need to be well justified, and the statistical regression model that calculates total causal effects needs to be appropriate for the task at hand. We endorse our graph as a basis for discussion on residual confounding. We did not try to construct the DAG from the available data (cf. \citep{gencoglu2020causal}). As such, our proposed DAG is not entirely consistent with the data and there are conditional dependencies between variables that cannot be dissolved by adding edges to the DAG (e.g.~between the policies like contact restrictions and mandatory face masks). Another way to identify potential problems in the proposed DAG is to perform a sensitivity analysis of its structure by inspecting its maximal ancestral graph (MAG) or its Markov equivalence class represented by a complete partially DAG (CPDAG) and the existence of valid adjustment sets for these generalized graphs \citep{perkovic2017complete}. For the MAG derived from our DAG, only the effects for exposures mobility and searches for corona can be estimated with valid adjustment sets, while for the Markov equivalence class all exposures but COVID-19 burden lead to valid adjustments sets. A further analysis of these implications is out of the scope of this paper.
+While use of a causal DAG is itself a strong tool to identify \emph{causal} effects (and not just statistical associations), it introduces two limitations: causal assumptions within the graph (depicted by edges) need to be well justified, and the statistical regression model that calculates total causal effects needs to be appropriate for the task at hand. We endorse our graph as a basis for discussion on residual confounding. We did not try to construct the DAG from the available data (cf. \citep{gencoglu2020causal}). As such, our proposed DAG is not entirely consistent with the data and there are conditional dependencies between variables that cannot be dissolved by adding edges to the DAG (e.g.~between the interventions like contact restrictions and mandatory face masks). Another way to identify potential problems in the proposed DAG is to perform a sensitivity analysis of its structure by inspecting its maximal ancestral graph (MAG) or its Markov equivalence class represented by a complete partially DAG (CPDAG) and the existence of valid adjustment sets for these generalized graphs \citep{perkovic2017complete}. For the MAG derived from our DAG, only the effects for exposures mobility and searches for corona can be estimated with valid adjustment sets, while for the Markov equivalence class all exposures but COVID-19 burden lead to valid adjustments sets. A further analysis of these implications is out of the scope of this paper.
 
-We observed overdispersion and a substantial increase in model performance with a negative binomial regression compared to Poisson regression, which is in line with the results on COVID-19 daily case counts of \citet{kraemer_effect_2020} and others \citep{liu_impact_2020, bannister-tyrrell_preliminary_2020, Islamm2743}. We did not model case counts with a differential equation model like the classic SIR-model \citep{kermack1991contributions} and its successors, since these are more suited to prediction \citep[e.g.][]{rkimodellierung} while our choice of a negative binomial regression framework allowed us to estimate the effects of confounders more reliably. There are more advanced statistical methods for count data, e.g.~zero-inflated models and mixed models. We tested both approaches as extensions to the negative binomial regression and experienced numerical problems and increased computing time, along with an insubstantial increase in model performance. Furthermore, our model assumed that all variables have effects proportional to the size of their measurements. It is possible that some variables show saturation effects or opposite effects for low, medium, or high values. This could be modelled with polynomial or other transformations of the variables, which we did not employ due to limited temporal and spatial data availability. Use of a fixed DAG with effect estimation via regression assumes that data was generated by the same underlying process for the observation period. By inclusion of the successive mitigation policies as binary variables we were able to explain some of the variance caused by the changing dynamics of case numbers (similar to \citep{Islamm2743}).
+We observed overdispersion and a substantial increase in model performance with a negative binomial regression compared to Poisson regression, which is in line with the results on COVID-19 daily case counts of \citet{kraemer_effect_2020} and others \citep{liu_impact_2020, bannister-tyrrell_preliminary_2020, Islamm2743}. We did not model case counts with a differential equation model like the classic SIR-model \citep{kermack1991contributions} and its successors, since these are more suited to prediction \citep[e.g.][]{rkimodellierung} while our choice of a negative binomial regression framework allowed us to estimate the effects of confounders more reliably. There are more advanced statistical methods for count data, e.g.~zero-inflated models and mixed models. We tested both approaches as extensions to the negative binomial regression and experienced numerical problems and increased computing time, along with an insubstantial increase in model performance. Furthermore, our model assumed that all variables have effects proportional to the size of their measurements. It is possible that some variables show saturation effects or opposite effects for low, medium, or high values. This could be modeled with polynomial or other transformations of the variables, which we did not employ due to limited temporal and spatial data availability. Use of a fixed DAG with effect estimation via regression assumes that data was generated by the same underlying process for the observation period. By inclusion of the successive mitigation interventions as binary variables we were able to explain some of the variance caused by the changing dynamics of case numbers (similar to \citep{Islamm2743}).
 
 We stress the point that our effects were deduced on an aggregate (district) level in the absence of available data on an individual level. As such, conclusions about effects cannot be transferred on individuals without the possibility for an ecological fallacy. Furthermore, as we were using administrative data for our analysis, the results are susceptible to the Modifiable Area Unit Problem (MAUP) \citep{Openshaw1984}. The MAUP postulates that different regional aggregations of the units of observation may lead to different results and conclusions. Due to limited available data for the different variables, there is currently no way to overcome these problems that are inherent to all analyses on aggregated data level.
 
@@ -482,18 +480,20 @@ The code and resources for our analysis are available on Github, we invite other
 \hypertarget{discussion-of-causal-effects}{%
 \subsection{Discussion of causal effects}\label{discussion-of-causal-effects}}
 
-In our analysis, the adverse effect of mobility in retail/recreation and the favorable effect of mobility in grocery/pharmacy indicate that policies like contact restrictions which limit the number of individual interactions can lead to reduced infection numbers. This is due to retail/recreational areas encompassing mostly places of social gatherings like restaurants and bars, malls, sports and music venues, among others, while if people are doing more of their essential shopping at supermarkets, they will most likely stay at home with less contact to other people.
+In our analysis, the adverse effects of mobility in retail/recreation and workplaces and the favorable effect of mobility in grocery/pharmacy and residential areas indicate that interventions like contact restrictions which limit the number of individual interactions can lead to reduced infection numbers. This is due to retail/recreational and workplace areas encompassing mostly places of (social) gatherings, while if people are doing more of their essential shopping at supermarkets and stay at home with less contact to other people, they are less likely to come in contact with infected individuals.
 
-The causal effects of awareness measured via searches for ``corona'' and the COVID-19 burden are harder to interpret. We assume that within our model, the searches for ``corona'' are an insufficient proxy for awareness, while the decreasing effect for future case numbers of high daily COVID-19 burden indicates it affects individual risk-behavior and entails effective non-pharmaceutical interventions.
+The effects of awareness measured via searches for ``corona'' and the COVID-19 burden are harder to interpret. We assume that within our model, the searches for ``corona'' are an insufficient proxy for awareness, while the decreasing effect for future case numbers of high daily COVID-19 burden indicates it affects individual risk-behavior and entails effective non-pharmaceutical interventions.
 
 Similarly, the effects of temperature and rainfall can be interpreted as causal effects for indoor and outdoor activities, such that higher temperatures and low rainfall indicate more people spending time outdoor while lower temperatures and high rainfall result in indoor activities, which lead to more infections. Current research suggests this to be due to the prevalent airborne and respiratory droplets and aerosol transmission of the SARS-CoV-2 virus \citep{world2020transmission}. In this light, we advocate for precautious measures like increased hygiene, face masks, and air ventilation for unavoidable indoor activities.
+
+Furthermore, our analyses support the effectiveness of non-pharmaceutical interventions. To a lesser extent, the adverse effects of some socio-demographic factors might help to identify areas that are at higher risk of local COVID-19 outbreaks.
 
 \hypertarget{conclusions}{%
 \subsection{Conclusions}\label{conclusions}}
 
-To the best of our knowledge, this is the most comprehensive analysis of causes for COVID-19 infections which integrates different data sources (all publicly available). Causal reasoning with a DAG allows us to estimate the causal effects more reliably.
+To the best of our knowledge, this is the most comprehensive analysis of causes for COVID-19 infections which integrates different data sources (all publicly available). Causal reasoning with a DAG allows us to estimate the possible causal effects more reliably.
 
-Our findings suggest that the causal effects of mobility, awareness, and weather need to be taken into account when deciding for mitigation and suppression measures, depending on the recent and future COVID-19 pandemic development.
+Our findings suggest that the infection-driving effects of mobility, awareness, and weather (and to some extent socio-demographic factors) need to be taken into account when deciding for mitigation and suppression interventions, depending on the recent and future COVID-19 pandemic development.
 
 \hypertarget{acknowledgments}{%
 \section*{Acknowledgments}\label{acknowledgments}}

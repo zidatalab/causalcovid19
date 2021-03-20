@@ -11,9 +11,12 @@ varnames <- c("Mobility (retail and recreation)",
               "Mobility (transit stations)",
               "Mobility (workplaces)",
               "Mobility (residential)",
-              "Temperature", "Rainfall", "Humidity", "Wind",
               "Searches corona", "COVID-19 burden",
-              "Interventions",
+              "Temperature", "Rainfall", "Humidity", "Wind",
+              # "Interventions (ban of mass gatherings)",
+              # "Interventions (school and kindergarten closures)",
+              # "Interventions (contact restrictions)",
+              # "Interventions (mandatory face masks)",
               "Age (pop. 65 and older)", "Age (pop. younger 18)", 
               "Foreign citizens", "Foreign citizens (refugees)",
               "Gender", "Nursing homes",
@@ -30,18 +33,18 @@ vardata <- vardata %>%
 vardata$myrangelow <- ranges[1, varnames] # c(-100, -25, -0, -100, -50, -10, -10, 0, 0, 0, 0, 0)
 vardata$myrangehigh <- ranges[2, varnames] # c(+50, +25, +100, +50, +0, +20, 30, 20, 100, 15, 100, 100)
 vardata[1:6, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Mobility_RedOptAdjSet.csv"))$estimates
-vardata[11, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Searches corona_RedOptAdjSet.csv"))$estimates
-vardata[12, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_COVID-19 burden_RedOptAdjSet.csv"))$estimates
-vardata[13, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Interventions_RedOptAdjSet.csv"))$estimates
-vardata[14:15, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Age_RedOptAdjSet.csv"))$estimates
-vardata[16:17, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Foreign citizens_RedOptAdjSet.csv"))$estimates
-vardata[18, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Gender_RedOptAdjSet.csv"))$estimates
-vardata[19, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Nursing homes_MinAdjSet1.csv"))$estimates
-vardata[20, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Population density_RedOptAdjSet.csv"))$estimates
-vardata[21, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Socio-economic status_RedOptAdjSet.csv"))$estimates
+vardata[7, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Searches corona_RedOptAdjSet.csv"))$estimates
+vardata[8, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_COVID-19 burden_RedOptAdjSet.csv"))$estimates
+# vardata[13:16, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Interventions_RedOptAdjSet.csv"))$estimates
+vardata[13:14, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Age_RedOptAdjSet.csv"))$estimates
+vardata[15:16, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Foreign citizens_RedOptAdjSet.csv"))$estimates
+vardata[17, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Gender_RedOptAdjSet.csv"))$estimates
+vardata[18, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Nursing homes_MinAdjSet1.csv"))$estimates
+vardata[19, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Population density_RedOptAdjSet.csv"))$estimates
+vardata[20, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_Socio-economic status_RedOptAdjSet.csv"))$estimates
 weather <- c("Temperature", "Rainfall", "Humidity", "Wind")
 for (w in seq(weather)) {
-  vardata[6+w, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_", weather[w], "_RedOptAdjSet.csv"))$estimates
+  vardata[8+w, 3] <- read_csv(paste0(figurepath, "../tables/t_effects_", weather[w], "_RedOptAdjSet.csv"))$estimates
 }
 
 myf_expvseff <- function(x, mymean, myeffect) {
@@ -55,7 +58,7 @@ plotdata <- tibble(sequence=as.vector(apply(vardata[, c("myrangelow", "myrangehi
                    means=rep(vardata$means, each=100),
                    effects=rep(vardata$effects, each=100),
                    seqeffects=myf_expvseff(sequence, means, effects),
-                   mycolor=c(rep(mycolors[2], 600), rep(mycolors[3], 400), rep(mycolors[4], 200), rep(mycolors[7], 100), rep(mycolors[5], 800)))
+                   mycolor=c(rep(mycolors[2], 600), rep(mycolors[4], 200), rep(mycolors[3], 400), rep(mycolors[5], 800))) # , rep(mycolors[7], 400)
 
 # plotdata$dropname <- factor(plotdata$exposure,levels=c('a','b','c','d',
 #                                                  'e','f','',' ',
@@ -74,7 +77,7 @@ myfacetplot <- plotdata %>%
   facet_wrap(vars(exposure),scales = "free", strip.position="bottom", ncol = 4) +
   coord_cartesian(ylim = c(-50, 50)) +
   geom_line(aes(col=mycolor), size=1) +
-  scale_color_manual(values=mycolors[c(3,2,4,7,5)]) +
+  scale_color_manual(values=mycolors[c(3,2,4,5)]) + #7
   labs(y="relative effect") +
   theme_cowplot(font_size = 8) +
   theme(strip.text = element_text(size = 6),
@@ -97,7 +100,7 @@ myfacetplot
 # tag_facet2(myfacetplot)
 
 ggsave(filename = paste0(figurepath, "f_exposure_vs_effect.eps"),
-       dpi=600, width=16,height = 24, unit="cm", device=cairo_ps, fallback_resolution = 600)
+       dpi=600, width=16,height = 20, unit="cm", device=cairo_ps, fallback_resolution = 600)
 
 # ggsave(filename = paste0(figurepath,"f_exposure_vs_effect.png"),
 #        dpi=600, width=16,height = 12, unit="cm", device=cairo_ps, fallback_resolution = 600)
