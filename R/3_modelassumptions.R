@@ -98,14 +98,14 @@ lines(density(rnorm(length(qresids))),
 # independence of observations
 
 scatter.smooth(seq(length(devresids)), devresids, col='gray')
-myresid_id_daycount <- bind_cols(devresids=devresids, id_daycount)
+myresid_id_daycount <- bind_cols(devresids=devresids, id_daycount) %>% group_by(id) %>% mutate(meanresid=mean(devresids)) %>% ungroup()
 ggplot(myresid_id_daycount, aes(x=daycount, y=devresids)) +
   geom_point() +
   geom_smooth()
 # ggplot(myresid_id_daycount, aes(x=reorder(as.factor(id), devresids, FUN = median), y=devresids)) +
 #   geom_boxplot()
-ggplot(myresid_id_daycount, aes(x=as.factor(id), y=devresids)) +
-  geom_boxplot(aes(col=as.factor(bl_id)))
+ggplot(myresid_id_daycount, aes(x=reorder(as.factor(id), meanresid), y=devresids)) +
+  geom_point()#aes(col=as.factor(bl_id))
 
 # multicollinearity
 library(corrplot)
