@@ -1,7 +1,7 @@
 % Template for PLoS
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL ../v3_submission/manuscript_tex4submission.tex   Sat Mar 20 20:23:40 2021
-%DIF ADD manuscript_tex4submission.tex                    Sun Mar 21 15:19:21 2021
+%DIF ADD manuscript_tex4submission.tex                    Sun Mar 21 15:31:27 2021
 % Version 3.5 March 2018
 %
 % % % % % % % % % % % % % % % % % % % % % %
@@ -540,7 +540,64 @@ population seeking refuge (Foreign citizenship), the share of low-income
 households (Socio-economic status), voter turnout, share of right-wing
 populist party votes, and the number of nursing (retirement) homes.
 
-\begin{table}[!ht]
+\DIFdelbegin %DIFDELCMD < \begin{table}[!ht]
+%DIFDELCMD < \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+%DIFDELCMD < \centering
+%DIFDELCMD < \caption{
+%DIFDELCMD < {\bf Observed model variables.}}
+%DIFDELCMD < \fontsize{8}{10}\selectfont
+%DIFDELCMD < \begin{tabular}[t]{llll>{\raggedright\arraybackslash}p{20em}l}
+%DIFDELCMD < \toprule
+%DIFDELCMD < variable & dynamics & level & type & unit/comment & source\\
+%DIFDELCMD < \midrule
+%DIFDELCMD < Weekday & daily & national & categorical & Sat through Thu as six binary variables, Fri as baseline & -\\
+%DIFDELCMD < Holiday (report) & daily & national & binary & - & -\\
+%DIFDELCMD < Holiday (exposure) & daily & national & binary & - & -\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Mobility}}\\
+%DIFDELCMD < \hspace{1em}retail and recreation & daily & state & numeric & percent change compared to reference period & Google \cite{google_mobility}\\
+%DIFDELCMD < \hspace{1em}grocery and pharmacy & daily & state & numeric & percent change compared to reference period & Google \cite{google_mobility}\\
+%DIFDELCMD < \hspace{1em}parks & daily & state & numeric & percent change compared to reference period & Google \cite{google_mobility}\\
+%DIFDELCMD < \hspace{1em}workplaces & daily & state & numeric & percent change compared to reference period & Google \cite{google_mobility}\\
+%DIFDELCMD < \hspace{1em}residential & daily & state & numeric & percent change compared to reference period & Google \cite{google_mobility}\\
+%DIFDELCMD < \hspace{1em}transit stations & daily & state & numeric & percent change compared to reference period & Google \cite{google_mobility}\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Weather}}\\
+%DIFDELCMD < \hspace{1em}Rainfall & daily & district & numeric & mm (l/sqm) & DWD \cite{dwd_weather}\\
+%DIFDELCMD < \hspace{1em}Temperature & daily & district & numeric & °C & DWD \cite{dwd_weather}\\
+%DIFDELCMD < \hspace{1em}Humidity & daily & district & numeric & relative humidity (\%) & DWD \cite{dwd_weather}\\
+%DIFDELCMD < \hspace{1em}Wind & daily & district & numeric & m/s & DWD \cite{dwd_weather}\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Policies}}\\
+%DIFDELCMD < \hspace{1em}Ban of mass gatherings & daily & national & binary & - & -\\
+%DIFDELCMD < \hspace{1em}School and kindergarten closures & daily & state & numeric & 0 for no closure, 1 for full closure, 0.5 for partial reopening & -\\
+%DIFDELCMD < \hspace{1em}Contact restrictions & daily & national & binary & - & -\\
+%DIFDELCMD < \hspace{1em}Mandatory face masks & daily & district & binary & - & IZA \cite{mitze2020face}\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Socio-demographic}}\\
+%DIFDELCMD < \hspace{1em}Age & constant & district & numeric & 2 variables: share of population $>=65$ years \& $<18$ years & INKAR \cite{inkar}\\
+%DIFDELCMD < \hspace{1em}Gender & constant & district & numeric & share of female population & INKAR \cite{inkar}\\
+%DIFDELCMD < \hspace{1em}Population density & constant & district & numeric & population per sqkm & INKAR \cite{inkar}\\
+%DIFDELCMD < \hspace{1em}Foreign citizens & constant & district & numeric & 2 variables: share of foreign citizens \& of population seeking refuge & INKAR \cite{inkar}\\
+%DIFDELCMD < \hspace{1em}Socio-economic status & constant & district & numeric & share of households with low income & INKAR \cite{inkar}\\
+%DIFDELCMD < \hspace{1em}Turnout & constant & district & numeric & voter turnout in last election & INKAR \cite{inkar}\\
+%DIFDELCMD < \hspace{1em}Right-wing populist party votes & constant & district & numeric & share of votes for AfD in last election & INKAR \cite{inkar}\\
+%DIFDELCMD < \hspace{1em}Nursing homes & constant & district & numeric & number of nursing (retirement) homes & INKAR \cite{inkar}\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Awareness}}\\
+%DIFDELCMD < \hspace{1em}Searches corona & daily & state & numeric & percent relative to other states and observation period & Google \cite{google_trends}\\
+%DIFDELCMD < \hspace{1em}COVID-19 burden & daily & district & numeric & reported cases on day of exposure & RKI \cite{casenumbers_rki}\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Case numbers}}\\
+%DIFDELCMD < \hspace{1em}Reported new cases of COVID-19 & daily & district & numeric & - & RKI \cite{casenumbers_rki}\\
+%DIFDELCMD < \hspace{1em}Active cases & daily & district & numeric & active cases on day of report & RKI \cite{casenumbers_rki}\\
+%DIFDELCMD < \bottomrule
+%DIFDELCMD < \end{tabular}
+%DIFDELCMD < \label{tab:model-vars}
+%DIFDELCMD < \end{adjustwidth}
+%DIFDELCMD < \end{table}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{table}[!ht]
 \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
 \centering
 \caption{
@@ -596,6 +653,7 @@ Holiday (exposure) & daily & national & binary & - & -\\
 \label{tab:model-vars}
 \end{adjustwidth}
 \end{table}
+\DIFaddend 
 
 All \DIFaddbegin \DIFadd{continuous }\DIFaddend variables but the outcome ``Reported new cases of COVID-19'' and the offset ``Active cases'' were centered \DIFaddbegin \DIFadd{and scaled by one standard deviation }\DIFaddend for numerical stability\DIFdelbegin \DIFdel{. We did
 not scale variables to unit variance to maintain interpretability of effects on the original scaleof variables. Additionally}\DIFdelend \DIFaddbegin \DIFadd{, while we left binary variables as-is. After estimating the effects of variables, we re-scaled continuous variables' effects to their original scale. Additionally for mobility variables, we re-transformed the effects of the principal components to the original mobility variables. Furthermore}\DIFaddend , we lagged the effect of all variables (but outcome, offset, and the non-dynamic socio-demographic variables) by \DIFdelbegin \DIFdel{8 }\DIFdelend \DIFaddbegin \DIFadd{5 }\DIFaddend days (see Section Results) which means that we assumed that their effects on the outcome will be visible after \DIFdelbegin \DIFdel{8 }\DIFdelend \DIFaddbegin \DIFadd{5 }\DIFaddend days.
@@ -745,7 +803,64 @@ only) . That is, our Pseudo-\(R^2\) is \(1\) minus the fraction of variance unex
 
 Descriptive statistics for the included variables are presented in Table~\ref{tab:descriptive-vars}.
 
-\begin{table}[!ht]
+\DIFdelbegin %DIFDELCMD < \begin{table}[!ht]
+%DIFDELCMD < %\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+%DIFDELCMD < \centering
+%DIFDELCMD < \caption{
+%DIFDELCMD < {\bf Descriptive statistics for observed variables.}}
+%DIFDELCMD < %\fontsize{8}{10}\selectfont
+%DIFDELCMD < \begin{tabular}[t]{ll}
+%DIFDELCMD < \toprule
+%DIFDELCMD < Variable & mean (SD)\\
+%DIFDELCMD < \midrule
+%DIFDELCMD < n & 54937\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{2}{l}{\textbf{Mobility}}\\
+%DIFDELCMD < \hspace{1em}retail and recreation & -27.14 (24.59)\\
+%DIFDELCMD < \hspace{1em}grocery and pharmacy & -4.04 (23.00)\\
+%DIFDELCMD < \hspace{1em}parks & 46.33 (57.94)\\
+%DIFDELCMD < \hspace{1em}workplaces & -22.98 (20.56)\\
+%DIFDELCMD < \hspace{1em}residential & 8.20 (6.54)\\
+%DIFDELCMD < \hspace{1em}transit stations & -29.83 (21.22)\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{2}{l}{\textbf{Weather}}\\
+%DIFDELCMD < \hspace{1em}Rainfall & 1.85 (3.98)\\
+%DIFDELCMD < \hspace{1em}Temperature & 10.74 (5.27)\\
+%DIFDELCMD < \hspace{1em}Humidity & 67.68 (13.10)\\
+%DIFDELCMD < \hspace{1em}Wind & 3.64 (1.67)\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{2}{l}{\textbf{Policies}}\\
+%DIFDELCMD < \hspace{1em}Ban of mass gatherings & 0.82 (0.38)\\
+%DIFDELCMD < \hspace{1em}School and kindergarten closures & 0.54 (0.36)\\
+%DIFDELCMD < \hspace{1em}Contact restrictions & 0.74 (0.44)\\
+%DIFDELCMD < \hspace{1em}Mandatory face masks & 0.48 (0.50)\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{2}{l}{\textbf{Socio-demographic}}\\
+%DIFDELCMD < \hspace{1em}Age (pop. 65 and older) & 22.09 (2.74)\\
+%DIFDELCMD < \hspace{1em}Age (pop. younger 18) & 16.17 (1.25)\\
+%DIFDELCMD < \hspace{1em}Gender & 0.51 (0.01)\\
+%DIFDELCMD < \hspace{1em}Population density & 533.75 (701.84)\\
+%DIFDELCMD < \hspace{1em}Foreign citizens & 10.03 (5.14)\\
+%DIFDELCMD < \hspace{1em}Foreign citizens (refugees) & 1.88 (1.14)\\
+%DIFDELCMD < \hspace{1em}Socio-economic status & 30.64 (6.02)\\
+%DIFDELCMD < \hspace{1em}Turnout & 75.08 (3.79)\\
+%DIFDELCMD < \hspace{1em}Right-wing populist party votes & 13.39 (5.32)\\
+%DIFDELCMD < \hspace{1em}Nursing homes & 36.11 (30.69)\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{2}{l}{\textbf{Awareness}}\\
+%DIFDELCMD < \hspace{1em}Searches corona & 27.24 (18.31)\\
+%DIFDELCMD < \hspace{1em}COVID-19 burden & 3.55 (10.37)\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{2}{l}{\textbf{Case numbers (outcome and offset)}}\\
+%DIFDELCMD < \hspace{1em}Reported new cases COVID-19 & 3.60 (10.39)\\
+%DIFDELCMD < \hspace{1em}Active cases & 49.83 (121.96)\\
+%DIFDELCMD < \bottomrule
+%DIFDELCMD < \end{tabular}
+%DIFDELCMD < \label{tab:descriptive-vars}
+%DIFDELCMD < %\end{adjustwidth}
+%DIFDELCMD < \end{table}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{table}[!ht]
 %\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
 \centering
 \caption{
@@ -801,6 +916,7 @@ n & 56140\\
 \label{tab:descriptive-vars}
 %\end{adjustwidth}
 \end{table}
+\DIFaddend 
 
 In the observational period, the number of daily reported COVID-19 cases increased till the end of March/beginning of April and continually decreased afterwards till the beginning of June 2020 with a slight increase and decrease afterwards (Fig~\ref{fig:cases-log}A). On the other hand, the (log-)ratio of reported cases over active cases decreased steeply till the mid of April and increased steadily afterwards with a slight decrease close to the end of the observation period (Fig~\ref{fig:cases-log}B). Both figures examplify a considerable variation among the districts (light blue points are individual district's data).
 
@@ -823,7 +939,41 @@ determinants.}}
 We list the results of our causal analysis for the effects of \DIFdelbegin \DIFdel{our
 }\DIFdelend \DIFaddbegin \DIFadd{different exposure }\DIFaddend variables in Table~\ref{tab:causaleffects}. The estimates are multiplicative rates of increase/decrease for a one unit increase of the respective variable: Values above 1 lead to an increase, below 1 to a decrease of the infection rate. To put these estimates into perspective, Fig~\ref{fig:effectsrange} shows the relative causal effect of the different exposure variables on the number of reported COVID-19 cases on a range of sensible values of the exposure variables (95 percent quantiles of data points).
 
-\begin{table}[!ht]
+\DIFdelbegin %DIFDELCMD < \begin{table}[!ht]
+%DIFDELCMD < %\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+%DIFDELCMD < \centering
+%DIFDELCMD < \caption{
+%DIFDELCMD < {\bf Causal effect estimates with 99 percent confidence bands.}}
+%DIFDELCMD < %\fontsize{8}{10}\selectfont
+%DIFDELCMD < \begin{tabular}[t]{lrrr}
+%DIFDELCMD < \toprule
+%DIFDELCMD < cause & effect estimate & CI (lower) & CI (upper)\\
+%DIFDELCMD < \midrule
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{4}{l}{\textbf{Mobility}}\\
+%DIFDELCMD < \hspace{1em}retail and recreation & 1.0076 & 1.0056 & 1.0097\\
+%DIFDELCMD < \hspace{1em}grocery and pharmacy & 0.9951 & 0.9938 & 0.9965\\
+%DIFDELCMD < \hspace{1em}parks & 0.9998 & 0.9994 & 1.0003\\
+%DIFDELCMD < \hspace{1em}transit stations & 0.9975 & 0.9946 & 1.0004\\
+%DIFDELCMD < \hspace{1em}workplaces & 1.0031 & 1.0002 & 1.0059\\
+%DIFDELCMD < \hspace{1em}residential & 1.0080 & 0.9987 & 1.0174\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{4}{l}{\textbf{Awareness}}\\
+%DIFDELCMD < \hspace{1em}Searches corona & 1.0101 & 1.0085 & 1.0118\\
+%DIFDELCMD < \hspace{1em}COVID-19 burden & 0.9942 & 0.9932 & 0.9951\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{4}{l}{\textbf{Weather}}\\
+%DIFDELCMD < \hspace{1em}Temperature & 0.9918 & 0.9879 & 0.9958\\
+%DIFDELCMD < \hspace{1em}Rainfall & 1.0108 & 1.0066 & 1.0150\\
+%DIFDELCMD < \hspace{1em}Humidity & 1.0022 & 1.0006 & 1.0039\\
+%DIFDELCMD < \hspace{1em}Wind & 0.9893 & 0.9802 & 0.9985\\
+%DIFDELCMD < \bottomrule
+%DIFDELCMD < \end{tabular}
+%DIFDELCMD < \label{tab:causaleffects}
+%DIFDELCMD < %\end{adjustwidth}
+%DIFDELCMD < \end{table}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{table}[!ht]
 %\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
 \centering
 \caption{
@@ -872,6 +1022,7 @@ cause & effect estimate\\
 \label{tab:causaleffects}
 %\end{adjustwidth}
 \end{table}
+\DIFaddend 
 
 \begin{figure}[!h]
 \caption{{\bf Relative causal effects of exposures.}}
@@ -879,7 +1030,7 @@ cause & effect estimate\\
 \end{figure}
 
 Within our framework, we saw \DIFdelbegin \DIFdel{significant }\DIFdelend \DIFaddbegin \DIFadd{very different }\DIFaddend effects for mobility \DIFdelbegin \DIFdel{in
-retail/recreational areas and essential shopping (grocery and pharmacy). For }\DIFdelend \DIFaddbegin \DIFadd{variables. For mobility in }\DIFaddend retail/recreation, an increase of 1 percent point mobility compared to the reference period (03 January to 06 February 2020) leads to an increase of the daily reported case number by about \DIFdelbegin \DIFdel{0.8 percent. Contrarily, a corresponding }\DIFdelend \DIFaddbegin \DIFadd{0.11 percent. Similarly, Mmbility on workplaces showed an effect of 0.33 increase in case numbers for every 1 percent point increase in mobility, while mobility on transit stations showed an effect of 0.26 increase in case numbers for every 1 percent point increase. Contrarily, the remaining three mobility variables showed negative effects on the number of reported COVID-19 cases. An }\DIFaddend increase of 1 percent point \DIFaddbegin \DIFadd{mobility }\DIFaddend for the areas of grocery/pharmacy leads to a decrease in the reported case number by approximately \DIFdelbegin \DIFdel{0.5 percent. Mobility on workplaces showed a small effect
+retail/recreational areas and essential shopping (grocery and pharmacy). For }\DIFdelend \DIFaddbegin \DIFadd{variables. For mobility in }\DIFaddend retail/recreation, an increase of 1 percent point mobility compared to the reference period (03 January to 06 February 2020) leads to an increase of the daily reported case number by about \DIFdelbegin \DIFdel{0.8 percent }\DIFdelend \DIFaddbegin \DIFadd{0.11 percent. Similarly, Mmbility on workplaces showed an effect of 0.33 increase in case numbers for every 1 percent point increase in mobility, while mobility on transit stations showed an effect of 0.26 increase in case numbers for every 1 percent point increase}\DIFaddend . Contrarily, \DIFdelbegin \DIFdel{a corresponding }\DIFdelend \DIFaddbegin \DIFadd{the remaining three mobility variables showed negative effects on the number of reported COVID-19 cases. An }\DIFaddend increase of 1 percent point \DIFaddbegin \DIFadd{mobility }\DIFaddend for the areas of grocery/pharmacy leads to a decrease in the reported case number by approximately \DIFdelbegin \DIFdel{0.5 percent. Mobility on workplaces showed a small effect
 of 0.3 increase in case numbers for every }\DIFdelend \DIFaddbegin \DIFadd{0.23 percent, while increased mobility of 1 percent point within parks leads to a decrease in the reported case number by approximately 0.03 percent, and finally an increase of }\DIFaddend 1 percent point \DIFdelbegin \DIFdel{increase in mobility. Other causal effects of mobility were insubstantial and not
 consistent in their direction (99 percentconfidence intervals of
 estimates include 1)}\DIFdelend \DIFaddbegin \DIFadd{in residential mobility leads to a decrease by approximately 0.97 percent}\DIFaddend . Fig~\ref{fig:effectsrange} shows the effects of mobility on a range of possible values. Thus, we expect an increase of daily cases by approximately \DIFdelbegin \DIFdel{23 }\DIFdelend \DIFaddbegin \DIFadd{7.8 }\DIFaddend percent if mobility in \DIFdelbegin \DIFdel{retail/recreation
@@ -889,7 +1040,7 @@ estimates include 1)}\DIFdelend \DIFaddbegin \DIFadd{in residential mobility lea
 
 Within our model, we observed \DIFdelbegin \DIFdel{a causal effect }\DIFdelend \DIFaddbegin \DIFadd{effects }\DIFaddend of temperature and all other weather variables. Every increase of 1 degree Celsius in temperature leads to a reduction of the daily reported case numbers by approximately \DIFdelbegin \DIFdel{0.8 }\DIFdelend \DIFaddbegin \DIFadd{0.95 }\DIFaddend percent. On the other hand, we found an increasing effect of rainfall: One millimeter (=1 liter per square meter) more rainfall leads to an increase of reported case numbers by approximately \DIFdelbegin \DIFdel{1.1 }\DIFdelend \DIFaddbegin \DIFadd{1.21 }\DIFaddend percent. We observe effects for humidity and wind as well (higher humidity leading to more cases, stronger wind leading to \DIFdelbegin \DIFdel{less }\DIFdelend \DIFaddbegin \DIFadd{more }\DIFaddend cases). In perspective (Fig~\ref{fig:effectsrange}), with temperature we expect an increase by approximately \DIFdelbegin \DIFdel{17.8 }\DIFdelend \DIFaddbegin \DIFadd{21 }\DIFaddend percent at a daily average temperature of \(0^{\circ}C\) compared to a day with \(20^{\circ}C\). For rainfall, we expect on a rainy day with 10 mm rainfall a corresponding increase of the infection rate by approximately \DIFdelbegin \DIFdel{11.4 }\DIFdelend \DIFaddbegin \DIFadd{12.8 }\DIFaddend percent compared to a day with no precipitation.
 
-\DIFdelbegin \DIFdel{In all cases we }\DIFdelend \DIFaddbegin \DIFadd{The different intervention variables showed the strongest effects in our analysis, see Table~\ref{tab:causaleffects}. While the first intervention (ban of mass gatherings) reduced subsequent daily case numbers by 2.7 percent, the closure of schools/kindergartens reduced infections by an additional 7.2 percent and mandatory face masks reduced this by another 9.4 percent. The effect of contatc restrictions was the strongest in our observation period, with an reduction of the case rates by 16.9.
+\DIFdelbegin \DIFdel{In all cases we }\DIFdelend \DIFaddbegin \DIFadd{The different intervention variables showed the strongest effects in our analysis, see Table~\ref{tab:causaleffects}. While the first intervention (ban of mass gatherings) reduced subsequent daily case numbers by 2.7 percent, the closure of schools/kindergartens reduced infections by an additional 7.2 percent and mandatory face masks reduced this by another 9.4 percent. The effect of contact restrictions was the strongest in our observation period, with an reduction of the case rates by 16.9.
 }
 
 \DIFadd{The effects of the different socio-demographic factors are quite small in comparison to the effects described above. We see an increasing effect on case numbers by additional nursing homes between districts. Districts with a younger population, more foreign citizens, higher population density and a lower average social-economic status showed higher case numbers, too.
@@ -908,7 +1059,61 @@ highest pseudo-\(R^2\) values compared to other lags on the chosen
 adjustment sets}\DIFdelend \DIFaddbegin \DIFadd{cross-validation}\DIFaddend . Similarly, negative binomial regression was chosen over Poisson regression, because the latter showed overdispersion and \DIFdelbegin \DIFdel{overall
 lower pseudo-\(R^2\) values}\DIFdelend \DIFaddbegin \DIFadd{an higher AIC value}\DIFaddend .
 
-\begin{table}[!ht]
+\DIFdelbegin %DIFDELCMD < \begin{table}[!ht]
+%DIFDELCMD < \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+%DIFDELCMD < \centering
+%DIFDELCMD < \caption{
+%DIFDELCMD < {\bf Final adjustment sets for causal analysis.}}
+%DIFDELCMD < %\fontsize{8}{10}\selectfont
+%DIFDELCMD < \begin{tabular}[t]{llllllll}
+%DIFDELCMD < \toprule
+%DIFDELCMD < \rotatebox{90}{ } & \rotatebox{90}{Mobility} & \rotatebox{90}{COVID-19 burden} & \rotatebox{90}{Searches corona} & \rotatebox{90}{Temperature} & \rotatebox{90}{Rainfall} & \rotatebox{90}{Humidity} & \rotatebox{90}{Wind}\\
+%DIFDELCMD < \midrule
+%DIFDELCMD < Pseudo-$R^2$ & 0.332 & 0.151 & 0.298 & 0.298 & 0.286 & 0.306 & 0.286\\
+%DIFDELCMD < Weekday & x & x & x & x & x & x & x\\
+%DIFDELCMD < Holiday (report) & x & x & x & x & x & x & x\\
+%DIFDELCMD < Holiday (exposure) & x & x & x & x & x & x & x\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{8}{l}{\textbf{Mobility}}\\
+%DIFDELCMD < \hspace{1em}retail and recreation &  &  &  &  &  &  & \\
+%DIFDELCMD < \hspace{1em}grocery and pharmacy &  &  &  &  &  &  & \\
+%DIFDELCMD < \hspace{1em}parks &  &  &  &  &  &  & \\
+%DIFDELCMD < \hspace{1em}workplaces &  &  &  &  &  &  & \\
+%DIFDELCMD < \hspace{1em}residential &  &  &  &  &  &  & \\
+%DIFDELCMD < \hspace{1em}transit stations &  &  &  &  &  &  & \\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{8}{l}{\textbf{Weather}}\\
+%DIFDELCMD < \hspace{1em}Rainfall & x & x & x & x &  & x & x\\
+%DIFDELCMD < \hspace{1em}Temperature & x & x & x &  &  & x & \\
+%DIFDELCMD < \hspace{1em}Humidity &  & x & x &  &  &  & \\
+%DIFDELCMD < \hspace{1em}Wind &  & x & x & x & x & x & \\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{8}{l}{\textbf{Policies}}\\
+%DIFDELCMD < \hspace{1em}Ban of mass gatherings & x &  & x & x & x & x & x\\
+%DIFDELCMD < \hspace{1em}School and kindergarten closures & x &  & x & x & x & x & x\\
+%DIFDELCMD < \hspace{1em}Contact restrictions & x &  & x & x & x & x & x\\
+%DIFDELCMD < \hspace{1em}Mandatory face masks &  &  & x & x & x & x & x\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{8}{l}{\textbf{Socio-demographic}}\\
+%DIFDELCMD < \hspace{1em}Age & x & x & x & x & x & x & x\\
+%DIFDELCMD < \hspace{1em}Gender & x & x & x & x & x & x & x\\
+%DIFDELCMD < \hspace{1em}Population density & x & x & x & x & x & x & x\\
+%DIFDELCMD < \hspace{1em}Foreign citizens &  & x & x &  &  &  & \\
+%DIFDELCMD < \hspace{1em}Socio-economic status & x & x & x & x & x & x & x\\
+%DIFDELCMD < \hspace{1em}Turnout &  & x &  &  &  &  & \\
+%DIFDELCMD < \hspace{1em}Right-wing populist party votes &  & x & x & x & x & x & x\\
+%DIFDELCMD < \hspace{1em}Nursing homes &  & x & x & x & x & x & x\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{8}{l}{\textbf{Awareness}}\\
+%DIFDELCMD < \hspace{1em}Searches corona & x &  &  & x & x & x & x\\
+%DIFDELCMD < \hspace{1em}COVID-19 burden & x &  & x & x & x & x & x\\
+%DIFDELCMD < \bottomrule
+%DIFDELCMD < \end{tabular}
+%DIFDELCMD < \label{tab:adjsets}
+%DIFDELCMD < \end{adjustwidth}
+%DIFDELCMD < \end{table}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{table}[!ht]
 \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
 \centering
 \caption{
@@ -952,6 +1157,7 @@ Holiday (exposure) & x & x & x & x & x & x & x & x & x & x & x & x & x & x\\
 \label{tab:adjsets}
 \end{adjustwidth}
 \end{table}
+\DIFaddend 
 
 %Nulla mi mi, venenatis sed ipsum varius, Table~\ref{table1} volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
 
