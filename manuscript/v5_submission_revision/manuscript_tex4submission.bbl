@@ -397,16 +397,28 @@ Hilbe JM, Greene WH.
 \newblock Available from:
   \url{http://www.sciencedirect.com/science/article/pii/B9780444537379500074}.
 
-\bibitem{perkovi2015complete}
-{Perkovi{\'c}} E, {Textor} J, {Kalisch} M, {Maathuis} MH.
-\newblock {A Complete Generalized Adjustment Criterion}.
-\newblock arXiv e-prints. 2015; p. arXiv:1507.01524.
-
 \bibitem{mass}
 Venables WN, Ripley BD.
 \newblock Modern Applied Statistics with S.
 \newblock 4th ed. New York: Springer; 2002.
 \newblock Available from: \url{http://www.stats.ox.ac.uk/pub/MASS4}.
+
+\bibitem{ridge1970}
+Hoerl AE, Kennard RW.
+\newblock Ridge Regression: Biased Estimation for Nonorthogonal Problems.
+\newblock Technometrics. 1970;12(1):55--67.
+\newblock doi:{10.1080/00401706.1970.10488634}.
+
+\bibitem{glmnet2010}
+Friedman J, Hastie T, Tibshirani R.
+\newblock Regularization Paths for Generalized Linear Models via Coordinate
+  Descent.
+\newblock Journal of Statistical Software. 2010;33(1):1--22.
+
+\bibitem{perkovi2015complete}
+{Perkovi{\'c}} E, {Textor} J, {Kalisch} M, {Maathuis} MH.
+\newblock {A Complete Generalized Adjustment Criterion}.
+\newblock arXiv e-prints. 2015; p. arXiv:1507.01524.
 
 \bibitem{gencoglu2020causal}
 Gencoglu O, Gruber M.
