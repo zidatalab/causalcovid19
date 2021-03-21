@@ -340,37 +340,37 @@ cause & effect estimate\\
 \addlinespace[0.3em]
 \multicolumn{2}{l}{\textbf{Mobility}}\\
 \hspace{1em}retail and recreation & 1.0011\\
-\hspace{1em}grocery and pharmacy & 0.9979\\
-\hspace{1em}parks & 0.9996\\
-\hspace{1em}transit stations & 1.0025\\
-\hspace{1em}workplaces & 1.0032\\
-\hspace{1em}residential & 0.9906\\
+\hspace{1em}grocery and pharmacy & 0.9977\\
+\hspace{1em}parks & 0.9997\\
+\hspace{1em}transit stations & 1.0026\\
+\hspace{1em}workplaces & 1.0033\\
+\hspace{1em}residential & 0.9903\\
 \addlinespace[0.3em]
 \multicolumn{2}{l}{\textbf{Awareness}}\\
-\hspace{1em}Searches corona & 1.0087\\
-\hspace{1em}COVID-19 burden & 0.9981\\
+\hspace{1em}Searches corona & 1.0089\\
+\hspace{1em}COVID-19 burden & 0.9980\\
 \addlinespace[0.3em]
 \multicolumn{2}{l}{\textbf{Weather}}\\
 \hspace{1em}Temperature & 0.9905\\
-\hspace{1em}Rainfall & 1.0117\\
-\hspace{1em}Humidity & 1.0056\\
-\hspace{1em}Wind & 1.0328\\
+\hspace{1em}Rainfall & 1.0121\\
+\hspace{1em}Humidity & 1.0057\\
+\hspace{1em}Wind & 1.0329\\
 \addlinespace[0.3em]
 \multicolumn{2}{l}{\textbf{Interventions}}\\
-\hspace{1em}Interventions (ban of mass gatherings) & 0.9733\\
-\hspace{1em}Interventions (school and kindergarten closures) & 0.9315\\
-\hspace{1em}Interventions (contact restrictions) & 0.8400\\
-\hspace{1em}Interventions (mandatory face masks) & 0.9109\\
+\hspace{1em}Interventions (ban of mass gatherings) & 0.9729\\
+\hspace{1em}Interventions (school and kindergarten closures) & 0.9277\\
+\hspace{1em}Interventions (contact restrictions) & 0.8314\\
+\hspace{1em}Interventions (mandatory face masks) & 0.9064\\
 \addlinespace[0.3em]
 \multicolumn{2}{l}{\textbf{Demographic}}\\
-\hspace{1em}Age (pop. 65 and older) & 0.9952\\
-\hspace{1em}Age (pop. younger 18) & 1.0116\\
-\hspace{1em}Foreign citizens & 1.0047\\
-\hspace{1em}Foreign citizens (refugees) & 0.9987\\
-\hspace{1em}Gender & 0.9929\\
+\hspace{1em}Age (pop. 65 and older) & 0.9953\\
+\hspace{1em}Age (pop. younger 18) & 1.0120\\
+\hspace{1em}Foreign citizens & 1.0048\\
+\hspace{1em}Foreign citizens (refugees) & 0.9985\\
+\hspace{1em}Gender & 0.9925\\
 \hspace{1em}Nursing homes & 1.0011\\
 \hspace{1em}Population density & 1.0000\\
-\hspace{1em}Socio-economic status & 0.9983\\
+\hspace{1em}Socio-economic status & 0.9982\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -383,13 +383,13 @@ We list the results of our causal analysis for the effects of different exposure
 \caption{\label{fig:effectsrange}Relative causal effects of exposures}
 \end{figure}
 
-Within our framework, we saw very different effects for mobility variables. For mobility in retail/recreation, an increase of 1 percent point mobility compared to the reference period (03 January to 06 February 2020) leads to an increase of the daily reported case number by about 0.11 percent. Similarly, Mmbility on workplaces showed an effect of 0.32 increase in case numbers for every 1 percent point increase in mobility, while mobility on transit stations showed an effect of 0.25 increase in case numbers for every 1 percent point increase. Contrarily, the remaining three mobility variables showed negative effects on the number of reported COVID-19 cases. An increase of 1 percent point mobility for the areas of grocery/pharmacy leads to a decrease in the reported case number by approximately 0.21 percent, while increased mobility of 1 percent point within parks leads to a decrease in the reported case number by approximately 0.04 percent, and finally an increase of 1 percent point in residential mobility leads to a decrease by approximately 0.94 percent. Figure \ref{fig:effectsrange} shows the effects of mobility on a range of possible values. Thus, we expect an increase of daily cases by approximately 7.5 percent if mobility in workplaces reaches baseline levels of 0 percent difference to the reference period. On the other hand, an increase of mobility for residential areas by 10 percent points compared to the reference period leads to a reduction of the infection rate by approximately 1.8 percent.
+Within our framework, we saw very different effects for mobility variables. For mobility in retail/recreation, an increase of 1 percent point mobility compared to the reference period (03 January to 06 February 2020) leads to an increase of the daily reported case number by about 0.11 percent. Similarly, Mmbility on workplaces showed an effect of 0.33 increase in case numbers for every 1 percent point increase in mobility, while mobility on transit stations showed an effect of 0.26 increase in case numbers for every 1 percent point increase. Contrarily, the remaining three mobility variables showed negative effects on the number of reported COVID-19 cases. An increase of 1 percent point mobility for the areas of grocery/pharmacy leads to a decrease in the reported case number by approximately 0.23 percent, while increased mobility of 1 percent point within parks leads to a decrease in the reported case number by approximately 0.03 percent, and finally an increase of 1 percent point in residential mobility leads to a decrease by approximately 0.97 percent. Figure \ref{fig:effectsrange} shows the effects of mobility on a range of possible values. Thus, we expect an increase of daily cases by approximately 7.8 percent if mobility in workplaces reaches baseline levels of 0 percent difference to the reference period. On the other hand, an increase of mobility for residential areas by 10 percent points compared to the reference period leads to a reduction of the infection rate by approximately 1.8 percent.
 
-``Awareness'' had two opposite effects on the outcome in our DAG. Awareness measured by Google searches for \emph{corona} had a positive effect on the number of reported cases. An one percent point increase of the state's Google searches (relative to other states and the observation period) leads to an increase of approximately 0.87 percent. For example, if a district shows 10 percent points more relative searches for \emph{corona} than another one, we expect approximately 9 percent more infections for this district after 5 days. \emph{COVID-19 burden} (reported number of cases on day of exposure) affected the outcome negatively, where every additional daily case in the district leads to a 0.19 percent decrease in newly reported case numbers. The corresponding plot in Figure \ref{fig:effectsrange} visualizes this relationship: For a local outbreak with 20 daily cases as COVID-19 burden, we estimate as total causal effect a subsequent reduction of infection rate by 3.8 percent.
+``Awareness'' had two opposite effects on the outcome in our DAG. Awareness measured by Google searches for \emph{corona} had a positive effect on the number of reported cases. An one percent point increase of the state's Google searches (relative to other states and the observation period) leads to an increase of approximately 0.89 percent. For example, if a district shows 10 percent points more relative searches for \emph{corona} than another one, we expect approximately 9.3 percent more infections for this district after 5 days. \emph{COVID-19 burden} (reported number of cases on day of exposure) affected the outcome negatively, where every additional daily case in the district leads to a 0.2 percent decrease in newly reported case numbers. The corresponding plot in Figure \ref{fig:effectsrange} visualizes this relationship: For a local outbreak with 20 daily cases as COVID-19 burden, we estimate as total causal effect a subsequent reduction of infection rate by 3.9 percent.
 
-Within our model, we observed effects of temperature and all other weather variables. Every increase of 1 degree Celsius in temperature leads to a reduction of the daily reported case numbers by approximately 0.95 percent. On the other hand, we found an increasing effect of rainfall: One millimeter (=1 liter per square meter) more rainfall leads to an increase of reported case numbers by approximately 1.17 percent. We observe effects for humidity and wind as well (higher humidity leading to more cases, stronger wind leading to more cases). In perspective (Figure \ref{fig:effectsrange}), with temperature we expect an increase by approximately 21.1 percent at a daily average temperature of \(0^{\circ}C\) compared to a day with \(20^{\circ}C\). For rainfall, we expect on a rainy day with 10 mm rainfall a corresponding increase of the infection rate by approximately 12.3 percent compared to a day with no precipitation.
+Within our model, we observed effects of temperature and all other weather variables. Every increase of 1 degree Celsius in temperature leads to a reduction of the daily reported case numbers by approximately 0.95 percent. On the other hand, we found an increasing effect of rainfall: One millimeter (=1 liter per square meter) more rainfall leads to an increase of reported case numbers by approximately 1.21 percent. We observe effects for humidity and wind as well (higher humidity leading to more cases, stronger wind leading to more cases). In perspective (Figure \ref{fig:effectsrange}), with temperature we expect an increase by approximately 21 percent at a daily average temperature of \(0^{\circ}C\) compared to a day with \(20^{\circ}C\). For rainfall, we expect on a rainy day with 10 mm rainfall a corresponding increase of the infection rate by approximately 12.8 percent compared to a day with no precipitation.
 
-The different intervention variables showed the strongest effects in our analysis, see Table \ref{tab:causaleffects}. While the first intervention (ban of mass gatherings) reduced subsequent daily case numbers by 2.7 percent, the closure of schools/kindergartens reduced infections by an additional 6.8 percent and mandatory face masks reduced this by another 8.9 percent. The effect of contatc restrictions was the strongest in our observation period, with an reduction of the case rates by 16.
+The different intervention variables showed the strongest effects in our analysis, see Table \ref{tab:causaleffects}. While the first intervention (ban of mass gatherings) reduced subsequent daily case numbers by 2.7 percent, the closure of schools/kindergartens reduced infections by an additional 7.2 percent and mandatory face masks reduced this by another 9.4 percent. The effect of contatc restrictions was the strongest in our observation period, with an reduction of the case rates by 16.9.
 
 The effects of the different socio-demographic factors are quite small in comparison to the effects described above. We see an increasing effect on case numbers by additional nursing homes between districts. Districts with a younger population, more foreign citizens, higher population density and a lower average social-economic status showed higher case numbers, too.
 
