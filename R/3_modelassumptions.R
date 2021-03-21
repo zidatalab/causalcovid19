@@ -9,6 +9,7 @@ library(ggthemes)
 library(pcalg)
 library(pscl)
 library(glmnet)
+library(doMC)
 source("R/z_auxiliary_functions_for_2.R")
 
 # Load Data
@@ -37,13 +38,21 @@ myglm_fixtheta <- glm(as.formula(myformula),
 myy <- modeldata$`Reported new cases COVID-19`
 myx <- as.matrix(modeldata %>% dplyr::select(-`Reported new cases COVID-19`))
 
-myfoldids <- (id_daycount %>% group_indices(id)) %% 10 + 1
+set.seed(3141)
+myids <- sample(unique(id_daycount$id))
+myrandomfoldids <- c(rep(1:9, each=40), rep(10, 41))
+myidmatch <- tibble(id=myids, randomfoldid=myrandomfoldids)
+myfoldids <- read_csv("data/Modeldata_raw.csv") %>%
+  dplyr::select(id, daycount, date, bl_id) %>%
+  dplyr::select(-date) %>%
+  left_join(myidmatch, by="id") %>% pull(randomfoldid)
 
-set.seed(2407)
+registerDoMC(cores=4)
 myglm_ridge_cv <- cv.glmnet(x=myx, y=myy, family = negative.binomial(mytheta),
                             offset=log(modeldata%>%pull(`Active cases`)+1),
                             standardize=FALSE,
-                            alpha=0, nfolds=10, foldid = myfoldids) # 
+                            alpha=0, nfolds=10, foldid = myfoldids,
+                            parallel = TRUE) # 
 
 mylambda <- myglm_ridge_cv$lambda.1se
 
