@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: manuscript_tex4submission.aux
+The style file: plos2015.bst
+Database file #1: mybibfile.bib
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 69 entries,
+            3058 wiz_defined-function locations,
+            1076 strings with 25605 characters,
+and the built_in function-call counts, 152945 in all, are:
+= -- 19306
+> -- 1161
+< -- 9
++ -- 641
+- -- 290
+* -- 13323
+:= -- 16596
+add.period$ -- 293
+call.type$ -- 69
+change.case$ -- 4
+chr.to.int$ -- 3
+cite$ -- 69
+duplicate$ -- 11055
+empty$ -- 14623
+format.name$ -- 349
+if$ -- 35605
+int.to.chr$ -- 0
+int.to.str$ -- 69
+missing$ -- 645
+newline$ -- 379
+num.names$ -- 71
+pop$ -- 1081
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1440
+stack$ -- 0
+substring$ -- 32590
+swap$ -- 1707
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 665
+width$ -- 71
+write$ -- 822

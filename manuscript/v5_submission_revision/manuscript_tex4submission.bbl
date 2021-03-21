@@ -439,6 +439,12 @@ Kermack WO, McKendrick AG.
 \newblock Available from:
   \url{https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Modellierung_Deutschland.html}.
 
+\bibitem{schisterman2017collinearitycausal}
+Schisterman EF, Perkins NJ, Mumford SL, Ahrens KA, Mitchell EM.
+\newblock Collinearity and Causal Diagrams: A Lesson on the Importance of Model
+  Specification.
+\newblock Epidemiology. 2017;28(1).
+
 \bibitem{Openshaw1984}
 Openshaw S.
 \newblock Ecological {Fallacies} and the {Analysis} of {Areal} {Census} {Data}.
