@@ -8,7 +8,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-We want to thank the reviewer for his feedback. We heavily revised the manuscript to address every remark of the reviewer. Below we will address every point of the review separately.
+We want to thank the reviewer for the feedback. We heavily revised the manuscript to address every remark of the reviewer. Below we will address every point of the review separately.
 
 **This is an interesting manuscript that aims to identify "causal" relationships" for COVID-19 transmission based on a DAG analysis and empirical data from other studies for variable selection.**
 
@@ -34,7 +34,7 @@ The plot for individual predictors versus residuals does not reveal strong non-l
 
 The distribution of the quantile residuals is a very good fit to a normal distribution, which indicates that the negative binomial model is a good model for the data. (For generalized linear models, QQ-plots of Pearson residuals are not meaningful, since a GLM actually makes no assumption about the distribution of errors.)
 
-We did not model "time" explicitly as a variable. The residual plot with residuals ordered by time shows that we can assume independence of observations over time within the model, since the residuals are distributed around 0 iid for every date. In reality, observations on subsequent days are not independent, but the data does not show a strong temporal trend in residuals.
+We did not model "time" explicitly as a variable. The residual plot with residuals ordered by time shows that we can assume independence of observations over time within the model, since the residuals are independent and identically distributed (iid) around 0 for every date. In reality, observations on subsequent days are not independent, but the data does not show a strong temporal trend in residuals.
 
 Another viewpoint on independence of observations: Since our data comes from 401 different districts, a mixed/hierarchical model might be more appropriate, since we cannot assume that observations within the same district are independent of each other. The plot of district id vs residuals doesn't show a strong violation of the independence assumption (we actually ordered the districts by their respective residual mean in the plot above). Nevertheless, we tried a mixed model with random intercepts for districts, but the very small increase in model performance was in no relation to the increased computing time by several magnitudes.
 
