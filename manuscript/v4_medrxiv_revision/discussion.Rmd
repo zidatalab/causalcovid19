@@ -38,7 +38,7 @@ The effects of awareness measured via searches for "corona" and the COVID-19 bur
 
 Similarly, the effects of temperature and rainfall can be interpreted as causal effects for indoor and outdoor activities, such that higher temperatures and low rainfall indicate more people spending time outdoor while lower temperatures and high rainfall result in indoor activities, which lead to more infections. Current research suggests this to be due to the prevalent airborne and respiratory droplets and aerosol transmission of the SARS-CoV-2 virus [@world2020transmission]. In this light, we advocate for precautious measures like increased hygiene, face masks, and air ventilation for unavoidable indoor activities.
 
-Furthermore, our analyses support the effectiveness of non-pharmaceutical interventions. To a lesser extent, the adverse effects of some socio-demographic factors might help to identify areas that are at higher risk of local COVID-19 outbreaks.
+Furthermore, our analyses strongly support the effectiveness of non-pharmaceutical interventions. To a lesser extent, the adverse effects of some socio-demographic factors might help to identify areas that are at higher risk of local COVID-19 outbreaks.
 
 ## Conclusions
 

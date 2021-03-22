@@ -397,30 +397,46 @@ Hilbe JM, Greene WH.
 \newblock Available from:
   \url{http://www.sciencedirect.com/science/article/pii/B9780444537379500074}.
 
-\bibitem{mass}
-Venables WN, Ripley BD.
-\newblock Modern Applied Statistics with S.
-\newblock 4th ed. New York: Springer; 2002.
-\newblock Available from: \url{http://www.stats.ox.ac.uk/pub/MASS4}.
+\DIFaddbegin \bibitem{mass}
+\DIFadd{Venables WN, Ripley BD.
+}\newblock \DIFadd{Modern Applied Statistics with S.
+}\newblock \DIFadd{4th ed. New York: Springer; 2002.
+}\newblock \DIFadd{Available from: }\url{http://www.stats.ox.ac.uk/pub/MASS4}\DIFadd{.
+}
 
 \bibitem{ridge1970}
-Hoerl AE, Kennard RW.
-\newblock Ridge Regression: Biased Estimation for Nonorthogonal Problems.
-\newblock Technometrics. 1970;12(1):55--67.
-\newblock doi:{10.1080/00401706.1970.10488634}.
+\DIFadd{Hoerl AE, Kennard RW.
+}\newblock \DIFadd{Ridge Regression: Biased Estimation for Nonorthogonal Problems.
+}\newblock \DIFadd{Technometrics. 1970;12(1):55--67.
+}\newblock \DIFadd{doi:}{\DIFadd{10.1080/00401706.1970.10488634}}\DIFadd{.
+}
 
 \bibitem{glmnet2010}
-Friedman J, Hastie T, Tibshirani R.
-\newblock Regularization Paths for Generalized Linear Models via Coordinate
+\DIFadd{Friedman J, Hastie T, Tibshirani R.
+}\newblock \DIFadd{Regularization Paths for Generalized Linear Models via Coordinate
   Descent.
-\newblock Journal of Statistical Software. 2010;33(1):1--22.
+}\newblock \DIFadd{Journal of Statistical Software. 2010;33(1):1--22.
+}
 
-\bibitem{perkovi2015complete}
+\DIFaddend \bibitem{perkovi2015complete}
 {Perkovi{\'c}} E, {Textor} J, {Kalisch} M, {Maathuis} MH.
 \newblock {A Complete Generalized Adjustment Criterion}.
 \newblock arXiv e-prints. 2015; p. arXiv:1507.01524.
 
-\bibitem{gencoglu2020causal}
+\DIFdelbegin %DIFDELCMD < \bibitem{mass}
+%DIFDELCMD < %%%
+\DIFdel{Venables WN, Ripley BD.
+}%DIFDELCMD < \newblock %%%
+\DIFdel{Modern Applied Statistics with S.
+}%DIFDELCMD < \newblock %%%
+\DIFdel{4th ed. New York: Springer; 2002.
+}%DIFDELCMD < \newblock %%%
+\DIFdel{Available from: }%DIFDELCMD < \url{http://www.stats.ox.ac.uk/pub/MASS4}%%%
+\DIFdel{.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \bibitem{gencoglu2020causal}
 Gencoglu O, Gruber M.
 \newblock Causal Modeling of Twitter Activity During {COVID-19}.
 \newblock medRxiv. 2020;doi:{10.1101/2020.05.16.20103903}.
@@ -449,13 +465,14 @@ Kermack WO, McKendrick AG.
 \newblock {Modellierung von Beispielszenarien der SARS-CoV-2-Epidemie 2020 in
   Deutschland. DOI 10.25646/6571.2}; 2020.
 \newblock Available from:
-  \url{https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Modellierung_Deutschland.html}.
+  \url{https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Modellierung_Deutschland.html}\DIFaddbegin \DIFadd{.
+}
 
 \bibitem{schisterman2017collinearitycausal}
-Schisterman EF, Perkins NJ, Mumford SL, Ahrens KA, Mitchell EM.
-\newblock Collinearity and Causal Diagrams: A Lesson on the Importance of Model
+\DIFadd{Schisterman EF, Perkins NJ, Mumford SL, Ahrens KA, Mitchell EM.
+}\newblock \DIFadd{Collinearity and Causal Diagrams: A Lesson on the Importance of Model
   Specification.
-\newblock Epidemiology. 2017;28(1).
+}\newblock \DIFadd{Epidemiology. 2017;28(1)}\DIFaddend .
 
 \bibitem{Openshaw1984}
 Openshaw S.

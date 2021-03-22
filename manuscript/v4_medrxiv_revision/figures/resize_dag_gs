@@ -1,0 +1,11 @@
+gs                                                \
+  -o f_full_covid19_dag_klein.eps                                   \
+  -sDEVICE=eps2write                              \
+  -c "<</Install {0.56 0.56 scale}>> setpagedevice" \
+  -f f_full_covid19_dag.eps
+  
+ gs                                                \
+  -o f_exposure_vs_effect_klein.eps                                   \
+  -sDEVICE=eps2write                              \
+  -c "<</Install {0.70 0.70 scale}>> setpagedevice" \
+  -f f_exposure_vs_effect.eps
