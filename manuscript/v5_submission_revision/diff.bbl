@@ -1,0 +1,489 @@
+\begin{thebibliography}{10}
+
+\bibitem{who2020report}
+{WHO Team}. Report of the {WHO-China} Joint Mission on Coronavirus Disease 2019
+  ({COVID-19}); 2020.
+\newblock Available from:
+  \url{https://www.who.int/publications-detail/report-of-the-who-china-joint-mission-on-coronavirus-disease-2019-(covid-19)}
+  [cited 2020-06-25].
+
+\bibitem{Chinazzi395}
+Chinazzi M, Davis JT, Ajelli M, Gioannini C, Litvinova M, Merler S, et~al.
+\newblock The effect of travel restrictions on the spread of the 2019 novel
+  coronavirus ({COVID-19}) outbreak.
+\newblock Science. 2020;368(6489):395--400.
+\newblock doi:{10.1126/science.aba9757}.
+
+\bibitem{guan2020clinical}
+Guan W, Ni Z, Hu Y, Liang W, Ou C, He J, et~al.
+\newblock Clinical Characteristics of Coronavirus Disease 2019 in {China}.
+\newblock New England Journal of Medicine. 2020;doi:{10.1056/NEJMoa2002032}.
+
+\bibitem{higgins_correlations_2020}
+Higgins TS, Wu AW, Sharma D, Illing EA, Rubel K, Ting JY.
+\newblock Correlations of {Online} {Search} {Engine} {Trends} {With}
+  {Coronavirus} {Disease} ({COVID}-19) {Incidence}: {Infodemiology} {Study}.
+\newblock JMIR Public Health and Surveillance. 2020;6(2):e19702.
+\newblock doi:{10.2196/19702}.
+
+\bibitem{li_retrospective_2020}
+Li C, Chen LJ, Chen X, Zhang M, Pang CP, Chen H.
+\newblock Retrospective analysis of the possibility of predicting the
+  {COVID}-19 outbreak from {Internet} searches and social media data, {China},
+  2020.
+\newblock Eurosurveillance. 2020;25(10).
+\newblock doi:{10.2807/1560-7917.ES.2020.25.10.2000199}.
+
+\bibitem{yuan_trends_2020}
+Yuan X, Xu J, Hussain S, Wang H, Gao N, Zhang L.
+\newblock Trends and {Prediction} in {Daily} {New} {Cases} and {Deaths} of
+  {COVID}-19 in the {United} {States}: {An} {Internet} {Search}-{Interest}
+  {Based} {Model}.
+\newblock Exploratory research and hypothesis in medicine. 2020;5(2):1--6.
+\newblock doi:{10.14218/ERHM.2020.00023}.
+
+\bibitem{bannister-tyrrell_preliminary_2020}
+Bannister-Tyrrell M, Meyer A, Faverjon C, Cameron A.
+\newblock Preliminary evidence that higher temperatures are associated with
+  lower incidence of {COVID}-19, for cases reported globally up to 29th
+  {February} 2020.
+\newblock medRxiv. 2020; p. 2020.03.18.20036731.
+\newblock doi:{10.1101/2020.03.18.20036731}.
+
+\bibitem{demongeot_temperature_2020}
+Demongeot J, Flet-Berliac Y, Seligmann H.
+\newblock Temperature {Decreases} {Spread} {Parameters} of the {New} {Covid}-19
+  {Case} {Dynamics}.
+\newblock Biology. 2020;9(5).
+\newblock doi:{10.3390/biology9050094}.
+
+\bibitem{liu_impact_2020}
+Liu J, Zhou J, Yao J, Zhang X, Li L, Xu X, et~al.
+\newblock Impact of meteorological factors on the {COVID}-19 transmission: {A}
+  multi-city study in {China}.
+\newblock Science of the Total Environment. 2020;726:138513.
+\newblock doi:{10.1016/j.scitotenv.2020.138513}.
+
+\bibitem{Greenland1999}
+Greenland S, Robins JM, Pearl J.
+\newblock Confounding and {Collapsibility} in {Causal} {Inference}.
+\newblock Statistical Science. 1999;14(1):29--46.
+
+\bibitem{schipf_directed_2011}
+Schipf S, Knüppel S, Hardt J, Stang A.
+\newblock Directed {Acyclic} {Graphs} ({DAGs}) – {Die} {Anwendung} kausaler
+  {Graphen} in der {Epidemiologie}.
+\newblock Gesundheitswesen. 2011;73(12):888--892.
+\newblock doi:{10.1055/s-0031-1291192}.
+
+\bibitem{textor_robust_2017}
+Textor J, van~der Zander B, Gilthorpe MS, Liśkiewicz M, Ellison GT.
+\newblock Robust causal inference using directed acyclic graphs: the {R}
+  package ‘dagitty’.
+\newblock International Journal of Epidemiology. 2017;45(6):1887--1894.
+\newblock doi:{10.1093/ije/dyw341}.
+
+\bibitem{jhucovid19db2020}
+{Center for Systems Science and Engineering (CSSE)}. {COVID-19 Data Repository
+  by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins
+  University}; 2020.
+\newblock Available from: \url{https://github.com/CSSEGISandData/COVID-19}
+  [cited 2020-07-12].
+
+\bibitem{Pearl_2014}
+Pearl J, Bareinboim E.
+\newblock External Validity: From Do-Calculus to Transportability Across
+  Populations.
+\newblock Statistical Science. 2014;29(4):579–595.
+\newblock doi:{10.1214/14-sts486}.
+
+\bibitem{chang_modeling_2020}
+Chang MC, Kahn R, Li YA, Lee CS, Buckee CO, Chang HH.
+\newblock Modeling the impact of human mobility and travel restrictions on the
+  potential spread of {SARS}-{CoV}-2 in {Taiwan}.
+\newblock medRxiv. 2020; p. 2020.04.07.20053439.
+\newblock doi:{10.1101/2020.04.07.20053439}.
+
+\bibitem{fowler_effect_2020}
+Fowler JH, Hill SJ, Obradovich N, Levin R.
+\newblock {The Effect of Stay-at-Home Orders on COVID-19 Cases and Fatalities
+  in the United States}.
+\newblock medRxiv. 2020;doi:{10.1101/2020.04.13.20063628}.
+
+\bibitem{kraemer_effect_2020}
+Kraemer MUG, Yang CH, Gutierrez B, Wu CH, Klein B, Pigott DM, et~al.
+\newblock The effect of human mobility and control measures on the {COVID}-19
+  epidemic in {China}.
+\newblock Science (New York, NY). 2020;368(6490):493--497.
+\newblock doi:{10.1126/science.abb4218}.
+
+\bibitem{lasry_timing_2020}
+Lasry A, Kidder D, Hast M, Poovey J, Sunshine G, Winglee K, et~al.
+\newblock Timing of Community Mitigation and Changes in Reported {COVID-19} and
+  Community Mobility - Four {U.S.} Metropolitan Areas, {February 26-April 1,
+  2020}.
+\newblock MMWR Morbidity and mortality weekly report. 2020;69(15):451--457.
+\newblock doi:{10.15585/mmwr.mm6915e2}.
+
+\bibitem{linka_outbreak_2020}
+Linka K, Peirlinck M, Sahli~Costabal F, Kuhl E.
+\newblock Outbreak dynamics of {COVID}-19 in {Europe} and the effect of travel
+  restrictions.
+\newblock Computer Methods in Biomechanics and Biomedical Engineering. 2020; p.
+  1--8.
+\newblock doi:{10.1080/10255842.2020.1759560}.
+
+\bibitem{mazzoli_effects_2020}
+Mazzoli M, Mateo D, Hernando A, Meloni S, Ramasco JJ.
+\newblock Effects of mobility and multi-seeding on the propagation of the
+  {COVID}-19 in {Spain}.
+\newblock medRxiv. 2020; p. 2020.05.09.20096339.
+\newblock doi:{10.1101/2020.05.09.20096339}.
+
+\bibitem{xiong_data-driven_2020}
+{Xiong} C, {Hu} S, {Yang} M, {Younes} HN, {Luo} W, {Ghader} S, et~al.
+\newblock Data-Driven Modeling Reveals the Impact of Stay-at-Home Orders on
+  Human Mobility during the {COVID-19} Pandemic in the {U.S.}
+\newblock arXiv e-prints. 2020; p. arXiv:2005.00667.
+
+\bibitem{juni_impact_2020}
+Jüni P, Rothenbühler M, Bobos P, Thorpe KE, da~Costa BR, Fisman DN, et~al.
+\newblock Impact of climate and public health interventions on the {COVID}-19
+  pandemic: {A} prospective cohort study.
+\newblock Canadian Medical Association Journal. 2020;doi:{10.1503/cmaj.200920}.
+
+\bibitem{lai_effect_2020}
+Lai S, Ruktanonchai NW, Zhou L, Prosper O, Luo W, Floyd JR, et~al.
+\newblock Effect of non-pharmaceutical interventions to contain {COVID-19} in
+  {China}.
+\newblock Nature. 2020;doi:{10.1038/s41586-020-2293-x}.
+
+\bibitem{google_trends}
+{Google LLC}. {Google Trends}, search term {``}corona{''}; 2020.
+\newblock Available from: \url{https://www.google.com/trends} [cited
+  2020-07-12].
+
+\bibitem{ayyoubzadeh_predicting_2020}
+Ayyoubzadeh SM, Ayyoubzadeh SM, Zahedi H, Ahmadi M, R~Niakan~Kalhori S.
+\newblock Predicting {COVID}-19 {Incidence} {Through} {Analysis} of {Google}
+  {Trends} {Data} in {Iran}: {Data} {Mining} and {Deep} {Learning} {Pilot}
+  {Study}.
+\newblock JMIR Public Health and Surveillance. 2020;6(2):e18828.
+\newblock doi:{10.2196/18828}.
+
+\bibitem{effenberger_association_2020}
+Effenberger M, Kronbichler A, Shin JI, Mayer G, Tilg H, Perco P.
+\newblock Association of the {COVID}-19 pandemic with {Internet} {Search}
+  {Volumes}: {A} {Google} {Trends}({TM}) {Analysis}.
+\newblock International Journal of Infectious Diseases. 2020;95:192--197.
+\newblock doi:{10.1016/j.ijid.2020.04.033}.
+
+\bibitem{lin_google_2020}
+Lin YH, Liu CH, Chiu YC.
+\newblock Google searches for the keywords of ``wash hands'' predict the speed
+  of national spread of {COVID}-19 outbreak among 21 countries.
+\newblock Brain, Behavior, and Immunity. 2020;doi:{10.1016/j.bbi.2020.04.020}.
+
+\bibitem{mavragani_tracking_2020}
+Mavragani A.
+\newblock Tracking {COVID}-19 in {Europe}: {Infodemiology} {Approach}.
+\newblock JMIR public health and surveillance. 2020;6(2):e18941.
+\newblock doi:{10.2196/18941}.
+
+\bibitem{walker_use_2020}
+Walker A, Hopkins C, Surda P.
+\newblock Use of {Google Trends} to investigate loss-of-smell-related searches
+  during the {COVID-19} outbreak.
+\newblock International Forum of Allergy \& Rhinology. 2020;10(7):839--847.
+\newblock doi:{10.1002/alr.22580}.
+
+\bibitem{zhou_effects_2020}
+Zhou WK, Wang AL, Xia F, Xiao YN, Tang SY.
+\newblock Effects of media reporting on mitigating spread of {COVID}-19 in the
+  early phase of the outbreak.
+\newblock Mathematical Biosciences and Engineering. 2020;17(3):2693--2707.
+\newblock doi:{10.3934/mbe.2020147}.
+
+\bibitem{qi_covid-19_2020}
+Qi H, Xiao S, Shi R, Ward MP, Chen Y, Tu W, et~al.
+\newblock {COVID}-19 transmission in {Mainland} {China} is associated with
+  temperature and humidity: {A} time-series analysis.
+\newblock Science of the Total Environment. 2020;728:138778.
+\newblock doi:{10.1016/j.scitotenv.2020.138778}.
+
+\bibitem{shi_impact_2020}
+Shi P, Dong Y, Yan H, Zhao C, Li X, Liu W, et~al.
+\newblock Impact of temperature on the dynamics of the {COVID}-19 outbreak in
+  {China}.
+\newblock Science of the Total Environment. 2020;728:138890.
+\newblock doi:{10.1016/j.scitotenv.2020.138890}.
+
+\bibitem{sobral_association_2020}
+Sobral MFF, Duarte GB, da~Penha~Sobral AIG, Marinho MLM, de~Souza~Melo A.
+\newblock Association between climate variables and global transmission {of}
+  {SARS}-{CoV}-2.
+\newblock Science of the Total Environment. 2020;729:138997.
+\newblock doi:{10.1016/j.scitotenv.2020.138997}.
+
+\bibitem{tosepu_correlation_2020}
+Tosepu R, Gunawan J, Effendy DS, Ahmad LOAI, Lestari H, Bahar H, et~al.
+\newblock Correlation between weather and {Covid}-19 pandemic in {Jakarta},
+  {Indonesia}.
+\newblock Science of the Total Environment. 2020;725:138436.
+\newblock doi:{10.1016/j.scitotenv.2020.138436}.
+
+\bibitem{Wang2020temperature}
+Wang M, Jiang A, Gong L, Luo L, Guo W, Li C, et~al.
+\newblock Temperature significant change {COVID-19} Transmission in 429 cities.
+\newblock medRxiv. 2020;doi:{10.1101/2020.02.22.20025791}.
+
+\bibitem{wu_effects_2020}
+Wu Y, Jing W, Liu J, Ma Q, Yuan J, Wang Y, et~al.
+\newblock Effects of temperature and humidity on the daily new cases and new
+  deaths of {COVID-19} in 166 countries.
+\newblock Science of the Total Environment. 2020;729:139051.
+\newblock doi:{https://doi.org/10.1016/j.scitotenv.2020.139051}.
+
+\bibitem{auler_evidence_2020}
+Auler AC, Cássaro FAM, da~Silva VO, Pires LF.
+\newblock Evidence that high temperatures and intermediate relative humidity
+  might favor the spread of {COVID}-19 in tropical climate: {A} case study for
+  the most affected {Brazilian} cities.
+\newblock Science of the Total Environment. 2020;729:139090.
+\newblock doi:{10.1016/j.scitotenv.2020.139090}.
+
+\bibitem{xie_association_2020}
+Xie J, Zhu Y.
+\newblock Association between ambient temperature and {COVID}-19 infection in
+  122 cities from {China}.
+\newblock Science of the Total Environment. 2020;724:138201.
+\newblock doi:{10.1016/j.scitotenv.2020.138201}.
+
+\bibitem{briz-redon_spatio-temporal_2020}
+Briz-Redón A, Serrano-Aroca A.
+\newblock A spatio-temporal analysis for exploring the effect of temperature on
+  {COVID}-19 early evolution in {Spain}.
+\newblock Science of the Total Environment. 2020;728:138811.
+\newblock doi:{10.1016/j.scitotenv.2020.138811}.
+
+\bibitem{iqbal_nexus_2020}
+Iqbal N, Fareed Z, Shahzad F, He X, Shahzad U, Lina M.
+\newblock The nexus between {COVID}-19, temperature and exchange rate in
+  {Wuhan} city: {New} findings from partial and multiple wavelet coherence.
+\newblock Science of the Total Environment. 2020;729:138916.
+\newblock doi:{10.1016/j.scitotenv.2020.138916}.
+
+\bibitem{jahangiri_sensitivity_2020}
+Jahangiri M, Jahangiri M, Najafgholipour M.
+\newblock The sensitivity and specificity analyses of ambient temperature and
+  population size on the transmission rate of the novel coronavirus
+  ({COVID}-19) in different provinces of {Iran}.
+\newblock Science of the Total Environment. 2020;728:138872.
+\newblock doi:{10.1016/j.scitotenv.2020.138872}.
+
+\bibitem{yao_no_2020}
+Yao Y, Pan J, Liu Z, Meng X, Wang W, Kan H, et~al.
+\newblock No association of {COVID}-19 transmission with temperature or {UV}
+  radiation in {Chinese} cities.
+\newblock The European Respiratory Journal. 2020;55(5).
+\newblock doi:{10.1183/13993003.00517-2020}.
+
+\bibitem{de2020risk}
+de~Lusignan S, Dorward J, Correa A, Jones N, Akinyemi O, Amirthalingam G,
+  et~al.
+\newblock Risk factors for {SARS}-{CoV}-2 among patients in the {Oxford}
+  {Royal} {College} of {General} {Practitioners} {Research} and {Surveillance}
+  {Centre} primary care network: a cross-sectional study.
+\newblock The Lancet Infectious Diseases.
+  2020;doi:{10.1016/S1473-3099(20)30371-6}.
+
+\bibitem{Dragano2020.06.17.20133918}
+Dragano N, Rupprecht CJ, Dortmann O, Scheider M, Wahrendorf M.
+\newblock Higher risk of {COVID-19} hospitalization for unemployed: an analysis
+  of 1,298,416 health insured individuals in {Germany}.
+\newblock medRxiv. 2020;doi:{10.1101/2020.06.17.20133918}.
+
+\bibitem{dohle_wingen_schreiber_2020}
+Dohle S, Wingen T, Schreiber M. Acceptance and Adoption of Protective Measures
+  During the {COVID-19} Pandemic: The Role of Trust in Politics and Trust in
+  Science; 2020.
+\newblock Available from: \url{osf.io/w52nv}.
+
+\bibitem{engle_staying_2020}
+Engle S, Stromme J, Zhou A.
+\newblock Staying at home: mobility effects of {COVID-19}.
+\newblock Available at SSRN. 2020;doi:{10.2139/ssrn.3565703}.
+
+\bibitem{cowling2020impact}
+Cowling BJ, Ali ST, Ng TWY, Tsang TK, Li JCM, Fong MW, et~al.
+\newblock Impact assessment of non-pharmaceutical interventions against
+  coronavirus disease 2019 and influenza in {Hong} {Kong}: an observational
+  study.
+\newblock The Lancet Public Health. 2020;5(5):e279--e288.
+\newblock doi:{10.1016/S2468-2667(20)30090-6}.
+
+\bibitem{casenumbers_rki}
+{Robert Koch-Institut (RKI)}. {Fallzahlen in Deutschland (COVID-19)}; 2020.
+\newblock Available from:
+  \url{https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html}
+  [cited 2020-07-12].
+
+\bibitem{google_mobility}
+{Google LLC}. Google {COVID-19} Community Mobility Reports; 2020.
+\newblock Available from: \url{https://www.google.com/covid19/mobility/} [cited
+  2020-07-12].
+
+\bibitem{dwd_weather}
+{Deutscher Wetterdienst (DWD) Climate Data Center (CDC)}. Recent daily station
+  observations (temperature, pressure, precipitation, sunshine duration, etc.)
+  for {Germany}, quality control not completed yet, version recent; 2020.
+\newblock Available from:
+  \url{https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/daily/kl/recent/}
+  [cited 2020-07-12].
+
+\bibitem{inkar}
+{Bundesinstitut für Bau-, Stadt- und Raumforschung (BBSR)}. {INKAR –
+  Indikatoren und Karten zur Raum- und Stadtentwicklung}; 2020.
+\newblock Available from: \url{https://www.inkar.de/} [cited 2020-06-25].
+
+\bibitem{mitze2020face}
+Mitze T, Kosfeld R, Rode J, Wälde K.
+\newblock Face Masks Considerably Reduce {COVID-19} Cases in {Germany}: A
+  Synthetic Control Method Approach.
+\newblock Institute of Labor Economics (IZA); 2020. 13319.
+\newblock Available from:
+  \url{https://EconPapers.repec.org/RePEc:iza:izadps:dp13319}.
+
+\bibitem{spirtes2000causation}
+Spirtes P, Glymour CN, Scheines R, Heckerman D.
+\newblock Causation, prediction, and search.
+\newblock MIT Press; 2000.
+
+\bibitem{pearl2009causality}
+Pearl J.
+\newblock Causality.
+\newblock Cambridge: Cambridge University Press; 2009.
+\newblock Available from:
+  \url{https://www.cambridge.org/core/books/causality/B0046844FAE10CBF274D4ACBDAEB5F5B}.
+
+\bibitem{greenland1999causal}
+Greenland S, Pearl J, Robins JM.
+\newblock Causal {Diagrams} for {Epidemiologic} {Research}.
+\newblock Epidemiology. 1999;10(1):37--48.
+
+\bibitem{henckel2019graphical}
+{Henckel} L, {Perkovi{\'c}} E, {Maathuis} MH.
+\newblock {Graphical Criteria for Efficient Total Effect Estimation via
+  Adjustment in Causal Linear Models}.
+\newblock arXiv e-prints. 2019; p. arXiv:1907.02435.
+
+\bibitem{rsoftware}
+{R Core Team}. R: A Language and Environment for Statistical Computing; 2019.
+\newblock Available from: \url{https://www.R-project.org/}.
+
+\bibitem{pcalg}
+Kalisch M, Mächler M, Colombo D, Maathuis MH, Bühlmann P.
+\newblock Causal {Inference} {Using} {Graphical} {Models} with the {R}
+  {Package} pcalg.
+\newblock Journal of Statistical Software. 2012;47(11):1--26.
+\newblock doi:{10.18637/jss.v047.i11}.
+
+\bibitem{maxlikelihood}
+Hilbe JM, Greene WH.
+\newblock 4 - {Count} {Response} {Regression} {Models}.
+\newblock In: Rao CR, Miller JP, Rao DC, editors. Essential {Statistical}
+  {Methods} for {Medical} {Statistics}. Boston: North-Holland; 2011. p.
+  104--145.
+\newblock Available from:
+  \url{http://www.sciencedirect.com/science/article/pii/B9780444537379500074}.
+
+\DIFaddbegin \bibitem{mass}
+\DIFadd{Venables WN, Ripley BD.
+}\newblock \DIFadd{Modern Applied Statistics with S.
+}\newblock \DIFadd{4th ed. New York: Springer; 2002.
+}\newblock \DIFadd{Available from: }\url{http://www.stats.ox.ac.uk/pub/MASS4}\DIFadd{.
+}
+
+\bibitem{ridge1970}
+\DIFadd{Hoerl AE, Kennard RW.
+}\newblock \DIFadd{Ridge Regression: Biased Estimation for Nonorthogonal Problems.
+}\newblock \DIFadd{Technometrics. 1970;12(1):55--67.
+}\newblock \DIFadd{doi:}{\DIFadd{10.1080/00401706.1970.10488634}}\DIFadd{.
+}
+
+\bibitem{glmnet2010}
+\DIFadd{Friedman J, Hastie T, Tibshirani R.
+}\newblock \DIFadd{Regularization Paths for Generalized Linear Models via Coordinate
+  Descent.
+}\newblock \DIFadd{Journal of Statistical Software. 2010;33(1):1--22.
+}
+
+\DIFaddend \bibitem{perkovi2015complete}
+{Perkovi{\'c}} E, {Textor} J, {Kalisch} M, {Maathuis} MH.
+\newblock {A Complete Generalized Adjustment Criterion}.
+\newblock arXiv e-prints. 2015; p. arXiv:1507.01524.
+
+\DIFdelbegin %DIFDELCMD < \bibitem{mass}
+%DIFDELCMD < %%%
+\DIFdel{Venables WN, Ripley BD.
+}%DIFDELCMD < \newblock %%%
+\DIFdel{Modern Applied Statistics with S.
+}%DIFDELCMD < \newblock %%%
+\DIFdel{4th ed. New York: Springer; 2002.
+}%DIFDELCMD < \newblock %%%
+\DIFdel{Available from: }%DIFDELCMD < \url{http://www.stats.ox.ac.uk/pub/MASS4}%%%
+\DIFdel{.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \bibitem{gencoglu2020causal}
+Gencoglu O, Gruber M.
+\newblock Causal Modeling of Twitter Activity During {COVID-19}.
+\newblock medRxiv. 2020;doi:{10.1101/2020.05.16.20103903}.
+
+\bibitem{perkovic2017complete}
+Perkovi{\'c} E, Textor J, Kalisch M, Maathuis MH.
+\newblock Complete graphical characterization and construction of adjustment
+  sets in {Markov} equivalence classes of ancestral graphs.
+\newblock The Journal of Machine Learning Research. 2017;18(1):8132--8193.
+
+\bibitem{Islamm2743}
+Islam N, Sharp SJ, Chowell G, Shabnam S, Kawachi I, Lacey B, et~al.
+\newblock Physical distancing interventions and incidence of coronavirus
+  disease 2019: natural experiment in 149 countries.
+\newblock BMJ. 2020;370.
+\newblock doi:{10.1136/bmj.m2743}.
+
+\bibitem{kermack1991contributions}
+Kermack WO, McKendrick AG.
+\newblock Contributions to the mathematical theory of epidemics--I. 1927.
+\newblock Bulletin of mathematical biology. 1991;53(1-2):33--55.
+\newblock doi:{10.1007/bf02464423}.
+
+\bibitem{rkimodellierung}
+{an der Heiden} M, Buchholz U.
+\newblock {Modellierung von Beispielszenarien der SARS-CoV-2-Epidemie 2020 in
+  Deutschland. DOI 10.25646/6571.2}; 2020.
+\newblock Available from:
+  \url{https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Modellierung_Deutschland.html}\DIFaddbegin \DIFadd{.
+}
+
+\bibitem{schisterman2017collinearitycausal}
+\DIFadd{Schisterman EF, Perkins NJ, Mumford SL, Ahrens KA, Mitchell EM.
+}\newblock \DIFadd{Collinearity and Causal Diagrams: A Lesson on the Importance of Model
+  Specification.
+}\newblock \DIFadd{Epidemiology. 2017;28(1)}\DIFaddend .
+
+\bibitem{Openshaw1984}
+Openshaw S.
+\newblock Ecological {Fallacies} and the {Analysis} of {Areal} {Census} {Data}.
+\newblock Environment and Planning A: Economy and Space. 1984;16(1):17--31.
+\newblock doi:{10.1068/a160017}.
+
+\bibitem{world2020transmission}
+{World Health Organization}, et~al.
+\newblock {Transmission of SARS-CoV-2: implications for infection prevention
+  precautions: Scientific Brief, 09 July 2020}.
+\newblock World Health Organization; 2020.
+
+\end{thebibliography}

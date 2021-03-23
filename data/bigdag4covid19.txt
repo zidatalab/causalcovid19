@@ -1,8 +1,5 @@
 dag {
-"Mandatory face masks" [pos="-1.45,-2.3"]
-"Contact restrictions" [pos="-1.45,-2.0"]
-"Ban of mass gatherings" [pos="-1.45,-1.7"]
-"School and kindergarten closures" [pos="-1.45,-1.4"]
+"Interventions" [pos="-1.45,-1.4"]
 "COVID-19 burden" [pos="-1.7,-0.7"]
 "Health care utilization" [pos="-1.7,-0.3"]
 "Searches corona" [pos="-1.2,-0.5"]
@@ -30,21 +27,15 @@ Susceptibility [latent,pos="-0.1,-0.9"]
 "Onset of COVID-19" [pos="-0.1,-0.5"]
 "Reported new cases COVID-19" [pos="0.3,-0.5"]
 "Access to tests" -> "Onset of COVID-19"
-"Ban of mass gatherings" -> "Exposure to SARS-COV-2"
-"Ban of mass gatherings" -> "Searches corona"
-"Ban of mass gatherings" -> Mobility
-"COVID-19 burden" -> "Mandatory face masks"
-"COVID-19 burden" -> "Ban of mass gatherings"
-"COVID-19 burden" -> "Contact restrictions"
+Interventions -> "Exposure to SARS-COV-2"
+Interventions -> "Searches corona"
+Interventions -> Mobility
+"COVID-19 burden" -> Interventions
 "COVID-19 burden" -> "Exposure to SARS-COV-2"
-"COVID-19 burden" -> "School and kindergarten closures"
 "COVID-19 burden" -> "Searches corona"
 "COVID-19 burden" -> Mobility
 "COVID-19 burden" -> "Health care utilization"
 "COVID-19 burden" -> "Tracing capacity"
-"Contact restrictions" -> "Exposure to SARS-COV-2"
-"Contact restrictions" -> "Searches corona"
-"Contact restrictions" -> Mobility
 "Health care utilization" -> "Exposure to SARS-COV-2"
 "Health care utilization" -> "Tracing capacity"
 "Exposure to SARS-COV-2" -> "Access to tests"
@@ -56,8 +47,6 @@ Susceptibility [latent,pos="-0.1,-0.9"]
 "Foreign citizens" -> "Health care utilization"
 "Herd immunity" -> "Exposure to SARS-COV-2"
 "Herd immunity" -> Susceptibility
-"Mandatory face masks" -> "Exposure to SARS-COV-2"
-"Mandatory face masks" -> "Searches corona"
 "Nursing homes" -> "Exposure to SARS-COV-2"
 "Onset of COVID-19" -> "Reported new cases COVID-19"
 "Population density" -> "Exposure to SARS-COV-2"
@@ -67,9 +56,6 @@ Susceptibility [latent,pos="-0.1,-0.9"]
 "Population density" -> "Health care utilization"
 "Right-wing populist party votes" -> "Exposure to SARS-COV-2"
 "Right-wing populist party votes" -> "Searches corona"
-"School and kindergarten closures" -> "Exposure to SARS-COV-2"
-"School and kindergarten closures" -> "Searches corona"
-"School and kindergarten closures" -> Mobility
 "Searches corona" -> "Exposure to SARS-COV-2"
 "Searches corona" -> Mobility
 "Searches corona" -> "Health care utilization"

@@ -4,6 +4,8 @@ library(DBI)
 library(broom)
 library(MASS)
 
+mylag <- 5
+
 mydatapath <- "./data/" 
 
 google_mobility <- read_csv(paste0(mydatapath, "mobility/google_mobilitychange_percentages_per_bundesland_and_areatype.csv")) %>%
@@ -44,6 +46,7 @@ inkar <- read_csv(paste0(mydatapath, "sociodemographic/inkar.csv")) %>%
   mutate(id=as.integer(Kennziffer)*1000) %>%
   dplyr::select(-Kennziffer, -Raumeinheit, -Aggregat) %>%
   mutate(`Anteil Schutzsuchender an Bevölkerung`=replace_na(`Anteil Schutzsuchender an Bevölkerung`, mean(`Anteil Schutzsuchender an Bevölkerung`, na.rm = TRUE))) %>%
+  mutate(Frauenanteil=Frauenanteil*100) %>% 
   rename(`Age (pop. 65 and older)`=`Einwohner 65 Jahre und älter`,
          `Population density`=Einwohnerdichte,
          `Sex`=Frauenanteil,
@@ -95,14 +98,15 @@ measures_zeroone_all <- measures_zeroone_all %>%
          `Mandatory face masks`=ifelse(id==8325049 & date>=as.Date("2020-04-17"), 1, `Mandatory face masks`), # rottweil
          `Mandatory face masks`=ifelse(id==16062041  & date>=as.Date("2020-04-14"), 1, `Mandatory face masks`), # nordhausen
          `Mandatory face masks`=ifelse(id==16053000  & date>=as.Date("2020-04-06"), 1, `Mandatory face masks`) # jena
-         )
+         ) # %>% 
+  # mutate(Interventions=`Ban of mass gatherings`+`School/Kita closures`+`Contact restrictions`+`Mandatory face masks`) %>%
+  # dplyr::select(-c(`Ban of mass gatherings`, `School/Kita closures`, `Contact restrictions`, `Mandatory face masks`))
 
 dateset <- as.Date(Reduce(intersect, list(awareness$date, google_mobility$date, weather$date, brd_timeseries$date)),
                    origin="1970-01-01")
 
-mylag <- 8
-startdate <- min(dateset)+mylag
-enddate <- max(brd_timeseries$date)
+startdate <- min(dateset) + mylag # +mylag # +max(mylags)
+enddate <- as.Date("2020-07-08") # startdate + days(100) # 
 
 lagweather <- mylag
 lagmobility <- mylag
@@ -143,20 +147,71 @@ modeldata_raw <- left_join(brd_timeseries, google_mobility %>%
   left_join(., inkar, by=c("id"="id")) %>%
   left_join(., pflege_destatis, by=c("id"="id")) %>%
   left_join(., brd_burden, by=c('date'='date', 'id'='id')) %>%
-  filter(id>16 & date>=startdate & date<=enddate)# %>% drop_na()
+  filter(id>16 & date>=startdate & date<=enddate) %>%
+  rename(`Interventions (school and kindergarten closures)`=`School/Kita closures`,
+         `Interventions (mandatory face masks)`=`Mandatory face masks`,
+         `Interventions (ban of mass gatherings)`=`Ban of mass gatherings`,
+         `Interventions (contact restrictions)`=`Contact restrictions`,
+         `Holiday (exposure)`=Holiday,
+         `Foreign citizens`=`Foreign residents`,
+         `Foreign citizens (refugees)`=`Foreign residents (refugees)`,
+         `Rainfall`=`Weather (rainfall)`,
+         `Humidity`=`Weather (humidity)`,
+         `Gender`=`Sex`,
+         `Temperature`=`Weather (temperature)`,
+         `Wind`=`Weather (wind)`) %>%
+  filter(date<=enddate) %>%
+  mutate(dummy = 1) %>% # column with single value
+  pivot_wider(
+    names_from = "Weekday (exposure)", # column to spread
+    names_prefix = "Weekday ",
+    values_from = dummy,
+    values_fill = 0
+  ) %>%
+  dplyr::select(-"Weekday (report)", -"Weekday 4Do", -contains("iso"), -contains("census"))
 
 write_csv(modeldata_raw,paste0(mydatapath,"Modeldata_raw.csv"))
 
 modeldata_X <- modeldata_raw %>%
-  dplyr::select(-c(id, bl_id, date, cases, deaths, recovered, `Reported new cases COVID-19`, `Active cases`, daycount)) %>%
-  mutate_if(is.numeric, scale, center=TRUE, scale=FALSE)
-modeldata_Xs <- modeldata_raw %>%
-  dplyr::select(-c(id, bl_id, date, cases, deaths, recovered, `Reported new cases COVID-19`, `Active cases`, daycount)) %>%
-  mutate_if(is.numeric, scale, center=TRUE, scale=TRUE)
-modeldata <- bind_cols(modeldata_X, modeldata_raw %>%
-                         dplyr::select(c(id, bl_id, date, cases, deaths, recovered, `Reported new cases COVID-19`, `Active cases`, daycount)))
-modeldatas <- bind_cols(modeldata_Xs, modeldata_raw %>%
-                         dplyr::select(c(id, bl_id, date, cases, deaths, recovered, `Reported new cases COVID-19`, `Active cases`, daycount)))
+  dplyr::select(-c(id, bl_id, date, cases, deaths, recovered, `Reported new cases COVID-19`, `Active cases`, daycount, `Mobility (mean)`))
 
-write_csv(modeldata,paste0(mydatapath,"Modeldata.csv"))
-write_csv(modeldatas,paste0(mydatapath,"Modeldata_scaled.csv"))
+modeldata_X_cont <- modeldata_X %>% dplyr::select(`Mobility (retail and recreation)`, `Mobility (grocery and pharmacy)`,
+                                           `Mobility (parks)`, `Mobility (transit stations)`,
+                                           `Mobility (workplaces)`, `Mobility (residential)`,
+                                           Rainfall, Temperature, Humidity, Wind,
+                                           `Searches corona`,
+                                           `Socio-economic status`, `Age (pop. 65 and older)`,
+                                           `Age (pop. younger 18)`, `Foreign citizens`,
+                                           `Foreign citizens (refugees)`, Turnout,
+                                           `Right-wing populist party votes`, `Population density`,
+                                           Gender, `Nursing homes`,
+                                           `COVID-19 burden`)
+scale_params <- tibble(variable=colnames(modeldata_X_cont),
+                       mymean=colMeans(modeldata_X_cont),
+                       mysd=apply(modeldata_X_cont, 2, sd))
+write_csv(scale_params, paste0(mydatapath, "scale_params.csv"))
+modeldata_X_cont_scaled <- sapply(seq(dim(modeldata_X_cont)[2]),
+                                  function(i) scale(modeldata_X_cont[, i], scale_params[i, 2], scale_params[i, 3]))
+colnames(modeldata_X_cont_scaled) <- colnames(modeldata_X_cont)
+modeldata_X_cont_scaled <- as_tibble(modeldata_X_cont_scaled)
+modeldata_X_bin <- modeldata_X %>% dplyr::select(-colnames(modeldata_X_cont))
+
+modeldata_scaled <- bind_cols(modeldata_X_bin,
+                              modeldata_X_cont_scaled)
+
+pca_mobility <- prcomp(modeldata_scaled %>% dplyr::select(contains("Mobility")))
+cumsum(pca_mobility$sdev)/sum(pca_mobility$sdev)
+modeldata_scaled_pca_mobility <- modeldata_scaled %>% 
+  dplyr::select(-contains("Mobility")) %>%
+  bind_cols("Mobility (PC1)"=pca_mobility$x[,1],
+            "Mobility (PC2)"=pca_mobility$x[,2],
+            "Mobility (PC3)"=pca_mobility$x[,3],
+            "Mobility (PC4)"=pca_mobility$x[,4],
+            "Mobility (PC5)"=pca_mobility$x[,5],
+            "Mobility (PC6)"=pca_mobility$x[,6])
+write_csv(as_tibble(pca_mobility$rotation, rownames="original_variable"), paste0(mydatapath, "pca_mobility_loadings.csv"))
+
+write_csv(modeldata_scaled %>%
+            bind_cols(modeldata_raw %>% dplyr::select(`Reported new cases COVID-19`, `Active cases`)), paste0(mydatapath,"Modeldata_scaled.csv"))
+write_csv(modeldata_scaled_pca_mobility %>%
+            bind_cols(modeldata_raw %>% dplyr::select(`Reported new cases COVID-19`, `Active cases`)), paste0(mydatapath,"Modeldata_scaled_pcamobility.csv"))
