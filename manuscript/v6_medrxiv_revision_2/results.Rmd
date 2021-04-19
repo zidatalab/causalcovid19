@@ -1,0 +1,206 @@
+# Results
+
+Descriptive statistics for the included variables are presented in Table \@ref(tab:descriptive-vars).
+
+```{r descriptive-vars, echo=FALSE, message=FALSE, warning=FALSE}
+library("dplyr")
+library("kableExtra")
+library("tidyverse")
+library("tableone")
+
+Modeldata <- read_csv("../../data/Modeldata_raw.csv") %>%
+  filter(date<="2020-07-08")
+
+t1_data <- Modeldata %>% dplyr::select(-contains("Weekday"), -contains("Holiday"),
+                     -contains("Raumeinheit"),
+                     -contains("Aggregat"),
+                     -contains("iso_"),
+                     -contains("census_"),
+                     -contains("mean"),
+                     -id,-bl_id,
+                     -cases, -deaths,-recovered,-daycount,-date) 
+t1_data_tab <- CreateTableOne(data = t1_data) 
+mymeans <- colMeans(t1_data[, -1], na.rm = TRUE)
+# t1.df <- t1_data_tab.csv %>% as_tibble() %>% mutate(Variable=as.character(rownames(t1_data_tab.csv))) %>% 
+#   dplyr::select(Variable,Descriptives=Overall)
+t1.df <- print(t1_data_tab, quote = FALSE, noSpaces = TRUE, printToggle = FALSE, explain=FALSE) 
+write.csv(t1.df,"tables/t_descriptives.csv")
+t1.df <- read.csv("tables/t_descriptives.csv") %>% rename("Variable"="X") %>%
+  mutate(Variable=dplyr::recode(Variable,
+                         "Mobility (retail and recreation)"="retail and recreation",
+                                                          "Mobility (grocery and pharmacy)"="grocery and pharmacy",
+                                                          "Mobility (parks)"="parks",
+                                                          "Mobility (transit stations)"="transit stations",
+                                                          "Mobility (workplaces)"="workplaces",
+                                                          "Mobility (residential)"="residential",
+                                                          "Weather (rainfall)"="Rainfall",
+                                                          "Weather (wind)"="Wind",
+                                                          "Weather (temperature)"="Temperature",
+                                                          "Weather (humidity)"="Humidity",
+                                                          "Interventions (ban of mass gatherings)"="Ban of mass gatherings",
+                                                          "Interventions (school and kindergarten closures)"="School and kindergarten closures",
+                                                          "Interventions (contact restrictions)"="Contact restrictions",
+                                                          "Interventions (mandatory face masks)"="Mandatory face masks")) %>%
+  mutate(Variable =  factor(Variable, ordered=TRUE, levels = c("n",
+                                                 "retail and recreation",
+                                                 "grocery and pharmacy",
+                                                 "parks",
+                                                 "workplaces",
+                                                 "residential",
+                                                 "transit stations",
+                                                 "Searches corona",
+                                                 "COVID-19 burden", 
+                                                 "Rainfall",
+                                                 "Temperature",
+                                                 "Humidity",
+                                                 "Wind",
+                                                 "Ban of mass gatherings",
+                                                 "School and kindergarten closures",
+                                                 "Contact restrictions",
+                                                 "Mandatory face masks",
+                                                 "Age (pop. 65 and older)",
+                                                 "Age (pop. younger 18)",
+                                                 "Gender",
+                                                 "Population density",
+                                                 "Foreign citizens",
+                                                 "Foreign citizens (refugees)",
+                                                 "Socio-economic status",
+                                                 "Turnout",
+                                                 "Right-wing populist party votes",
+                                                 "Nursing homes",
+                                                 "Reported new cases COVID-19",
+                                                 "Active cases"))) %>%
+  arrange(Variable)    
+write.csv(t1.df,"tables/t_descriptives.csv")
+
+# number of districts
+ndistricts <- Modeldata %>% count(id) %>% count() %>% pull(n)
+
+# Obs per district
+nobs_per_district <- Modeldata %>% group_by(id) %>% count() %>% ungroup() %>% summarise(mean=mean(n),sd=sd(n))
+
+# Correlation of time and main vars
+mycorrs <- Modeldata %>% dplyr::select(date,contains("cases"), "Rainfall", "Temperature", "Humidity", "Wind", `Searches corona`,contains("Mobility"), `COVID-19 burden`) %>% 
+  mutate(outcome=`Reported new cases COVID-19`/(`Active cases`+1),date=as.numeric(date)) %>% 
+  dplyr::select(-contains("cases")) %>% filter(!is.na(outcome)) %>% cor(.)
+
+# show table of decriptives
+knitr::kable(readr::read_csv("tables/t_descriptives.csv") %>% dplyr::select("Variable","Overall") %>% rename(`mean (SD)`=`Overall`),
+             format = "latex", booktabs = TRUE,
+             caption = "Descriptive Statistics for observed variables") %>% kable_styling(font_size = 7, full_width = FALSE) %>%
+  pack_rows("Mobility", 2, 7) %>%
+  pack_rows("Awareness", 8, 9) %>%
+  pack_rows("Weather", 10, 13) %>%
+  pack_rows("Interventions", 14, 17) %>%
+  pack_rows("Socio-demographic", 18, 27) %>%
+  pack_rows("Case numbers (Outcome and offset)", 28, 29)
+```
+
+```{r cases-log, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Temporal and district level variation of outcome (log-scale)"}
+knitr::include_graphics(rep('figures/f_timeseries_cases_and_lograte.eps'))
+```
+
+In the observational period, the number of daily reported COVID-19 cases increased till the end of March/beginning of April and continually decreased afterwards till the beginning of June 2020 with a slight increase and decrease afterwards (Figure \@ref(fig:cases-log)A). On the other hand, the (log-)ratio of reported cases over active cases decreased steeply till the mid of April and increased steadily afterwards with a slight decrease close to the end of the observation period (Figure \@ref(fig:cases-log)B). Both figures examplify a considerable variation among the districts (light blue points are individual district's data).
+
+In Germany, we observed a rebound in mobility after the initial political measures, reductions in incident cases were associated with a diminishing public interest in COVID-19, and temperatures were overall increasing (cf. Figure \@ref(fig:timeseries)); with correlations between temporal progression and mobility in retail and recreation $r_{A,B}=$ `r round(mycorrs["date", "Mobility (retail and recreation)"], 2)`, awareness ("Searches corona") $r_{A,C}=$ `r round(mycorrs["date", "Searches corona"], 2)`, and temperature $r_{A,D}=$ `r round(mycorrs["date", "Temperature"], 2)`.
+
+```{r timeseries, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Temporal variation of outcome and main determinants"}
+knitr::include_graphics(rep('figures/f_timeseries_exposures.eps'))
+```
+
+## Main results
+
+```{r causaleffects, echo=FALSE, message=FALSE, warning=FALSE}
+library("dplyr")
+library("kableExtra")
+library(stringr)
+causaleffects <- bind_rows(readr::read_csv("tables/t_effects_Mobility_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Searches corona_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_COVID-19 burden_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Temperature_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Rainfall_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Humidity_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Wind_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Interventions_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Age_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Foreign citizens_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Gender_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Nursing homes_MinAdjSet1.csv"),
+                           readr::read_csv("tables/t_effects_Population density_RedOptAdjSet.csv"),
+                           readr::read_csv("tables/t_effects_Socio-economic status_RedOptAdjSet.csv")) %>%
+               rename(cause=variables, `effect estimate`=estimates)
+## Note: no special chars in caption...
+knitr::kable(causaleffects %>% 
+               mutate(cause=ifelse(str_starts(cause, "Mobility"), stringr::str_remove(stringr::str_remove(cause,"Mobility \\("),"\\)"), cause)),
+             booktabs = TRUE,
+             caption = "Effect estimates from causal graph analysis",
+             digits=4) %>%
+  kable_styling() %>%
+  pack_rows("Mobility", 1, 6) %>%
+  pack_rows("Awareness", 7, 8) %>%
+  pack_rows("Weather", 9, 12) %>%
+  pack_rows("Interventions", 13, 16) %>%
+  pack_rows("Demographic", 17, 24)
+```
+
+We list the results of our causal analysis for the effects of different exposure variables in Table \@ref(tab:causaleffects). The estimates are multiplicative rates of increase/decrease for a one unit increase of the respective variable: Values above 1 lead to an increase, below 1 to a decrease of the infection rate. To put these estimates into perspective, Figure \@ref(fig:effectsrange) shows the relative causal effect of the different exposure variables on the number of reported COVID-19 cases on a range of sensible values of the exposure variables (95 percent quantiles of data points).
+
+```{r effectsrange, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Relative causal effects of exposures"}
+knitr::include_graphics(rep('figures/f_exposure_vs_effect_klein.eps'))
+```
+
+Within our framework, we saw very different effects for individual mobility variables. For mobility in retail/recreation, an increase of 1 percent point mobility compared to the reference period (03 January to 06 February 2020) leads to an increase of the daily reported case number by about `r round(100*abs(1-causaleffects%>%filter(cause=="Mobility (retail and recreation)")%>%pull("effect estimate")), 2)` percent. Similarly, mobility on workplaces showed an effect of `r round(100*abs(1-causaleffects%>%filter(cause=="Mobility (workplaces)")%>%pull("effect estimate")), 2)` increase in case numbers for every 1 percent point increase in mobility, while mobility on transit stations showed an effect of `r round(100*abs(1-causaleffects%>%filter(cause=="Mobility (transit stations)")%>%pull("effect estimate")), 2)` increase in case numbers for every 1 percent point increase. Contrarily, the remaining three mobility variables showed negative effects on the number of reported COVID-19 cases. An increase of 1 percent point mobility for the areas of grocery/pharmacy leads to a decrease in the reported case number by approximately `r round(100*abs(1-causaleffects%>%filter(cause=="Mobility (grocery and pharmacy)")%>%pull("effect estimate")), 2)` percent, while increased mobility of 1 percent point within parks leads to a decrease in the reported case number by approximately `r round(100*abs(1-causaleffects%>%filter(cause=="Mobility (parks)")%>%pull("effect estimate")), 2)` percent, and finally an increase of 1 percent point in residential mobility leads to a decrease by approximately `r round(100*abs(1-causaleffects%>%filter(cause=="Mobility (residential)")%>%pull("effect estimate")), 2)` percent. Figure \@ref(fig:effectsrange) shows the effects of mobility on a range of possible values. Thus, we expect an increase of daily cases by approximately `r round(100*abs(1-(causaleffects%>%filter(cause=="Mobility (workplaces)")%>%pull("effect estimate"))^(0-mymeans["Mobility (workplaces)"])), 1)` percent if mobility in workplaces reaches baseline levels of 0 percent difference to the reference period. On the other hand, an increase of mobility for residential areas by 10 percent points compared to the reference period leads to a reduction of the infection rate by approximately `r round(100*abs(1-(causaleffects%>%filter(cause=="Mobility (residential)")%>%pull("effect estimate"))^(10-mymeans["Mobility (residential)"])), 1)` percent.
+
+"Awareness" had two opposite effects on the outcome in our DAG. Awareness measured by Google searches for *corona* had a positive effect on the number of reported cases. An one percent point increase of the state's Google searches (relative to other states and the observation period) leads to an increase of approximately `r round(100*abs(1-causaleffects%>%filter(cause=="Searches corona")%>%pull("effect estimate")), 2)` percent. For example, if a district shows 10 percent points more relative searches for *corona* than another one, we expect approximately `r round(100*abs(1-(causaleffects%>%filter(cause=="Searches corona")%>%pull("effect estimate"))^(10)), 1)` percent more infections for this district after 5 days.  _COVID-19 burden_ (reported number of cases on day of exposure) affected the outcome negatively, where every additional daily case in the district leads to a `r round(100*abs(1-causaleffects%>%filter(cause=="COVID-19 burden")%>%pull("effect estimate")), 2)` percent decrease in newly reported case numbers. The corresponding plot in Figure \@ref(fig:effectsrange) visualizes this relationship: For a local outbreak with 20 daily cases as COVID-19 burden, we estimate as total causal effect a subsequent reduction of infection rate by `r round(100*abs(1-(causaleffects%>%filter(cause=="COVID-19 burden")%>%pull("effect estimate"))^(20-0)), 1)` percent.
+
+Within our model, we observed effects of temperature and all other weather variables. Every increase of 1 degree Celsius in temperature leads to a reduction of the daily reported case numbers by approximately `r round(100*abs(1-causaleffects%>%filter(cause=="Temperature")%>%pull("effect estimate")), 2)` percent. On the other hand, we found an increasing effect of rainfall: One millimeter (=1 liter per square meter) more rainfall leads to an increase of reported case numbers by approximately `r round(100*abs(1-causaleffects%>%filter(cause=="Rainfall")%>%pull("effect estimate")), 2)` percent. We observe effects for humidity and wind as well (higher humidity and stronger wind leading to more cases). In perspective (Figure \@ref(fig:effectsrange)), with temperature we expect an increase by approximately `r round(100*abs(1-(causaleffects%>%filter(cause=="Temperature")%>%pull("effect estimate"))^(0-20)), 1)` percent at a daily average temperature of $0^{\circ}C$ compared to a day with $20^{\circ}C$. For rainfall, we expect on a rainy day with 10 mm rainfall a corresponding increase of the infection rate by approximately `r round(100*abs(1-(causaleffects%>%filter(cause=="Rainfall")%>%pull("effect estimate"))^(10-0)), 1)` percent compared to a day with no precipitation.
+
+The different intervention variables showed the strongest effects in our analysis, see Table \@ref(tab:causaleffects). While the first intervention (ban of mass gatherings) reduced subsequent daily case numbers by `r round(100*abs(1-causaleffects%>%filter(cause=="Interventions (ban of mass gatherings)")%>%pull("effect estimate")), 1)` percent, the closure of schools/kindergartens reduced infections by an additional `r round(100*abs(1-causaleffects%>%filter(cause=="Interventions (school and kindergarten closures)")%>%pull("effect estimate")), 1)` percent and mandatory face masks reduced this by another `r round(100*abs(1-causaleffects%>%filter(cause=="Interventions (mandatory face masks)")%>%pull("effect estimate")), 1)` percent. The effect of contact restrictions was the strongest in our observation period, with an reduction of the case rates by `r round(100*abs(1-causaleffects%>%filter(cause=="Interventions (contact restrictions)")%>%pull("effect estimate")), 1)`.
+
+The effects of the different socio-demographic factors are quite small in comparison to the effects described above. We see an increasing effect on case numbers by additional nursing homes between districts. Districts with a younger population, more foreign citizens, higher population density and a lower average social-economic status showed higher case numbers, too.
+
+For all exposures, our analysis pipeline opted to use the (reduced) optimal adjustment set over the minimal adjustment sets because of lower AICs, except for exposure variable "nursing homes", for which the minimal adjustment set had the lowest AIC. We found that there were no valid adjustment sets for the non-identifiable variables turnout and right-wing populist party votes.
+
+We decided for a lag of 5 days based on cross-validation. Similarly, negative binomial regression was chosen over Poisson regression, because the latter showed overdispersion and an higher AIC value.
+
+```{r adjsets, echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+myvariables <- tibble(variable=c("Weekday", "Holiday (report)", "Holiday (exposure)",
+                                 "Mobility", "Searches corona", "COVID-19 burden", 
+                                 "Temperature", "Rainfall", "Humidity", "Wind",
+                                 "Interventions",
+                                 "Age", "Gender", "Population density", "Foreign citizens",
+                                 "Socio-economic status", "Turnout", "Right-wing populist party votes",
+                                 "Nursing homes"),
+                      Mobility=" ", `Searches corona`=" ", `COVID-19 burden`=" ", Temperature=" ", Rainfall=" ", Humidity=" ", Wind=" ",
+         Interventions= " ", Age=" ", `Foreign citizens`= " ", Gender=" ", `Nursing homes`=" ", `Population density`=" ", `Socio-economic status`=" ")
+for (cause in colnames(myvariables)[-c(1,13)]) {
+  adjset <- readLines(paste0("tables/t_adjust_", cause, "_RedOptAdjSet.csv"))
+  for (as in adjset) {
+    myvariables[[cause]][grep(as, myvariables$variable)] <- "x"
+  }
+}
+cause <- colnames(myvariables)[13]
+adjset <- readLines(paste0("tables/t_adjust_", cause, "_MinAdjSet1.csv"))
+for (as in adjset) {
+  myvariables[[cause]][grep(as, myvariables$variable)] <- "x"
+}
+# t_pseudor2s <- read_csv("tables/t_pseudor2s.csv", col_names = c("exposure", "pseudor2"), col_types = "cn") %>%
+#   mutate(pseudor2=as.character(round(pseudor2, 3))) %>%
+#   pivot_wider(names_from = "exposure", values_from = "pseudor2")
+  
+# myvariables <- bind_rows(t_pseudor2s, myvariables)[c(8, 1:7)]
+# myvariables$variable[1] <- "Pseudo-R2"
+kable(myvariables %>% rename(" "=variable),
+             format = "latex", booktabs = TRUE, 
+             caption = "Final adjustment sets for causal analysis") %>%
+  kable_styling(font_size=7) %>% # , latex_options="scale_down"
+  row_spec(0, angle = 90) %>%
+  pack_rows("Mobility", 4, 4) %>%
+  pack_rows("Awareness", 5, 6) %>%
+  pack_rows("Weather", 7, 10) %>%
+  pack_rows("Interventions", 11, 11) %>%
+  pack_rows("Socio-demographic", 12, 19) # %>%  add_header_above(c(" " = 2, "Awareness" = 2, "Weather" = 4))
+```
