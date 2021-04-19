@@ -1,0 +1,8 @@
+@misc{henckel2020graphical,
+      title={Graphical Criteria for Efficient Total Effect Estimation via Adjustment in Causal Linear Models}, 
+      author={Leonard Henckel and Emilija Perković and Marloes H. Maathuis},
+      year={2020},
+      eprint={1907.02435},
+      archivePrefix={arXiv},
+      primaryClass={math.ST}
+}
