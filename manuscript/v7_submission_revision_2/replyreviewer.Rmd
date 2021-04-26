@@ -12,7 +12,7 @@ We want to thank the reviewer for the feedback. We revised the manuscript to add
 
 **I find the topic of the paper very important and the methodology very interesting. The author has used a number of variables to analyse possible determinants of COVID-19 infections. While the paper acknowledges that there are social factors which affect the spread of the COVID-19 this is not properly discussed in the paper. I strongly suggest the author to refer to the literature on Social Determinants of Health when discussing social variables. For example see the recent paper by Galanis and Hanieh in Social Science and Medicine on Incorporating Social Determinants of Health into Modelling of COVID-19 and references therein.**
 
-We extended the Discussion section of our manuscript to address this rightful remark. More specifically, we included references to reflect on the situation of social determinants on COVID-19 infections in Germany, most prominently the socio-economic status of households.
+We extended the Discussion section of our manuscript to address this rightful remark. More specifically, we included 3 additional references to reflect on the situation of social determinants on COVID-19 infections especially in Germany, most prominently the socio-economic status of households.
 
 Furthermore we reply to the Journal Requirements regarding references within the manuscript: 
 
