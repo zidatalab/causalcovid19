@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: manuscript_tex4submission.aux
+The top-level auxiliary file: diff.aux
 The style file: plos2015.bst
 Database file #1: mybibfile.bib
 Warning--entry type for "google_trends" isn't style-file defined
@@ -16,36 +16,36 @@ while executing---line 1875 of file plos2015.bst
 Warning--empty journal in rkimodellierung
 You've used 74 entries,
             3058 wiz_defined-function locations,
-            1120 strings with 26813 characters,
-and the built_in function-call counts, 164084 in all, are:
-= -- 20760
+            1121 strings with 27002 characters,
+and the built_in function-call counts, 166537 in all, are:
+= -- 21172
 > -- 1245
 < -- 6
 + -- 685
 - -- 311
-* -- 14364
-:= -- 17812
+* -- 14565
+:= -- 18011
 add.period$ -- 319
 call.type$ -- 74
 change.case$ -- 4
 chr.to.int$ -- 3
 cite$ -- 77
-duplicate$ -- 12133
-empty$ -- 15711
+duplicate$ -- 12563
+empty$ -- 15914
 format.name$ -- 375
-if$ -- 38132
+if$ -- 38747
 int.to.chr$ -- 0
 int.to.str$ -- 74
 missing$ -- 699
 newline$ -- 409
 num.names$ -- 76
-pop$ -- 1142
+pop$ -- 1143
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1358
+skip$ -- 1357
 stack$ -- 0
-substring$ -- 34882
+substring$ -- 35276
 swap$ -- 1741
 text.length$ -- 5
 text.prefix$ -- 0
@@ -54,5 +54,5 @@ type$ -- 0
 warning$ -- 3
 while$ -- 721
 width$ -- 76
-write$ -- 886
+write$ -- 885
 (There was 1 error message)

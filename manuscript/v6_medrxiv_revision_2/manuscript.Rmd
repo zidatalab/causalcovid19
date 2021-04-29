@@ -64,7 +64,8 @@ Our objective is to provide valid estimates of the effects of the main drivers o
 # careful, it's always one version behind
 # library(latexdiffr)
 # latexdiff("../v2_medrxiv/manuscript.tex", "manuscript.tex", "latexdiffrRmd")
-# system("latexdiff ../v2_medrxiv/manuscript.tex manuscript.tex > diffRmd.tex")
+# system("latexdiff ../v5_submission_revision/manuscript_tex4submission.bbl manuscript_tex4submission.bbl > diff.bbl")
+# system("latexdiff ../v5_submission_revision/manuscript_tex4submission.tex manuscript_tex4submission.tex > diff.tex")
 # tinytex::pdflatex("diffRmd.tex")
 ```
 

@@ -2,9 +2,12 @@
 
 \bibitem{who2020report}
 {WHO Team}. Report of the {WHO-China} Joint Mission on Coronavirus Disease 2019
-  ({COVID-19}); 2020, accessed 2020-06-25.
-\newblock Available from:
-  \url{https://www.who.int/publications-detail/report-of-the-who-china-joint-mission-on-coronavirus-disease-2019-(covid-19)}.
+  ({COVID-19}); \DIFdelbegin \DIFdel{2020.
+}\DIFdelend \DIFaddbegin \DIFadd{2020, accessed 2020-06-25.
+}\DIFaddend \newblock Available from:
+  \url{https://www.who.int/publications-detail/report-of-the-who-china-joint-mission-on-coronavirus-disease-2019-(covid-19)}\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{cited 2020-06-25}%DIFDELCMD < ]%%%
+\DIFdelend .
 
 \bibitem{Chinazzi395}
 Chinazzi M, Davis JT, Ajelli M, Gioannini C, Litvinova M, Merler S, et~al.
@@ -30,7 +33,7 @@ Li C, Chen LJ, Chen X, Zhang M, Pang CP, Chen H.
 \newblock Retrospective analysis of the possibility of predicting the
   {COVID}-19 outbreak from {Internet} searches and social media data, {China},
   2020.
-\newblock Euro Surveillance. 2020;25(10).
+\newblock \DIFdelbegin \DIFdel{Eurosurveillance}\DIFdelend \DIFaddbegin \DIFadd{Euro Surveillance}\DIFaddend . 2020;25(10).
 \newblock doi:{10.2807/1560-7917.ES.2020.25.10.2000199}.
 
 \bibitem{yuan_trends_2020}
@@ -46,7 +49,9 @@ Bannister-Tyrrell M, Meyer A, Faverjon C, Cameron A.
 \newblock Preliminary evidence that higher temperatures are associated with
   lower incidence of {COVID}-19, for cases reported globally up to 29th
   {February} 2020.
-\newblock medRxiv. 2020;doi:{10.1101/2020.03.18.20036731}.
+\newblock medRxiv. 2020;\DIFdelbegin \DIFdel{p. 2020.03.18.20036731.
+}%DIFDELCMD < \newblock %%%
+\DIFdelend doi:{10.1101/2020.03.18.20036731}.
 
 \bibitem{demongeot_temperature_2020}
 Demongeot J, Flet-Berliac Y, Seligmann H.
@@ -85,7 +90,9 @@ Textor J, van~der Zander B, Gilthorpe MS, Liśkiewicz M, Ellison GT.
 {Center for Systems Science and Engineering (CSSE)}. {COVID-19 Data Repository
   by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins
   University}; 2020.
-\newblock Available from: \url{https://github.com/CSSEGISandData/COVID-19}.
+\newblock Available from: \url{https://github.com/CSSEGISandData/COVID-19}\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{cited 2020-07-12}%DIFDELCMD < ]%%%
+\DIFdelend .
 
 \bibitem{Pearl_2014}
 Pearl J, Bareinboim E.
@@ -96,10 +103,13 @@ Pearl J, Bareinboim E.
 
 \bibitem{chang_modeling_2020}
 Chang MC, Kahn R, Li YA, Lee CS, Buckee CO, Chang HH.
-\newblock Variation in human mobility and its impact on the risk of future
-  {COVID}-19 outbreaks in {Taiwan}.
-\newblock BMC Public Health. 2021;21(1):226.
-\newblock doi:{10.1186/s12889-021-10260-7}.
+\newblock \DIFdelbegin \DIFdel{Modeling the impact of }\DIFdelend \DIFaddbegin \DIFadd{Variation in }\DIFaddend human mobility and \DIFdelbegin \DIFdel{travel restrictions on the potential spread of }%DIFDELCMD < {%%%
+\DIFdel{SARS}%DIFDELCMD < }%%%
+\DIFdel{-}\DIFdelend \DIFaddbegin \DIFadd{its impact on the risk of future
+  }\DIFaddend {\DIFdelbegin \DIFdel{CoV}\DIFdelend \DIFaddbegin \DIFadd{COVID}\DIFaddend }\DIFdelbegin \DIFdel{-2 }\DIFdelend \DIFaddbegin \DIFadd{-19 outbreaks }\DIFaddend in {Taiwan}.
+\newblock \DIFdelbegin \DIFdel{medRxiv. 2020;p. 2020.04.07.20053439.
+}\DIFdelend \DIFaddbegin \DIFadd{BMC Public Health. 2021;21(1):226.
+}\DIFaddend \newblock doi:{\DIFdelbegin \DIFdel{10.1101}\DIFdelend \DIFaddbegin \DIFadd{10.1186}\DIFaddend /\DIFdelbegin \DIFdel{2020.04.07.20053439}\DIFdelend \DIFaddbegin \DIFadd{s12889-021-10260-7}\DIFaddend }.
 
 \bibitem{fowler_effect_2020}
 Fowler JH, Hill SJ, Obradovich N, Levin R.
@@ -119,8 +129,9 @@ Lasry A, Kidder D, Hast M, Poovey J, Sunshine G, Winglee K, et~al.
 \newblock Timing of Community Mitigation and Changes in Reported {COVID-19} and
   Community Mobility - Four {U.S.} Metropolitan Areas, {February 26-April 1,
   2020}.
-\newblock MMWR Morbidity and mortality weekly report. 2020;69(15):451—457.
-\newblock doi:{10.15585/mmwr.mm6915e2}.
+\newblock MMWR Morbidity and mortality weekly report. 2020;69(15):\DIFdelbegin \DIFdel{451--457.
+}\DIFdelend \DIFaddbegin \DIFadd{451—457.
+}\DIFaddend \newblock doi:{10.15585/mmwr.mm6915e2}.
 
 \bibitem{linka_outbreak_2020}
 Linka K, Peirlinck M, Sahli~Costabal F, Kuhl E.
@@ -134,13 +145,18 @@ Linka K, Peirlinck M, Sahli~Costabal F, Kuhl E.
 Mazzoli M, Mateo D, Hernando A, Meloni S, Ramasco JJ.
 \newblock Effects of mobility and multi-seeding on the propagation of the
   {COVID}-19 in {Spain}.
-\newblock medRxiv. 2020;doi:{10.1101/2020.05.09.20096339}.
+\newblock medRxiv. 2020;\DIFdelbegin \DIFdel{p. 2020.05.09.20096339.
+}%DIFDELCMD < \newblock %%%
+\DIFdelend doi:{10.1101/2020.05.09.20096339}.
 
 \bibitem{xiong_data-driven_2020}
 {Xiong} C, {Hu} S, {Yang} M, {Younes} HN, {Luo} W, {Ghader} S, et~al.
-\newblock {Data-Driven Modeling Reveals the Impact of Stay-at-Home Orders on
-  Human Mobility during the COVID-19 Pandemic in the U.S}.
-\newblock arXiv e-prints. 2020; p. arXiv:2005.00667.
+\newblock \DIFaddbegin {\DIFaddend Data-Driven Modeling Reveals the Impact of Stay-at-Home Orders on
+  Human Mobility during the \DIFdelbegin %DIFDELCMD < {%%%
+\DIFdelend COVID-19 \DIFdelbegin %DIFDELCMD < } %%%
+\DIFdelend Pandemic in the \DIFdelbegin %DIFDELCMD < {%%%
+\DIFdelend U.S\DIFdelbegin \DIFdel{.}\DIFdelend }\DIFaddbegin \DIFadd{.
+}\DIFaddend \newblock arXiv e-prints. 2020; p. arXiv:2005.00667.
 
 \bibitem{juni_impact_2020}
 Jüni P, Rothenbühler M, Bobos P, Thorpe KE, da~Costa BR, Fisman DN, et~al.
@@ -155,9 +171,14 @@ Lai S, Ruktanonchai NW, Zhou L, Prosper O, Luo W, Floyd JR, et~al.
 \newblock Nature. 2020;doi:{10.1038/s41586-020-2293-x}.
 
 \bibitem{google_trends}
-{Google LLC}. {Google Trends, search term {``}corona{''}}; 2020, accessed
+{Google LLC}. {Google Trends\DIFdelbegin %DIFDELCMD < }%%%
+\DIFdelend , search term {``}corona{''}\DIFdelbegin \DIFdel{; 2020.
+}\DIFdelend \DIFaddbegin }\DIFadd{; 2020, accessed
   2020-06-25.
-\newblock Available from: \url{https://www.google.com/trends}.
+}\DIFaddend \newblock Available from: \url{https://www.google.com/trends}\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{cited
+  2020-07-12}%DIFDELCMD < ]%%%
+\DIFdelend .
 
 \bibitem{ayyoubzadeh_predicting_2020}
 Ayyoubzadeh SM, Ayyoubzadeh SM, Zahedi H, Ahmadi M, R~Niakan~Kalhori S.
@@ -183,7 +204,7 @@ Lin YH, Liu CH, Chiu YC.
 \bibitem{mavragani_tracking_2020}
 Mavragani A.
 \newblock Tracking {COVID}-19 in {Europe}: {Infodemiology} {Approach}.
-\newblock JMIR Public Health and Surveillance. 2020;6(2):e18941.
+\newblock JMIR \DIFdelbegin \DIFdel{public health and surveillance}\DIFdelend \DIFaddbegin \DIFadd{Public Health and Surveillance}\DIFaddend . 2020;6(2):e18941.
 \newblock doi:{10.2196/18941}.
 
 \bibitem{walker_use_2020}
@@ -256,7 +277,7 @@ Xie J, Zhu Y.
 \newblock doi:{10.1016/j.scitotenv.2020.138201}.
 
 \bibitem{briz-redon_spatio-temporal_2020}
-Briz-Red{\'o}n {\'A}, Serrano-Aroca {\'A}.
+\DIFdelbegin \DIFdel{Briz-Redón A}\DIFdelend \DIFaddbegin \DIFadd{Briz-Red}{\DIFadd{\'o}}\DIFadd{n }{\DIFadd{\'A}}\DIFaddend , Serrano-Aroca \DIFdelbegin \DIFdel{A}\DIFdelend \DIFaddbegin {\DIFadd{\'A}}\DIFaddend .
 \newblock A spatio-temporal analysis for exploring the effect of temperature on
   {COVID}-19 early evolution in {Spain}.
 \newblock Science of the Total Environment. 2020;728:138811.
@@ -290,23 +311,28 @@ de~Lusignan S, Dorward J, Correa A, Jones N, Akinyemi O, Amirthalingam G,
 \newblock Risk factors for {SARS}-{CoV}-2 among patients in the {Oxford}
   {Royal} {College} of {General} {Practitioners} {Research} and {Surveillance}
   {Centre} primary care network: a cross-sectional study.
-\newblock The Lancet Infectious Diseases;doi:{10.1016/S1473-3099(20)30371-6}.
+\newblock The Lancet Infectious Diseases\DIFdelbegin \DIFdel{.
+  2020}\DIFdelend ;doi:{10.1016/S1473-3099(20)30371-6}.
 
 \bibitem{Dragano2020.06.17.20133918}
-Wahrendorf M, Rupprecht CJ, Dortmann O, Scheider M, Dragano N.
-\newblock Erhöhtes {Risiko} eines {COVID}-19-bedingten
-  {Krankenhausaufenthaltes} für {Arbeitslose}: {Eine} {Analyse} von
-  {Krankenkassendaten} von 1,28 {Mio}. {Versicherten} in {Deutschland}.
-\newblock Bundesgesundheitsblatt - Gesundheitsforschung - Gesundheitsschutz.
+\DIFdelbegin \DIFdel{Dragano N}\DIFdelend \DIFaddbegin \DIFadd{Wahrendorf M}\DIFaddend , Rupprecht CJ, Dortmann O, Scheider M, \DIFdelbegin \DIFdel{Wahrendorf M}\DIFdelend \DIFaddbegin \DIFadd{Dragano N}\DIFaddend .
+\newblock \DIFdelbegin \DIFdel{Higher risk of }\DIFdelend \DIFaddbegin \DIFadd{Erhöhtes }\DIFaddend {\DIFdelbegin \DIFdel{COVID-19}\DIFdelend \DIFaddbegin \DIFadd{Risiko}\DIFaddend } \DIFdelbegin \DIFdel{hospitalization for unemployed: an analysis
+  of }\DIFdelend \DIFaddbegin \DIFadd{eines }{\DIFadd{COVID}}\DIFadd{-19-bedingten
+  }{\DIFadd{Krankenhausaufenthaltes}} \DIFadd{für }{\DIFadd{Arbeitslose}}\DIFadd{: }{\DIFadd{Eine}} {\DIFadd{Analyse}} \DIFadd{von
+  }{\DIFadd{Krankenkassendaten}} \DIFadd{von }\DIFaddend 1,\DIFdelbegin \DIFdel{298,416 health insured individuals }\DIFdelend \DIFaddbegin \DIFadd{28 }{\DIFadd{Mio}}\DIFadd{. }{\DIFadd{Versicherten}} \DIFaddend in {\DIFdelbegin \DIFdel{Germany}\DIFdelend \DIFaddbegin \DIFadd{Deutschland}\DIFaddend }.
+\newblock \DIFdelbegin \DIFdel{medRxiv.
+  2020;}\DIFdelend \DIFaddbegin \DIFadd{Bundesgesundheitsblatt - Gesundheitsforschung - Gesundheitsschutz.
   2021;64(3):314--321.
-\newblock doi:{10.1007/s00103-021-03280-6}.
+}\newblock \DIFaddend doi:{\DIFdelbegin \DIFdel{10.1101}\DIFdelend \DIFaddbegin \DIFadd{10.1007}\DIFaddend /\DIFdelbegin \DIFdel{2020.06.17.20133918}\DIFdelend \DIFaddbegin \DIFadd{s00103-021-03280-6}\DIFaddend }.
 
 \bibitem{dohle_wingen_schreiber_2020}
 Dohle S, Wingen T, Schreiber M.
-\newblock Acceptance and Adoption of Protective Measures During the {COVID}-19
-  Pandemic: The Role of Trust in Politics and Trust in Science.
-\newblock Social Psychological Bulletin. 2020;15(4):1--23.
-\newblock doi:{10.32872/spb.4315}.
+\DIFaddbegin \newblock \DIFaddend Acceptance and Adoption of Protective Measures During the {\DIFdelbegin \DIFdel{COVID-19}\DIFdelend \DIFaddbegin \DIFadd{COVID}\DIFaddend }\DIFaddbegin \DIFadd{-19
+  }\DIFaddend Pandemic: The Role of Trust in Politics and Trust in Science\DIFdelbegin \DIFdel{; 2020.
+}\DIFdelend \DIFaddbegin \DIFadd{.
+}\DIFaddend \newblock \DIFdelbegin \DIFdel{Available from:}%DIFDELCMD < \url{osf.io/w52nv}%%%
+\DIFdelend \DIFaddbegin \DIFadd{Social Psychological Bulletin. 2020;15(4):1--23.
+}\newblock \DIFadd{doi:}{\DIFadd{10.32872/spb.4315}}\DIFaddend .
 
 \bibitem{engle_staying_2020}
 Engle S, Stromme J, Zhou A.
@@ -322,36 +348,52 @@ Cowling BJ, Ali ST, Ng TWY, Tsang TK, Li JCM, Fong MW, et~al.
 \newblock doi:{10.1016/S2468-2667(20)30090-6}.
 
 \bibitem{casenumbers_rki}
-{Robert Koch-Institut (RKI)}. {Fallzahlen in Deutschland (COVID-19)}; 2020,
+{Robert Koch-Institut (RKI)}. {Fallzahlen in Deutschland (COVID-19)}; \DIFdelbegin \DIFdel{2020.
+}\DIFdelend \DIFaddbegin \DIFadd{2020,
   accessed 2020-07-12.
-\newblock Available from:
-  \url{https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html}.
+}\DIFaddend \newblock Available from:
+  \url{https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html}\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{cited 2020-07-12}%DIFDELCMD < ]%%%
+\DIFdelend .
 
 \bibitem{google_mobility}
-{Google LLC}. Google {COVID-19} Community Mobility Reports; 2020, accessed
+{Google LLC}. Google {COVID-19} Community Mobility Reports; \DIFdelbegin \DIFdel{2020.
+}\DIFdelend \DIFaddbegin \DIFadd{2020, accessed
   2020-06-25.
-\newblock Available from: \url{https://www.google.com/covid19/mobility/}.
+}\DIFaddend \newblock Available from: \url{https://www.google.com/covid19/mobility/}\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{cited
+  2020-07-12}%DIFDELCMD < ]%%%
+\DIFdelend .
 
 \bibitem{dwd_weather}
 {Deutscher Wetterdienst (DWD) Climate Data Center (CDC)}. Recent daily station
   observations (temperature, pressure, precipitation,sunshine duration, etc.)
-  for {Germany}, quality control not completed yet, version recent; 2020,
+  for {Germany}, quality control not completed yet, version recent; \DIFdelbegin \DIFdel{2020.
+}\DIFdelend \DIFaddbegin \DIFadd{2020,
   accessed 2020-07-12.
-\newblock Available from:
-  \url{https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/daily/kl/recent/}.
+}\DIFaddend \newblock Available from:
+  \url{https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/daily/kl/recent/}\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{cited 2020-07-12}%DIFDELCMD < ]%%%
+\DIFdelend .
 
 \bibitem{inkar}
 {Bundesinstitut für Bau-, Stadt- und Raumforschung (BBSR)}. {INKAR –
-  Indikatoren und Karten zur Raum- und Stadtentwicklung}; 2020, accessed
+  Indikatoren und Karten zur Raum- und Stadtentwicklung}; \DIFdelbegin \DIFdel{2020.
+}\DIFdelend \DIFaddbegin \DIFadd{2020, accessed
   2020-06-25.
-\newblock Available from: \url{https://www.inkar.de/}.
+}\DIFaddend \newblock Available from: \url{https://www.inkar.de/}\DIFdelbegin %DIFDELCMD < [%%%
+\DIFdel{cited 2020-06-25}%DIFDELCMD < ]%%%
+\DIFdelend .
 
 \bibitem{mitze2020face}
 Mitze T, Kosfeld R, Rode J, Wälde K.
-\newblock Face Masks Considerably Reduce {COVID-19} Cases in {Germany}.
-\newblock Proceedings of the National Academy of Sciences.
-  2020;117(51):32293--32301.
-\newblock doi:{10.1073/pnas.2015954117}.
+\newblock Face Masks Considerably Reduce {COVID-19} Cases in {Germany}\DIFdelbegin \DIFdel{: A
+  Synthetic Control Method Approach}\DIFdelend .
+\newblock \DIFdelbegin \DIFdel{Institute of Labor Economics (IZA)}\DIFdelend \DIFaddbegin \DIFadd{Proceedings of the National Academy of Sciences.
+  2020}\DIFaddend ;\DIFdelbegin \DIFdel{2020. 13319.
+}\DIFdelend \DIFaddbegin \DIFadd{117(51):32293--32301.
+}\DIFaddend \newblock \DIFdelbegin \DIFdel{Available from:}%DIFDELCMD < \url{https://EconPapers.repec.org/RePEc:iza:izadps:dp13319}%%%
+\DIFdelend \DIFaddbegin \DIFadd{doi:}{\DIFadd{10.1073/pnas.2015954117}}\DIFaddend .
 
 \bibitem{spirtes2000causation}
 Spirtes P, Glymour CN, Scheines R, Heckerman D.
@@ -374,7 +416,7 @@ Greenland S, Pearl J, Robins JM.
 {Henckel} L, {Perkovi{\'c}} E, {Maathuis} MH.
 \newblock {Graphical Criteria for Efficient Total Effect Estimation via
   Adjustment in Causal Linear Models}.
-\newblock arXiv e-prints. 2020; p. arXiv:1907.02435.
+\newblock arXiv e-prints. \DIFdelbegin \DIFdel{2019}\DIFdelend \DIFaddbegin \DIFadd{2020}\DIFaddend ; p. arXiv:1907.02435.
 
 \bibitem{rsoftware}
 {R Core Team}. R: A Language and Environment for Statistical Computing; 2019.
@@ -421,24 +463,26 @@ Friedman J, Hastie T, Tibshirani R.
 
 \bibitem{gencoglu2020causal}
 Gencoglu O, Gruber M.
-\newblock Causal Modeling of {Twitter} Activity During {COVID-19}.
-\newblock Computation. 2020;8(4).
-\newblock doi:{10.3390/computation8040085}.
+\newblock Causal Modeling of \DIFdelbegin \DIFdel{Twitter }\DIFdelend \DIFaddbegin {\DIFadd{Twitter}} \DIFaddend Activity During {COVID-19}.
+\newblock \DIFdelbegin \DIFdel{medRxiv}\DIFdelend \DIFaddbegin \DIFadd{Computation}\DIFaddend . 2020;\DIFaddbegin \DIFadd{8(4).
+}\newblock \DIFaddend doi:{\DIFdelbegin \DIFdel{10.1101}\DIFdelend \DIFaddbegin \DIFadd{10.3390}\DIFaddend /\DIFdelbegin \DIFdel{2020.05.16.20103903}\DIFdelend \DIFaddbegin \DIFadd{computation8040085}}\DIFadd{.
+}
 
 \bibitem{Wachtler2020Socioeconomic}
-Wachtler B, Michalski N, Nowossadeck E, Diercke M, Wahrendorf M,
+\DIFadd{Wachtler B, Michalski N, Nowossadeck E, Diercke M, Wahrendorf M,
   Santos-Hövener C, et~al.
-\newblock Socioeconomic inequalities and COVID-19 – A review of the current
+}\newblock \DIFadd{Socioeconomic inequalities and COVID-19 – A review of the current
   international literature.
-\newblock Journal of Health Monitoring. 2020;(S7):3--17.
-\newblock doi:{10.25646/7059}.
+}\newblock \DIFadd{Journal of Health Monitoring. 2020;(S7):3--17.
+}\newblock \DIFadd{doi:}{\DIFadd{10.25646/7059}}\DIFadd{.
+}
 
 \bibitem{DAE218459}
-Hoebel J, Michalski N, Wachtler B, Diercke M, Neuhauser H, Wieler LH, et~al.
-\newblock {Sozioökonomische Unterschiede im Infektionsrisiko während der
-  zweiten SARS-CoV-2-Welle in Deutschland}.
-\newblock Dtsch Arztebl International. 2021;118(15):269--270.
-\newblock doi:{10.3238/arztebl.m2021.0188}.
+\DIFadd{Hoebel J, Michalski N, Wachtler B, Diercke M, Neuhauser H, Wieler LH, et~al.
+}\newblock {\DIFadd{Sozioökonomische Unterschiede im Infektionsrisiko während der
+  zweiten SARS-CoV-2-Welle in Deutschland}}\DIFadd{.
+}\newblock \DIFadd{Dtsch Arztebl International. 2021;118(15):269--270.
+}\newblock \DIFadd{doi:}{\DIFadd{10.3238/arztebl.m2021.0188}\DIFaddend }.
 
 \bibitem{perkovic2017complete}
 Perkovi{\'c} E, Textor J, Kalisch M, Maathuis MH.
@@ -456,13 +500,18 @@ Islam N, Sharp SJ, Chowell G, Shabnam S, Kawachi I, Lacey B, et~al.
 \bibitem{kermack1991contributions}
 Kermack WO, McKendrick AG.
 \newblock Contributions to the mathematical theory of epidemics--I. 1927.
-\newblock Bulletin of mathematical biology. 1991;53(1-2):33—55.
-\newblock doi:{10.1007/bf02464423}.
+\newblock Bulletin of mathematical biology. 1991;53(1-2):\DIFdelbegin \DIFdel{33--55.
+}\DIFdelend \DIFaddbegin \DIFadd{33—55.
+}\DIFaddend \newblock doi:{10.1007/bf02464423}.
 
 \bibitem{rkimodellierung}
 {an der Heiden} M, Buchholz U.
 \newblock {Modellierung von Beispielszenarien der SARS-CoV-2-Epidemie 2020 in
-  Deutschland}. 2020;doi:{10.25646/6571.2}.
+  Deutschland\DIFdelbegin \DIFdel{. DOI }\DIFdelend \DIFaddbegin }\DIFadd{. 2020;doi:}{\DIFaddend 10.25646/6571.2}\DIFdelbegin \DIFdel{; 2020.
+}%DIFDELCMD < \newblock %%%
+\DIFdel{Available from:
+  }%DIFDELCMD < \url{https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Modellierung_Deutschland.html}%%%
+\DIFdelend .
 
 \bibitem{schisterman2017collinearitycausal}
 Schisterman EF, Perkins NJ, Mumford SL, Ahrens KA, Mitchell EM.
@@ -474,14 +523,15 @@ Schisterman EF, Perkins NJ, Mumford SL, Ahrens KA, Mitchell EM.
 Openshaw S.
 \newblock Ecological {Fallacies} and the {Analysis} of {Areal} {Census} {Data}.
 \newblock Environment and Planning A: Economy and Space. 1984;16(1):17--31.
-\newblock doi:{10.1068/a160017}.
+\newblock doi:{10.1068/a160017}\DIFaddbegin \DIFadd{.
+}
 
 \bibitem{solar2010conceptual}
-Solar O, Irwin A.
-\newblock A conceptual framework for action on the social determinants of
+\DIFadd{Solar O, Irwin A.
+}\newblock \DIFadd{A conceptual framework for action on the social determinants of
   health.
-\newblock WHO Document Production Services; 2010.
-\newblock Available from: \url{https://drum.lib.umd.edu/handle/1903/23135}.
+}\newblock \DIFadd{WHO Document Production Services; 2010.
+}\newblock \DIFadd{Available from: }\url{https://drum.lib.umd.edu/handle/1903/23135}\DIFaddend .
 
 \bibitem{world2020transmission}
 {World Health Organization}, et~al.
