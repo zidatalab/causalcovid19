@@ -2,10 +2,9 @@
 
 \bibitem{who2020report}
 {WHO Team}. Report of the {WHO-China} Joint Mission on Coronavirus Disease 2019
-  ({COVID-19}); 2020.
+  ({COVID-19}); 2020, accessed 2020-06-25.
 \newblock Available from:
-  \url{https://www.who.int/publications-detail/report-of-the-who-china-joint-mission-on-coronavirus-disease-2019-(covid-19)}
-  [cited 2020-06-25].
+  \url{https://www.who.int/publications-detail/report-of-the-who-china-joint-mission-on-coronavirus-disease-2019-(covid-19)}.
 
 \bibitem{Chinazzi395}
 Chinazzi M, Davis JT, Ajelli M, Gioannini C, Litvinova M, Merler S, et~al.
@@ -15,7 +14,7 @@ Chinazzi M, Davis JT, Ajelli M, Gioannini C, Litvinova M, Merler S, et~al.
 \newblock doi:{10.1126/science.aba9757}.
 
 \bibitem{guan2020clinical}
-Guan W, Ni Z, Hu Y, Liang W, Ou C, He J, et~al.
+Guan Wj, Ni Zy, Hu Y, Liang Wh, Ou Cq, He Jx, et~al.
 \newblock Clinical Characteristics of Coronavirus Disease 2019 in {China}.
 \newblock New England Journal of Medicine. 2020;doi:{10.1056/NEJMoa2002032}.
 
@@ -23,7 +22,7 @@ Guan W, Ni Z, Hu Y, Liang W, Ou C, He J, et~al.
 Higgins TS, Wu AW, Sharma D, Illing EA, Rubel K, Ting JY.
 \newblock Correlations of {Online} {Search} {Engine} {Trends} {With}
   {Coronavirus} {Disease} ({COVID}-19) {Incidence}: {Infodemiology} {Study}.
-\newblock JMIR Public Health and Surveillance. 2020;6(2):e19702.
+\newblock JMIR public health and surveillance. 2020;6(2):e19702.
 \newblock doi:{10.2196/19702}.
 
 \bibitem{li_retrospective_2020}
@@ -31,7 +30,8 @@ Li C, Chen LJ, Chen X, Zhang M, Pang CP, Chen H.
 \newblock Retrospective analysis of the possibility of predicting the
   {COVID}-19 outbreak from {Internet} searches and social media data, {China},
   2020.
-\newblock Eurosurveillance. 2020;25(10).
+\newblock Euro surveillance : bulletin Europeen sur les maladies transmissibles
+  = European communicable disease bulletin. 2020;25(10).
 \newblock doi:{10.2807/1560-7917.ES.2020.25.10.2000199}.
 
 \bibitem{yuan_trends_2020}
@@ -47,8 +47,7 @@ Bannister-Tyrrell M, Meyer A, Faverjon C, Cameron A.
 \newblock Preliminary evidence that higher temperatures are associated with
   lower incidence of {COVID}-19, for cases reported globally up to 29th
   {February} 2020.
-\newblock medRxiv. 2020; p. 2020.03.18.20036731.
-\newblock doi:{10.1101/2020.03.18.20036731}.
+\newblock medRxiv. 2020;doi:{10.1101/2020.03.18.20036731}.
 
 \bibitem{demongeot_temperature_2020}
 Demongeot J, Flet-Berliac Y, Seligmann H.
@@ -61,7 +60,7 @@ Demongeot J, Flet-Berliac Y, Seligmann H.
 Liu J, Zhou J, Yao J, Zhang X, Li L, Xu X, et~al.
 \newblock Impact of meteorological factors on the {COVID}-19 transmission: {A}
   multi-city study in {China}.
-\newblock Science of the Total Environment. 2020;726:138513.
+\newblock The Science of the total environment. 2020;726:138513.
 \newblock doi:{10.1016/j.scitotenv.2020.138513}.
 
 \bibitem{Greenland1999}
@@ -87,8 +86,7 @@ Textor J, van~der Zander B, Gilthorpe MS, Liśkiewicz M, Ellison GT.
 {Center for Systems Science and Engineering (CSSE)}. {COVID-19 Data Repository
   by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins
   University}; 2020.
-\newblock Available from: \url{https://github.com/CSSEGISandData/COVID-19}
-  [cited 2020-07-12].
+\newblock Available from: \url{https://github.com/CSSEGISandData/COVID-19}.
 
 \bibitem{Pearl_2014}
 Pearl J, Bareinboim E.
@@ -99,10 +97,10 @@ Pearl J, Bareinboim E.
 
 \bibitem{chang_modeling_2020}
 Chang MC, Kahn R, Li YA, Lee CS, Buckee CO, Chang HH.
-\newblock Modeling the impact of human mobility and travel restrictions on the
-  potential spread of {SARS}-{CoV}-2 in {Taiwan}.
-\newblock medRxiv. 2020; p. 2020.04.07.20053439.
-\newblock doi:{10.1101/2020.04.07.20053439}.
+\newblock Variation in human mobility and its impact on the risk of future
+  {COVID}-19 outbreaks in {Taiwan}.
+\newblock BMC Public Health. 2021;21(1):226.
+\newblock doi:{10.1186/s12889-021-10260-7}.
 
 \bibitem{fowler_effect_2020}
 Fowler JH, Hill SJ, Obradovich N, Levin R.
@@ -122,14 +120,14 @@ Lasry A, Kidder D, Hast M, Poovey J, Sunshine G, Winglee K, et~al.
 \newblock Timing of Community Mitigation and Changes in Reported {COVID-19} and
   Community Mobility - Four {U.S.} Metropolitan Areas, {February 26-April 1,
   2020}.
-\newblock MMWR Morbidity and mortality weekly report. 2020;69(15):451--457.
+\newblock MMWR Morbidity and mortality weekly report. 2020;69(15):451—457.
 \newblock doi:{10.15585/mmwr.mm6915e2}.
 
 \bibitem{linka_outbreak_2020}
 Linka K, Peirlinck M, Sahli~Costabal F, Kuhl E.
 \newblock Outbreak dynamics of {COVID}-19 in {Europe} and the effect of travel
   restrictions.
-\newblock Computer Methods in Biomechanics and Biomedical Engineering. 2020; p.
+\newblock Computer methods in biomechanics and biomedical engineering. 2020; p.
   1--8.
 \newblock doi:{10.1080/10255842.2020.1759560}.
 
@@ -137,13 +135,12 @@ Linka K, Peirlinck M, Sahli~Costabal F, Kuhl E.
 Mazzoli M, Mateo D, Hernando A, Meloni S, Ramasco JJ.
 \newblock Effects of mobility and multi-seeding on the propagation of the
   {COVID}-19 in {Spain}.
-\newblock medRxiv. 2020; p. 2020.05.09.20096339.
-\newblock doi:{10.1101/2020.05.09.20096339}.
+\newblock medRxiv. 2020;doi:{10.1101/2020.05.09.20096339}.
 
 \bibitem{xiong_data-driven_2020}
 {Xiong} C, {Hu} S, {Yang} M, {Younes} HN, {Luo} W, {Ghader} S, et~al.
-\newblock Data-Driven Modeling Reveals the Impact of Stay-at-Home Orders on
-  Human Mobility during the {COVID-19} Pandemic in the {U.S.}
+\newblock {Data-Driven Modeling Reveals the Impact of Stay-at-Home Orders on
+  Human Mobility during the COVID-19 Pandemic in the U.S}.
 \newblock arXiv e-prints. 2020; p. arXiv:2005.00667.
 
 \bibitem{juni_impact_2020}
@@ -159,9 +156,8 @@ Lai S, Ruktanonchai NW, Zhou L, Prosper O, Luo W, Floyd JR, et~al.
 \newblock Nature. 2020;doi:{10.1038/s41586-020-2293-x}.
 
 \bibitem{google_trends}
-{Google LLC}. {Google Trends}, search term {``}corona{''}; 2020.
-\newblock Available from: \url{https://www.google.com/trends} [cited
-  2020-07-12].
+{Google LLC}. {Google Trends, search term "corona"}; 2020, accessed 2020-06-25.
+\newblock Available from: \url{https://www.google.com/trends}.
 
 \bibitem{ayyoubzadeh_predicting_2020}
 Ayyoubzadeh SM, Ayyoubzadeh SM, Zahedi H, Ahmadi M, R~Niakan~Kalhori S.
@@ -175,19 +171,21 @@ Ayyoubzadeh SM, Ayyoubzadeh SM, Zahedi H, Ahmadi M, R~Niakan~Kalhori S.
 Effenberger M, Kronbichler A, Shin JI, Mayer G, Tilg H, Perco P.
 \newblock Association of the {COVID}-19 pandemic with {Internet} {Search}
   {Volumes}: {A} {Google} {Trends}({TM}) {Analysis}.
-\newblock International Journal of Infectious Diseases. 2020;95:192--197.
+\newblock International journal of infectious diseases : IJID : official
+  publication of the International Society for Infectious Diseases.
+  2020;95:192--197.
 \newblock doi:{10.1016/j.ijid.2020.04.033}.
 
 \bibitem{lin_google_2020}
 Lin YH, Liu CH, Chiu YC.
-\newblock Google searches for the keywords of ``wash hands'' predict the speed
-  of national spread of {COVID}-19 outbreak among 21 countries.
-\newblock Brain, Behavior, and Immunity. 2020;doi:{10.1016/j.bbi.2020.04.020}.
+\newblock Google searches for the keywords of "wash hands" predict the speed of
+  national spread of {COVID}-19 outbreak among 21 countries.
+\newblock Brain, behavior, and immunity. 2020;doi:{10.1016/j.bbi.2020.04.020}.
 
 \bibitem{mavragani_tracking_2020}
 Mavragani A.
 \newblock Tracking {COVID}-19 in {Europe}: {Infodemiology} {Approach}.
-\newblock JMIR public health and surveillance. 2020;6(2):e18941.
+\newblock JMIR Public Health and Surveillance. 2020;6(2):e18941.
 \newblock doi:{10.2196/18941}.
 
 \bibitem{walker_use_2020}
@@ -201,35 +199,36 @@ Walker A, Hopkins C, Surda P.
 Zhou WK, Wang AL, Xia F, Xiao YN, Tang SY.
 \newblock Effects of media reporting on mitigating spread of {COVID}-19 in the
   early phase of the outbreak.
-\newblock Mathematical Biosciences and Engineering. 2020;17(3):2693--2707.
+\newblock Mathematical biosciences and engineering : MBE.
+  2020;17(3):2693--2707.
 \newblock doi:{10.3934/mbe.2020147}.
 
 \bibitem{qi_covid-19_2020}
 Qi H, Xiao S, Shi R, Ward MP, Chen Y, Tu W, et~al.
 \newblock {COVID}-19 transmission in {Mainland} {China} is associated with
   temperature and humidity: {A} time-series analysis.
-\newblock Science of the Total Environment. 2020;728:138778.
+\newblock The Science of the total environment. 2020;728:138778.
 \newblock doi:{10.1016/j.scitotenv.2020.138778}.
 
 \bibitem{shi_impact_2020}
 Shi P, Dong Y, Yan H, Zhao C, Li X, Liu W, et~al.
 \newblock Impact of temperature on the dynamics of the {COVID}-19 outbreak in
   {China}.
-\newblock Science of the Total Environment. 2020;728:138890.
+\newblock The Science of the total environment. 2020;728:138890.
 \newblock doi:{10.1016/j.scitotenv.2020.138890}.
 
 \bibitem{sobral_association_2020}
 Sobral MFF, Duarte GB, da~Penha~Sobral AIG, Marinho MLM, de~Souza~Melo A.
 \newblock Association between climate variables and global transmission {of}
   {SARS}-{CoV}-2.
-\newblock Science of the Total Environment. 2020;729:138997.
+\newblock The Science of the total environment. 2020;729:138997.
 \newblock doi:{10.1016/j.scitotenv.2020.138997}.
 
 \bibitem{tosepu_correlation_2020}
 Tosepu R, Gunawan J, Effendy DS, Ahmad LOAI, Lestari H, Bahar H, et~al.
 \newblock Correlation between weather and {Covid}-19 pandemic in {Jakarta},
   {Indonesia}.
-\newblock Science of the Total Environment. 2020;725:138436.
+\newblock The Science of the total environment. 2020;725:138436.
 \newblock doi:{10.1016/j.scitotenv.2020.138436}.
 
 \bibitem{Wang2020temperature}
@@ -241,7 +240,7 @@ Wang M, Jiang A, Gong L, Luo L, Guo W, Li C, et~al.
 Wu Y, Jing W, Liu J, Ma Q, Yuan J, Wang Y, et~al.
 \newblock Effects of temperature and humidity on the daily new cases and new
   deaths of {COVID-19} in 166 countries.
-\newblock Science of the Total Environment. 2020;729:139051.
+\newblock Science of The Total Environment. 2020;729:139051.
 \newblock doi:{https://doi.org/10.1016/j.scitotenv.2020.139051}.
 
 \bibitem{auler_evidence_2020}
@@ -249,28 +248,28 @@ Auler AC, Cássaro FAM, da~Silva VO, Pires LF.
 \newblock Evidence that high temperatures and intermediate relative humidity
   might favor the spread of {COVID}-19 in tropical climate: {A} case study for
   the most affected {Brazilian} cities.
-\newblock Science of the Total Environment. 2020;729:139090.
+\newblock The Science of the total environment. 2020;729:139090.
 \newblock doi:{10.1016/j.scitotenv.2020.139090}.
 
 \bibitem{xie_association_2020}
 Xie J, Zhu Y.
 \newblock Association between ambient temperature and {COVID}-19 infection in
   122 cities from {China}.
-\newblock Science of the Total Environment. 2020;724:138201.
+\newblock The Science of the total environment. 2020;724:138201.
 \newblock doi:{10.1016/j.scitotenv.2020.138201}.
 
 \bibitem{briz-redon_spatio-temporal_2020}
-Briz-Redón A, Serrano-Aroca A.
+Briz-Red{\'o}n {\'A}, Serrano-Aroca {\'A}.
 \newblock A spatio-temporal analysis for exploring the effect of temperature on
   {COVID}-19 early evolution in {Spain}.
-\newblock Science of the Total Environment. 2020;728:138811.
+\newblock The Science of the total environment. 2020;728:138811.
 \newblock doi:{10.1016/j.scitotenv.2020.138811}.
 
 \bibitem{iqbal_nexus_2020}
 Iqbal N, Fareed Z, Shahzad F, He X, Shahzad U, Lina M.
 \newblock The nexus between {COVID}-19, temperature and exchange rate in
   {Wuhan} city: {New} findings from partial and multiple wavelet coherence.
-\newblock Science of the Total Environment. 2020;729:138916.
+\newblock The Science of the total environment. 2020;729:138916.
 \newblock doi:{10.1016/j.scitotenv.2020.138916}.
 
 \bibitem{jahangiri_sensitivity_2020}
@@ -278,14 +277,14 @@ Jahangiri M, Jahangiri M, Najafgholipour M.
 \newblock The sensitivity and specificity analyses of ambient temperature and
   population size on the transmission rate of the novel coronavirus
   ({COVID}-19) in different provinces of {Iran}.
-\newblock Science of the Total Environment. 2020;728:138872.
+\newblock The Science of the total environment. 2020;728:138872.
 \newblock doi:{10.1016/j.scitotenv.2020.138872}.
 
 \bibitem{yao_no_2020}
 Yao Y, Pan J, Liu Z, Meng X, Wang W, Kan H, et~al.
 \newblock No association of {COVID}-19 transmission with temperature or {UV}
   radiation in {Chinese} cities.
-\newblock The European Respiratory Journal. 2020;55(5).
+\newblock The European respiratory journal. 2020;55(5).
 \newblock doi:{10.1183/13993003.00517-2020}.
 
 \bibitem{de2020risk}
@@ -294,25 +293,28 @@ de~Lusignan S, Dorward J, Correa A, Jones N, Akinyemi O, Amirthalingam G,
 \newblock Risk factors for {SARS}-{CoV}-2 among patients in the {Oxford}
   {Royal} {College} of {General} {Practitioners} {Research} and {Surveillance}
   {Centre} primary care network: a cross-sectional study.
-\newblock The Lancet Infectious Diseases.
-  2020;doi:{10.1016/S1473-3099(20)30371-6}.
+\newblock The Lancet Infectious Diseases;doi:{10.1016/S1473-3099(20)30371-6}.
 
 \bibitem{Dragano2020.06.17.20133918}
-Dragano N, Rupprecht CJ, Dortmann O, Scheider M, Wahrendorf M.
-\newblock Higher risk of {COVID-19} hospitalization for unemployed: an analysis
-  of 1,298,416 health insured individuals in {Germany}.
-\newblock medRxiv. 2020;doi:{10.1101/2020.06.17.20133918}.
+Wahrendorf M, Rupprecht CJ, Dortmann O, Scheider M, Dragano N.
+\newblock Erhöhtes {Risiko} eines {COVID}-19-bedingten
+  {Krankenhausaufenthaltes} für {Arbeitslose}: {Eine} {Analyse} von
+  {Krankenkassendaten} von 1,28 {Mio}. {Versicherten} in {Deutschland}.
+\newblock Bundesgesundheitsblatt - Gesundheitsforschung - Gesundheitsschutz.
+  2021;64(3):314--321.
+\newblock doi:{10.1007/s00103-021-03280-6}.
 
 \bibitem{dohle_wingen_schreiber_2020}
-Dohle S, Wingen T, Schreiber M. Acceptance and Adoption of Protective Measures
-  During the {COVID-19} Pandemic: The Role of Trust in Politics and Trust in
-  Science; 2020.
-\newblock Available from: \url{osf.io/w52nv}.
+Dohle S, Wingen T, Schreiber M.
+\newblock Acceptance and Adoption of Protective Measures During the {COVID}-19
+  Pandemic: The Role of Trust in Politics and Trust in Science.
+\newblock Social Psychological Bulletin. 2020;15(4):1--23.
+\newblock doi:{10.32872/spb.4315}.
 
 \bibitem{engle_staying_2020}
 Engle S, Stromme J, Zhou A.
 \newblock Staying at home: mobility effects of {COVID-19}.
-\newblock Available at SSRN. 2020;doi:{10.2139/ssrn.3565703}.
+\newblock Available at SSRN. 2020;.
 
 \bibitem{cowling2020impact}
 Cowling BJ, Ali ST, Ng TWY, Tsang TK, Li JCM, Fong MW, et~al.
@@ -323,41 +325,41 @@ Cowling BJ, Ali ST, Ng TWY, Tsang TK, Li JCM, Fong MW, et~al.
 \newblock doi:{10.1016/S2468-2667(20)30090-6}.
 
 \bibitem{casenumbers_rki}
-{Robert Koch-Institut (RKI)}. {Fallzahlen in Deutschland (COVID-19)}; 2020.
+{Robert Koch-Institut (RKI)}. {Fallzahlen in Deutschland (COVID-19)}; 2020,
+  accessed 2020-07-12.
 \newblock Available from:
-  \url{https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html}
-  [cited 2020-07-12].
+  \url{https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html}.
 
 \bibitem{google_mobility}
-{Google LLC}. Google {COVID-19} Community Mobility Reports; 2020.
-\newblock Available from: \url{https://www.google.com/covid19/mobility/} [cited
-  2020-07-12].
+{Google LLC}. Google {COVID-19} Community Mobility Reports; 2020, accessed
+  2020-06-25.
+\newblock Available from: \url{https://www.google.com/covid19/mobility/}.
 
 \bibitem{dwd_weather}
 {Deutscher Wetterdienst (DWD) Climate Data Center (CDC)}. Recent daily station
-  observations (temperature, pressure, precipitation, sunshine duration, etc.)
-  for {Germany}, quality control not completed yet, version recent; 2020.
+  observations (temperature, pressure, precipitation,sunshine duration, etc.)
+  for {Germany}, quality control not completed yet, version recent; 2020,
+  accessed 2020-07-12.
 \newblock Available from:
-  \url{https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/daily/kl/recent/}
-  [cited 2020-07-12].
+  \url{https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/daily/kl/recent/}.
 
 \bibitem{inkar}
 {Bundesinstitut für Bau-, Stadt- und Raumforschung (BBSR)}. {INKAR –
-  Indikatoren und Karten zur Raum- und Stadtentwicklung}; 2020.
-\newblock Available from: \url{https://www.inkar.de/} [cited 2020-06-25].
+  Indikatoren und Karten zur Raum- und Stadtentwicklung}; 2020, accessed
+  2020-06-25.
+\newblock Available from: \url{https://www.inkar.de/}.
 
 \bibitem{mitze2020face}
 Mitze T, Kosfeld R, Rode J, Wälde K.
-\newblock Face Masks Considerably Reduce {COVID-19} Cases in {Germany}: A
-  Synthetic Control Method Approach.
-\newblock Institute of Labor Economics (IZA); 2020. 13319.
-\newblock Available from:
-  \url{https://EconPapers.repec.org/RePEc:iza:izadps:dp13319}.
+\newblock Face Masks Considerably Reduce {COVID-19} Cases in {Germany}.
+\newblock Proceedings of the National Academy of Sciences.
+  2020;117(51):32293--32301.
+\newblock doi:{10.1073/pnas.2015954117}.
 
 \bibitem{spirtes2000causation}
 Spirtes P, Glymour CN, Scheines R, Heckerman D.
 \newblock Causation, prediction, and search.
-\newblock MIT Press; 2000.
+\newblock MIT press; 2000.
 
 \bibitem{pearl2009causality}
 Pearl J.
@@ -375,7 +377,7 @@ Greenland S, Pearl J, Robins JM.
 {Henckel} L, {Perkovi{\'c}} E, {Maathuis} MH.
 \newblock {Graphical Criteria for Efficient Total Effect Estimation via
   Adjustment in Causal Linear Models}.
-\newblock arXiv e-prints. 2019; p. arXiv:1907.02435.
+\newblock arXiv e-prints. 2020; p. arXiv:1907.02435.
 
 \bibitem{rsoftware}
 {R Core Team}. R: A Language and Environment for Statistical Computing; 2019.
@@ -422,8 +424,24 @@ Friedman J, Hastie T, Tibshirani R.
 
 \bibitem{gencoglu2020causal}
 Gencoglu O, Gruber M.
-\newblock Causal Modeling of Twitter Activity During {COVID-19}.
-\newblock medRxiv. 2020;doi:{10.1101/2020.05.16.20103903}.
+\newblock Causal Modeling of {Twitter} Activity During {COVID-19}.
+\newblock Computation. 2020;8(4).
+\newblock doi:{10.3390/computation8040085}.
+
+\bibitem{Wachtler2020Socioeconomic}
+Wachtler B, Michalski N, Nowossadeck E, Diercke M, Wahrendorf M,
+  Santos-Hövener C, et~al.
+\newblock Socioeconomic inequalities and COVID-19 – A review of the current
+  international literature.
+\newblock Journal of Health Monitoring. 2020;(S7):3--17.
+\newblock doi:{http://dx.doi.org/10.25646/7059}.
+
+\bibitem{DAE218459}
+Hoebel J, Michalski N, Wachtler B, Diercke M, Neuhauser H, Wieler LH, et~al.
+\newblock {Sozioökonomische Unterschiede im Infektionsrisiko während der
+  zweiten SARS-CoV-2-Welle in Deutschland}.
+\newblock Dtsch Arztebl International. 2021;118(15):269--270.
+\newblock doi:{10.3238/arztebl.m2021.0188}.
 
 \bibitem{perkovic2017complete}
 Perkovi{\'c} E, Textor J, Kalisch M, Maathuis MH.
@@ -441,15 +459,13 @@ Islam N, Sharp SJ, Chowell G, Shabnam S, Kawachi I, Lacey B, et~al.
 \bibitem{kermack1991contributions}
 Kermack WO, McKendrick AG.
 \newblock Contributions to the mathematical theory of epidemics--I. 1927.
-\newblock Bulletin of mathematical biology. 1991;53(1-2):33--55.
+\newblock Bulletin of mathematical biology. 1991;53(1-2):33—55.
 \newblock doi:{10.1007/bf02464423}.
 
 \bibitem{rkimodellierung}
 {an der Heiden} M, Buchholz U.
 \newblock {Modellierung von Beispielszenarien der SARS-CoV-2-Epidemie 2020 in
-  Deutschland. DOI 10.25646/6571.2}; 2020.
-\newblock Available from:
-  \url{https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Modellierung_Deutschland.html}.
+  Deutschland}. 2020;doi:{10.25646/6571.2}.
 
 \bibitem{schisterman2017collinearitycausal}
 Schisterman EF, Perkins NJ, Mumford SL, Ahrens KA, Mitchell EM.
@@ -463,8 +479,15 @@ Openshaw S.
 \newblock Environment and Planning A: Economy and Space. 1984;16(1):17--31.
 \newblock doi:{10.1068/a160017}.
 
+\bibitem{solar2010conceptual}
+Solar O, Irwin A.
+\newblock A conceptual framework for action on the social determinants of
+  health.
+\newblock WHO Document Production Services; 2010.
+\newblock Available from: \url{https://drum.lib.umd.edu/handle/1903/23135}.
+
 \bibitem{world2020transmission}
-{World Health Organization}, et~al.
+Organization WH, et~al.
 \newblock {Transmission of SARS-CoV-2: implications for infection prevention
   precautions: Scientific Brief, 09 July 2020}.
 \newblock World Health Organization; 2020.

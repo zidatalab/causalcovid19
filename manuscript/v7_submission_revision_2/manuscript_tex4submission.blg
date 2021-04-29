@@ -3,48 +3,56 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: manuscript_tex4submission.aux
 The style file: plos2015.bst
 Database file #1: mybibfile.bib
+Warning--entry type for "google_trends" isn't style-file defined
+--line 1076 of file mybibfile.bib
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 71 entries,
+Warning--empty year in de2020risk
+Warning--there's a number but no volume in Wachtler2020Socioeconomic
+`journal' is a missing field, not a string, for entry rkimodellierung
+while executing---line 1875 of file plos2015.bst
+Warning--empty journal in rkimodellierung
+You've used 74 entries,
             3058 wiz_defined-function locations,
-            1092 strings with 26033 characters,
-and the built_in function-call counts, 155840 in all, are:
-= -- 19685
-> -- 1181
-< -- 9
-+ -- 651
-- -- 295
-* -- 13556
-:= -- 16913
-add.period$ -- 302
-call.type$ -- 71
+            1121 strings with 27044 characters,
+and the built_in function-call counts, 166537 in all, are:
+= -- 21172
+> -- 1245
+< -- 6
++ -- 685
+- -- 311
+* -- 14565
+:= -- 18011
+add.period$ -- 319
+call.type$ -- 74
 change.case$ -- 4
 chr.to.int$ -- 3
-cite$ -- 71
-duplicate$ -- 11327
-empty$ -- 14893
-format.name$ -- 356
-if$ -- 36283
+cite$ -- 77
+duplicate$ -- 12563
+empty$ -- 15914
+format.name$ -- 375
+if$ -- 38747
 int.to.chr$ -- 0
-int.to.str$ -- 71
-missing$ -- 662
-newline$ -- 390
-num.names$ -- 73
-pop$ -- 1106
+int.to.str$ -- 74
+missing$ -- 699
+newline$ -- 409
+num.names$ -- 76
+pop$ -- 1143
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1466
+skip$ -- 1357
 stack$ -- 0
-substring$ -- 33108
-swap$ -- 1753
-text.length$ -- 8
+substring$ -- 35276
+swap$ -- 1741
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 683
-width$ -- 73
-write$ -- 846
+warning$ -- 3
+while$ -- 721
+width$ -- 76
+write$ -- 885
+(There was 1 error message)
