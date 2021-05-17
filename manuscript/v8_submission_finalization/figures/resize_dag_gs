@@ -1,5 +1,0 @@
-gs                                                \
-  -o f_full_covid19_dag_klein.eps                                   \
-  -sDEVICE=eps2write                              \
-  -c "<</Install {0.56 0.56 scale}>> setpagedevice" \
-  -f f_full_covid19_dag.eps
