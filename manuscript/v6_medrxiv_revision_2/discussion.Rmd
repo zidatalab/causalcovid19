@@ -32,7 +32,7 @@ Social determinants of health are important factors to consider in an epidemiolo
 
 While our analysis focused on Germany and its districts, we assume that results may be transferred to other countries by adjusting for their respective weather conditions, mobility habits, socio-demographic characteristics, and other determining factors.
 
-The code and resources for our analysis are available on Github, we invite other researchers to replicate our analysis with different assumptions using the files provided in the repository^[The repository is located here: https://github.com/zidatalab/causalcovid19] of the article.
+The code and resources for our analysis are available on Github, we invite other researchers to replicate our analysis with different assumptions using the files provided in the repository (https://github.com/zidatalab/causalcovid19]) of the article.
 
 ## Discussion of causal effects
 

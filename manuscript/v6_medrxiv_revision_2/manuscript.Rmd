@@ -4,7 +4,7 @@ author:
   - name: Edgar Steiger
     email: esteiger@zi.de
     affiliation: Zi
-  - name: Tobias Mußgnug
+  - name: Tobias Mussgnug
     email: tmussgnug@zi.de
     affiliation: Zi
   - name: Lars Eric Kroll
