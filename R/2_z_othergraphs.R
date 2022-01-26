@@ -30,7 +30,7 @@ unobserved <- c("Access to tests",
 modeldata <- read_csv("./data/Modeldata.csv") %>%
   dplyr::select(-id, -bl_id, -cases, -deaths, -recovered, -daycount,
                 -`Mobility (mean)`,
-                -`Relaxation of measures`,
+                # -`Relaxation of measures`,
                 -contains("iso"), -contains("census")
   ) %>% 
   rename(`School and kindergarten closures`=`School/Kita closures`,
